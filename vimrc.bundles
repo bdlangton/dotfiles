@@ -1,0 +1,83 @@
+if &compatible
+  set nocompatible
+end
+
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+let g:has_async = v:version >= 800 || has('nvim')
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug '2072/PHP-Indenting-for-VIm'
+Plug 'Asheq/close-buffers.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'ajmwagar/vim-deus'
+Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'craigemery/vim-autotag'
+Plug 'dbakker/vim-projectroot'
+Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
+Plug 'itchyny/lightline.vim'
+Plug 'jacoborus/tender.vim'
+Plug 'joonty/vim-phpqa'
+Plug 'junegunn/fzf.vim'
+Plug 'kassio/neoterm'
+Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-startify'
+Plug 'mileszs/ack.vim'
+Plug 'moll/vim-bbye'
+Plug 'nightsense/snow'
+Plug 'rayburgemeestre/phpfolding.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'SirVer/ultisnips'
+Plug 'skielbasa/vim-material-monokai'
+Plug 'sjl/badwolf'
+Plug 'sonph/onehalf'
+Plug 'StanAngeloff/php.vim'
+Plug 'tobyS/pdv'
+Plug 'tobyS/vmustache'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-vdebug/vdebug'
+Plug 'vimwiki/vimwiki'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'janko-m/vim-test'
+" Plug 'pangloss/vim-javascript'
+" Plug 'pbrisbin/vim-mkdir'
+" Plug 'slim-template/vim-slim'
+" Plug 'tpope/vim-bundler'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-rhubarb'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-scripts/tComment'
+
+if g:has_async
+  Plug 'w0rp/ale'
+endif
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

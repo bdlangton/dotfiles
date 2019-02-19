@@ -1,0 +1,140 @@
+# ==============================================================================
+# Basics
+
+alias clr='clear'
+alias www='cd /var/www'
+alias du='du -sh'
+alias ll='ls -ahlF'
+alias exa='exa --git -l'
+alias todo='ag TODO'
+alias hist='history | tail -n 100; echo “Only last 100. For full, type: history”'
+
+# ==============================================================================
+# Git aliases
+
+# Git fetch from every remote.
+alias gfetch='git fetch --all'
+
+# Git checkout staging branch.
+alias gcost='git co origin/staging'
+
+# Git grep the repo.
+alias ggrep='git grep -n'
+
+# Stash local changes.
+alias gstash='git stash'
+
+# Git diff of unstaged files.
+alias gdiff='git diff'
+
+# Git diff of staged files.
+alias gdiffc='git diff --cached'
+
+# Stage changes by chunks.
+alias gadd='git add -p'
+
+# Stage changes by chunks (choose subdirectory).
+alias gadds='git-add-subdirectory'
+
+# Stage all modified/deleted changes but ignore untracked files.
+alias gaddu='git add -u'
+
+# Pull origin/staging and rebase the local branch on it.
+alias gpull='git pull --rebase origin staging'
+
+# Git checkout and clean the config directories.
+alias gclean='git co -- $(git rev-parse --show-toplevel)/config && git clean -fd $(git rev-parse --show-toplevel)/config'
+
+# Check which branches have been merged into the current branch.
+alias gcheckmerged='git branch --merged'
+
+# Delete branches that have been merged into the current branch.
+alias gdelmerged='git branch --merged | xargs git branch -d'
+
+# Find text in your entire git history.
+alias gfind='git rev-list --all | xargs git grep -F %1'
+
+# Diff of changed words.
+alias gwdiff='git diff --word-diff'
+
+# Pull with rebase
+alias gpullrebase='git pull --rebase'
+
+# Check which changes from a branch are already upstream.
+alias gcherry='git cherry -v master'
+
+# Git regular expression commands
+# https://gist.github.com/owenbush/4f85b004ad86459d9621
+alias gitregex=~/bin/git-regex.sh
+
+# Git commit amend with no edit and push force with lease.
+alias gcpf='git ci --amend --no-edit && git pf'
+
+# ==============================================================================
+# Search
+
+# Ag search defaults.
+alias ag="ag $* -W 80 -f -r --column -S"
+
+# ==============================================================================
+# Drupal
+
+alias d='drupal'
+alias dcc='drupal cc all'
+alias dwd='drupal dblp'
+alias dce='drupal config_split:export -y'
+alias dci='drupal config_split:import -y'
+alias dmi='drupal module:install'
+
+# ==============================================================================
+# Docker
+
+# List running containers.
+alias dps='docker ps'
+
+# Kill all running containers.
+alias dockerkill='docker kill $(docker ps -q)'
+
+# Remove all stopped containers.
+alias dockerrm='docker rm $(docker ps -a -q)'
+
+# Remove stopped docker containers, unused networks, dangling images.
+alias dockercleanup='docker system prune';
+
+# Remove volumes that aren't being used.
+alias dockercleanupvolumes='docker volume prune'
+
+# Other individual docker cleanup commands:
+# docker container prune
+# docker network prune
+# docker image prune
+
+# ==============================================================================
+# Random
+
+# Find files larger than 100MB.
+alias findlargefiles='sudo find / -size +100M'
+
+# Change modification settings for all directories recursively.
+alias chmoddir='find ./ -type d -exec chmod 755 {} \;'
+
+# Change modification settings for all files recursively.
+alias chmodfile='find ./ -type f -exec chmod 644 {} \;'
+
+# Find the php memory limit.
+alias memory-limit='php -r "echo ini_get(\"memory_limit\").PHP_EOL;"'
+
+# Go to the directory where Garmin fit files are stored.
+alias garmin="cd ~/Library/Application\ Support/Garmin/GarminConnect/Forerunner\ 910XT-3870547807/Upload/FIT_TYPE_4"
+
+# Set alias for Google Chrome.
+alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
+
+# When the camera isn't working, this will get it working again.
+alias killcam='sudo killall VDCAssistant'
+
+# Pretty print the path.
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Include custom aliases.
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

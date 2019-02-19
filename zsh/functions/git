@@ -1,0 +1,49 @@
+# Execute git with just 'g'. If no arguments are provided, executes 'git st'.
+compdef g=git
+g () {
+  if [[ $# -gt 0 ]]; then
+    git $@
+  else
+    git st
+  fi
+}
+
+# Git add -p with user supplied subdirectory.
+git-add-subdirectory() {
+  if [ -n "$1" ]; then
+    git add -p $(git rev-parse --show-toplevel)/"$1"
+  else
+    git add -p
+  fi
+}
+
+# Pull request to the project (current repo) with current branch.
+gitlab () {
+  chrome "https://git.ifsight.net/`git remote show origin -n | grep "Fetch URL:" | sed 's/.*://;s/.git$//'`/merge_requests/new?merge_request[source_branch]=`git branch | grep \* | cut -d ' ' -f2`"
+}
+
+# Detect the project type of the git repo that you're currently in.
+project_type() {
+  # Not in a git repo, display the Apple icon.
+  is_in_git_repo || { echo -n "\ue711"; return }
+
+  # Get the base git repo directory.
+  local base_dir="$(git rev-parse --show-toplevel)"
+
+  # PHP.
+  if [[ -f $base_dir/composer.json || -f $base_dir/web/composer.json  || -f $base_dir/docroot/composer.json ]]; then
+    echo -n "\ue608"
+  # Ruby.
+  elif [[ -f $base_dir/Gemfile ]]; then
+    echo -n "\ue21e"
+  # Docker.
+  elif [[ -f $base_dir/docker-compose.yml ]]; then
+    echo -n "\uf308"
+  # Node.
+  elif [[ -f $base_dir/package.json ]]; then
+    echo -n "\ue718"
+  # Generic git icon.
+  else
+    echo -n "\uf1d2"
+  fi
+}

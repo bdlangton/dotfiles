@@ -1,0 +1,45 @@
+[user]
+  name = Barrett Langton
+  email = bdlangton@gmail.com
+[core]
+  editor = vim
+  filemode = false
+[merge]
+  tool = vimdiff
+[alias]
+  st = status -s
+  ci = commit
+  ca = commit --amend --no-edit
+  co = checkout
+  nb = checkout -b
+  br = branch
+  db = branch -D
+  pf = push --force-with-lease
+  psu = push --set-upstream
+  rh = reset --hard
+  diff = diff --word-diff
+  dc = diff --cached
+  sa = stash apply
+  sl = stash list
+  ss = stash save
+  cp = cherry-pick
+  bi = bisect
+  clean = clean -fd
+  remotes = remote -v
+  hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short
+  histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short HEAD --not origin/master
+  last = log -1 HEAD
+  type = cat-file -t
+  dump = cat-file -p
+  pu = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
+  count = "!f() { compareBranch=${1-master}; git rev-list --count HEAD ^$compareBranch; }; f"
+[color]
+  ui = auto
+[push]
+  default = current
+[init]
+  templatedir = ~/.git-templates
+[include]
+  path = ~/.gitconfig.local
+[commit]
+  template = ~/.gitmessage

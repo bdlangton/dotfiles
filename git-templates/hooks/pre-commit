@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Check that the git directory exists.
+GIT_DIR=$(git rev-parse --git-dir 2>/dev/null)
+if [ -z "$GIT_DIR" ]; then
+  echo >&2 "Fatal: GIT_DIR not set"
+  exit 1
+fi
+
+# Loop through every pre-commit_* file.
+for i in `ls $GIT_DIR/hooks/pre-commit_*`;
+do $i;
+if [ "$?" -ne "0" ]; then
+  exit 1
+fi
+done;
+
+exit 0;

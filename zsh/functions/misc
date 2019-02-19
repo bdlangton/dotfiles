@@ -1,0 +1,10 @@
+# Make directory and change into it.
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+# Print line(s) from a file.
+# To print lines 10-20: printLine 10,20 file.txt
+lines () {
+  sed -n -e "$1p" "$2"
+}

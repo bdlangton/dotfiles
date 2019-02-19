@@ -1,0 +1,10 @@
+.vim/.netrwhist
+.vim/tmp
+.vim/bundle/pdv/tests
+.composer/cache
+.composer/vendor
+.composer/cacert*
+.composer/keys*
+.oh-my-zsh/cache
+.oh-my-zsh/log
+__pycache__

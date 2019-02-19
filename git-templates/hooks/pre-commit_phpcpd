@@ -1,0 +1,34 @@
+#!/usr/bin/php
+<?php
+
+/**
+ * @file
+ * Runs phpcpd against the repo.
+ */
+
+// Initial values for some variables.
+$return = 0;
+$exit_status = 0;
+
+// Output colors.
+$red = "\e[0;31m";
+$yellow = "\e[0;33m";
+$no_color = "\e[0m";
+
+// Run phpcpd on the file.
+$phpcpd_output = [];
+$phpcpd_cmd = "phpcpd --exclude=vendor --exclude=core --exclude=contrib --exclude=sites/default .";
+$file = escapeshellarg($file);
+exec($phpcpd_cmd, $phpcpd_output, $return);
+if (empty($phpcpd_output)) {
+  return;
+}
+echo implode("\n", $phpcpd_output), "\n";
+
+// If any errors were returned, then prevent commit.
+if ($return != 0) {
+  // $exit_status = $return;
+  // echo "\n{$red}Error:{$no_color} Commit was aborted because of duplicates. You must fix the errors.", "\n";
+}
+
+exit($exit_status);

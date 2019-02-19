@@ -1,0 +1,29 @@
+#!/usr/bin/php
+<?php
+
+/**
+ * @file
+ * Starts the commit message off with the branch name in all caps.
+ */
+
+/**
+ * Keeping this file for reference, but I don't want it used in most projects.
+ */
+
+/**
+$branch = '';
+$messageFile = '.git/COMMIT_EDITMSG';
+$message = file_get_contents($messageFile);
+
+// Get the branch name.
+exec('git rev-parse --abbrev-ref HEAD', $branch);
+$branch = strtoupper(reset($branch));
+
+// Prepend the branch name only if the branch name was not already included in
+// the original message.
+if (!empty($branch)) {
+  if (strpos(strtoupper($message), $branch) !== 0) {
+    file_put_contents($messageFile, $branch . ' ' . $message);
+  }
+}
+*/

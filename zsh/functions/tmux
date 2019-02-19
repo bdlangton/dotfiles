@@ -1,0 +1,9 @@
+# Check if we're in tmux.
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+# Ensure we're in tmux. If not, start it using the tat script.
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
