@@ -1,14 +1,17 @@
 # Execute this file with 'brew bundle'.
-brew "tmux'
+# Post install, run:
+# $(brew --prefix)/opt/fzf/install
+# brew install vim --with-python3jk
+# brew services
+
+brew "tmux"
 brew "reattach-to-user-namespace"
 brew "libevent"
 brew "fzf"
-$(brew --prefix)/opt/fzf/install
 brew "the_silver_searcher"
 brew "fd"
 brew "bat"
 brew "python"
-brew "vim --with-python3"
 
 # Analyze and free disk space.
 brew "ncdu"
@@ -16,9 +19,6 @@ brew "ncdu"
 # Interactively filter results from a command (like fzf).
 brew "peco"
 brew "q"
-
-# Installs homebrew services including zsh completions.
-brew "services"
 
 # DDev.
 tap "drud/ddev"

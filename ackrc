@@ -1,0 +1,25 @@
+# Add drupal file type.
+--type-add=drupal=.module,.inc,.info,.tpl.php,.install,.php,.test,.profile,.class,.theme
+
+# Ignore these directories and files.
+--ignore-dir=docroot/sites/default
+--ignore-dir=docroot/profiles
+--ignore-file=ext:css
+
+# Use smartcase (ignore case unless the search term contains a capital letter).
+--smart-case
+
+# Sort the found files lexically.
+--sort-files
+
+# Show colors.
+--color
+
+# Follow symlinks.
+--follow
+
+# Group together all matches in a file.
+--group
+
+# Show the column number of the first match.
+--column

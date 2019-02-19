@@ -1,5 +1,4 @@
 # Execute git with just 'g'. If no arguments are provided, executes 'git st'.
-compdef g=git
 g () {
   if [[ $# -gt 0 ]]; then
     git $@

@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/barrett/.oh-my-zsh
+plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions)
 export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line if you want to disable marking untracked files
