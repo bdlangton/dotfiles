@@ -57,6 +57,7 @@ _load_settings "$HOME/.zsh/configs"
 source $ZSH/oh-my-zsh.sh
 source $HOME/git/z/z.sh
 source $HOME/git/tmuxinator/completion/tmuxinator.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Directory colors for solarized (has to be after sources).
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD

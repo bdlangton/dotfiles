@@ -302,9 +302,6 @@ nmap <Leader>\ :vs.<CR>
 " Toggle the display of tagbar.
 noremap <c-t> :TagbarToggle<CR>
 
-" Switch between the last two files.
-nnoremap <Leader><Leader> <C-^>
-
 " Toggle the location and quickfix windows.
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
