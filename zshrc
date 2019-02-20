@@ -1,12 +1,7 @@
-# Path to your oh-my-zsh installation.
+# Oh-my-zsh.
 export ZSH=/Users/barrett/.oh-my-zsh
 plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions)
 export UPDATE_ZSH_DAYS=30
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Thefuck.
 eval $(thefuck --alias)
@@ -47,13 +42,7 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# Local config.
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-# Aliases.
-[[ -f ~/.aliases ]] && source ~/.aliases
-
-# Source files.
+# Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
 source $HOME/git/z/z.sh
 source $HOME/git/tmuxinator/completion/tmuxinator.zsh
@@ -61,3 +50,9 @@ source $HOME/git/tmuxinator/completion/tmuxinator.zsh
 
 # Directory colors for solarized (has to be after sources).
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# Aliases (has to be after sourcing oh-my-zsh).
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# Local config.
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

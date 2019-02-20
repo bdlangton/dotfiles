@@ -7,7 +7,7 @@ alias du='du -sh'
 alias ll='ls -ahlF'
 alias exa='exa --git -l'
 alias todo='ag TODO'
-alias hist='history | tail -n 100; echo “Only last 100. For full, type: history”'
+alias hist='history | tail -n 100; echo "Only last 100 results listed. For full history, type: history"'
 
 # ==============================================================================
 # Git aliases
