@@ -1,0 +1,5 @@
+" Vim git gutter.
+
+Plug 'airblade/vim-gitgutter'
+
+" vim:ft=vim

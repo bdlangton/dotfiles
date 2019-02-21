@@ -1,0 +1,5 @@
+" Lightline
+
+Plug 'itchyny/lightline.vim'
+
+" vim:ft=vim

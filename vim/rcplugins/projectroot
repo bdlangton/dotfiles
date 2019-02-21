@@ -1,0 +1,5 @@
+" .
+
+Plug 'dbakker/vim-projectroot'
+
+" vim:ft=vim

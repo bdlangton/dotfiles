@@ -1,0 +1,5 @@
+" .
+
+Plug 'majutsushi/tagbar'
+
+" vim:ft=vim

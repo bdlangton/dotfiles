@@ -1,0 +1,5 @@
+" PHP Indenting for VIM.
+
+Plug '2072/PHP-Indenting-for-VIm'
+
+" vim:ft=vim

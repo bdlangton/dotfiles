@@ -1,0 +1,11 @@
+" Themes.
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+Plug 'jacoborus/tender.vim'
+Plug 'nightsense/snow'
+Plug 'sjl/badwolf'
+Plug 'skielbasa/vim-material-monokai'
+Plug 'sonph/onehalf'
+
+" vim:ft=vim

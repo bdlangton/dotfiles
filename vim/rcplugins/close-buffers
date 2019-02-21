@@ -1,0 +1,5 @@
+" Close buffers.
+
+Plug 'Asheq/close-buffers.vim'
+
+" vim:ft=vim

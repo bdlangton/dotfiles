@@ -1,0 +1,5 @@
+" .
+
+Plug 'mhinz/vim-startify'
+
+" vim:ft=vim

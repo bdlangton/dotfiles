@@ -1,0 +1,5 @@
+" NERD Commenter.
+
+Plug 'scrooloose/nerdcommenter'
+
+" vim:ft=vim

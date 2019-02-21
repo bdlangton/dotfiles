@@ -1,0 +1,5 @@
+" .
+
+Plug 'janko-m/vim-test'
+
+" vim:ft=vim

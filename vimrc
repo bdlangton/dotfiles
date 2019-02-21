@@ -1,7 +1,17 @@
-" Set up bundles.
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.vim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
+
+call plug#begin('~/.vim/bundle')
+call s:SourceConfigFilesIn('rcplugins')
+call plug#end()
+
+call s:SourceConfigFilesIn('rcfiles')
 
 " =============================================================================
 " General VIM Configuration
@@ -350,18 +360,6 @@ nmap <leader>x :hide<CR>
 
 " =============================================================================
 " Search
-
-" For fzf fuzzy search.
-set rtp+=/usr/local/opt/fzf
-
-" FZF customization.
-let $FZF_DEFAULT_COMMAND='ag --hidden -W 80 -S -g ""'
-
-" FZF default options (use exact matches by default).
-let $FZF_DEFAULT_OPTS='--exact'
-
-" Use ag with ack.vim.
-let g:ackprg = 'ag --vimgrep'
 
 " =============================================================================
 " Programming

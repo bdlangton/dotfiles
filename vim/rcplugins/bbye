@@ -1,0 +1,5 @@
+" .
+
+Plug 'moll/vim-bbye'
+
+" vim:ft=vim

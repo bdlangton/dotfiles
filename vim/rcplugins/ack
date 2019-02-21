@@ -1,0 +1,7 @@
+" Ack - Integrata ack (grep replacement) into vim
+
+Plug 'mileszs/ack.vim'
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" vim:ft=vim

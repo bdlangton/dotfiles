@@ -1,0 +1,5 @@
+" .
+
+Plug 'joonty/vim-phpqa'
+
+" vim:ft=vim
