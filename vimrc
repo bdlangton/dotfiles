@@ -1,3 +1,4 @@
+" Set up bundles.
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -18,6 +19,13 @@ endif
 
 " Leader is comma.
 let mapleader=","
+
+" Ensure that plug.vim is installed.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " Set the zsh shell (aliases need to be in ~/.zshenv).
 if has('zsh')

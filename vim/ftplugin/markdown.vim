@@ -1,5 +1,5 @@
-" Enable spellchecking
+" Enable spellchecking.
 setlocal spell
 
-" Automatically wrap at 80 characters
+" Automatically wrap at 80 characters.
 setlocal textwidth=80

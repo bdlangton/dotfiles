@@ -13,6 +13,9 @@ brew "fd"
 brew "bat"
 brew "python"
 
+# Ruby.
+brew "rbenv"
+
 # Analyze and free disk space.
 brew "ncdu"
 

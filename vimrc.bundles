@@ -2,7 +2,7 @@ if &compatible
   set nocompatible
 end
 
-" Remove declared plugins
+" Remove declared plugins.
 function! s:UnPlug(plug_name)
   if has_key(g:plugs, a:plug_name)
     call remove(g:plugs, a:plug_name)
@@ -12,7 +12,7 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 
 call plug#begin('~/.vim/bundle')
 
-" Define bundles via Github repos
+" Define bundles via Github repos.
 Plug '2072/PHP-Indenting-for-VIm'
 Plug 'Asheq/close-buffers.vim'
 Plug 'airblade/vim-gitgutter'
@@ -35,6 +35,7 @@ Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'moll/vim-bbye'
 Plug 'nightsense/snow'
+Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -47,28 +48,22 @@ Plug 'sonph/onehalf'
 Plug 'StanAngeloff/php.vim'
 Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache'
+Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-vdebug/vdebug'
 Plug 'vimwiki/vimwiki'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'pangloss/vim-javascript'
-" Plug 'slim-template/vim-slim'
-" Plug 'tpope/vim-bundler'
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-projectionist'
-" Plug 'tpope/vim-rake'
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-rhubarb'
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'vim-scripts/tComment'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
