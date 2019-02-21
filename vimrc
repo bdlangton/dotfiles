@@ -355,7 +355,7 @@ nmap <leader>x :hide<CR>
 set rtp+=/usr/local/opt/fzf
 
 " FZF customization.
-let $FZF_DEFAULT_COMMAND='ag --hidden --ignore ".git" --ignore "/tags" -g ""'
+let $FZF_DEFAULT_COMMAND='ag --hidden -W 80 -S -g ""'
 
 " FZF default options (use exact matches by default).
 let $FZF_DEFAULT_OPTS='--exact'
