@@ -1,3 +1,6 @@
 " .
 
 Plug 'rayburgemeestre/phpfolding.vim'
+
+" Disable auto folding.
+let g:DisableAutoPHPFolding = 1

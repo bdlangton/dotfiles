@@ -2,4 +2,13 @@
 
 Plug 'airblade/vim-gitgutter'
 
-" vim:ft=vim
+" Shorter update time for gitgutter.
+set updatetime=100
+
+" Stage and undo hunks (in addition to default <Leader>hs and <Leader>hu).
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+" Go to previous and next hunks (in addition to default ]c and [c).
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk

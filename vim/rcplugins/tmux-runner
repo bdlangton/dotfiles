@@ -6,7 +6,7 @@ nnoremap <leader>v- :VtrOpenRunner { "orientation": "v" }<cr>
 nnoremap <leader>v\ :VtrOpenRunner { "orientation": "h" }<cr>
 nnoremap <leader>vk :VtrKillRunner<cr>
 nnoremap <leader>va :VtrAttachToPane<cr>
-nnoremap <leader>fr :VtrFocusRunner<cr>
+" nnoremap <leader>fr :VtrFocusRunner<cr>
 
 nnoremap <leader>sq :VtrSendKeysRaw q<cr>
 nnoremap <leader>sd :VtrSendKeysRaw ^D<cr>

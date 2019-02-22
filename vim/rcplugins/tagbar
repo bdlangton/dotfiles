@@ -2,4 +2,5 @@
 
 Plug 'majutsushi/tagbar'
 
-" vim:ft=vim
+" Toggle the display of tagbar.
+noremap <c-t> :TagbarToggle<CR>

@@ -3,4 +3,5 @@
 
 Plug 'tpope/vim-commentary'
 
-" vim:ft=vim
+" Change vim-commentary to use `//` instead of `/* */`.
+autocmd FileType php setlocal commentstring=//\ %s

@@ -2,4 +2,15 @@
 
 Plug 'mhinz/vim-startify'
 
-" vim:ft=vim
+" Startify lists.
+let g:startify_lists = [
+      \ { 'type': 'dir',       'header': ['   MRU ' . getcwd()] },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
+      \ { 'type': 'files',     'header': ['   MRU'] },
+      \ ]
+
+" Startify bookmarks.
+let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc', '~/.zshrc-aliases', '~/.zshrc-functions', '~/.tmux.conf' ]
+
+" Limit number of files on startify.
+let g:startify_files_number = 5

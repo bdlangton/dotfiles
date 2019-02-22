@@ -2,4 +2,5 @@
 
 Plug 'craigemery/vim-autotag'
 
-" vim:ft=vim
+" Set tags file.
+let g:autotagTagsFile="tags"

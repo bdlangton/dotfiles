@@ -1,8 +1,13 @@
-" UltiSnips - Snippet manager
+" UltiSnips and Supertab - Snippet manager
 
 Plug 'ervandew/supertab'
-
 Plug 'SirVer/ultisnips'
+
+" Set tab completion type.
+let g:SuperTabDefaultCompletionType = ""
+
+" Prevent super tab after newline or space.
+let g:SuperTabNoCompleteAfter = ['\n', '\r', '\s']
 
 " let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 " let g:UltiSnipsEditSplit='vertical'
@@ -11,5 +16,3 @@ Plug 'SirVer/ultisnips'
 " let g:UltiSnipsJumpBackwardTrigger     = '<C-[>'
 
 " nnoremap <leader>ue :UltiSnipsEdit<cr>
-
-" vim:ft=vim

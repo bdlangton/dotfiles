@@ -1,3 +1,14 @@
+" =============================================================================
+" General VIM Configuration
+
+" Ensure that plug.vim is installed.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Source in plugins.
 function! s:SourceConfigFilesIn(directory)
   let directory_splat = '~/.vim/' . a:directory . '/*'
   for config_file in split(glob(directory_splat), '\n')
@@ -13,9 +24,6 @@ call plug#end()
 
 call s:SourceConfigFilesIn('rcfiles')
 
-" =============================================================================
-" General VIM Configuration
-
 " Matches more opening and closing functions/methods/etc with '%' than
 " normally would be matched without this.
 runtime macros/matchit.vim
@@ -29,13 +37,6 @@ endif
 
 " Leader is comma.
 let mapleader=","
-
-" Ensure that plug.vim is installed.
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 " Set the zsh shell (aliases need to be in ~/.zshenv).
 if has('zsh')
@@ -112,20 +113,6 @@ hi link doxygenSpecialTypeOnelineDesc NONE
 " =============================================================================
 " Custom Functions
 
-" Check if NERDTree is open or active.
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
-" file, we're not in vimdiff, and the current window isn't Tagbar.
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff && bufname('%') !~ "Tagbar"
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
 " Save the cwd to a variable so it can be retrieved at a later time.
 function! SaveDir()
   let w:saved_dir = getcwd()
@@ -184,58 +171,6 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-
-" =============================================================================
-" Themes and Colors
-
-" Set colorscheme.
-set background=dark
-set t_Co=256
-if exists('+termguicolors')
-  set termguicolors
-endif
-colorscheme solarized
-
-" Modify colors for solarized.
-hi clear SignColumn
-hi ColorColumn ctermbg=0 guibg=Grey40
-hi LineNr ctermfg=254 guifg=#e4e4e4
-hi DiffAdd guifg=White guibg=DarkCyan
-hi DiffChange guifg=White guibg=DarkYellow
-hi DiffDelete guifg=Black guibg=#ffa0a0
-hi default link GitGutterAdd DiffAdd
-hi default link GitGutterChange DiffChange
-hi default link GitGutterDelete DiffDelete
-hi DbgBreakptSign guifg=Black guibg=Cyan
-hi DbgBreakptLine guifg=Black guibg=Cyan
-hi PMenu guibg=DarkBlue
-hi PMenuSel guibg=Cyan
-hi SpecialKey guifg=black guibg=red
-
-" Set the lightline colorscheme.
-source ~/.vimrc-solarizedcustom-lightline
-let g:lightline = {
-      \ 'colorscheme': 'solarizedcustom',
-      \ 'component': {
-      \   'modified': '%#ModifiedColor#%{LightlineModified()}',
-      \ }
-      \ }
-
-function! LightlineModified()
-  if &modified
-    exe printf('hi ModifiedColor guifg=Black guibg=Yellow term=bold cterm=bold')
-    return ' +'
-  elseif &modifiable
-    exe printf('hi ModifiedColor guifg=White guibg=#657b83 term=bold cterm=bold')
-    return ''
-  else
-    exe printf('hi ModifiedColor guifg=White guibg=Magenta term=bold cterm=bold')
-    return ' -'
-  endif
-endfunction
-
-" Update status line for lightline plugin.
-set laststatus=2
 
 " =============================================================================
 " Usability Improvements
@@ -317,12 +252,9 @@ nmap <c-b> :e.<CR>
 nmap <Leader>- :sp.<CR>
 nmap <Leader>\ :vs.<CR>
 
-" Toggle the display of tagbar.
-noremap <c-t> :TagbarToggle<CR>
-
 " Toggle the location and quickfix windows.
-nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+" nnoremap <silent> <leader>cl :call ToggleList("Location List", 'l')<CR>
+" nnoremap <silent> <leader>ce :call ToggleList("Quickfix List", 'c')<CR>
 
 " FZF mappings.
 nmap <Leader>b :Buffers<CR>
@@ -335,9 +267,6 @@ nmap <Leader>t :BTags<CR>
 nmap <Leader>T :Tags<CR>
 nmap <Leader>a :call SaveDir()<CR>:ProjectRootCD<CR>:Ag<CR>:call RestoreDir()<CR>
 nmap <Leader>A :call PromptDir()<CR>:Ag<CR>
-
-" PDV mapping for docblock creation.
-nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 " Neovim specific.
 if has('nvim')
@@ -359,134 +288,7 @@ nmap <leader>} <C-w>x
 nmap <leader>x :hide<CR>
 
 " =============================================================================
-" Search
-
-" =============================================================================
-" Programming
-
-" Vdebug options.
-let g:vdebug_options= {
-\    "port" : 9000,
-\    "server" : '',
-\    "timeout" : 20,
-\    "on_close" : 'detach',
-\    "break_on_open" : 0,
-\    "ide_key" : '',
-\    "path_maps" : {"/var/www/html": "/Users/barrett/fulcrum/sites"},
-\    "debug_window_level" : 0,
-\    "debug_file_level" : 0,
-\    "debug_file" : "",
-\    "watch_window_style" : 'compact',
-\    "marker_default" : '⬦',
-\    "marker_closed_tree" : '▸',
-\    "marker_open_tree" : '▾',
-\    'window_commands': {
-\      'DebuggerWatch': 'vertical belowright new',
-\      'DebuggerStack': 'belowright new +res5',
-\      'DebuggerStatus': 'belowright new +res5'
-\    }
-\}
-
-" Syntastic settings.
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
-
-" Set the codesniffer args.
-let g:phpqa_codesniffer_args = "--standard=Drupal"
-
-" PDV templates directory.
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-
-" Change vim-commentary to use `//` instead of `/* */`.
-autocmd FileType php setlocal commentstring=//\ %s
-
-" Disable auto folding.
-let g:DisableAutoPHPFolding = 1
-
-" Set tags file.
-let g:autotagTagsFile="tags"
-
-" =============================================================================
-" NERDTree
-
-" Use NERDTree in place of netrw (split explorer instead of project drawer).
-let NERDTreeHijackNetrw=1
-
-" Open NERD tree by default except when invoked by git.
-" autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
-" autocmd VimEnter * wincmd p
-
-" Set NERD Tree width.
-let g:NERDTreeWinSize=40
-
-" Highlight currently open buffer in NERDTree.
-autocmd BufEnter * call SyncTree()
-
-" Close vim when NERD tree is the only buffer left open.
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Auto delete the buffer of a file just deleted w/NERDTree.
-let NERDTreeAutoDeleteBuffer = 1
-
-" NERDTree UI improvements.
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" =============================================================================
-" EasyMotion
-
-" Jump to anywhere you want with just one key binding: `s{char}{label}`.
-nmap s <Plug>(easymotion-overwin-f)
-
-" Jump to anywhere by searching for two chars in a row: `s{char}{char}{label}`.
-nmap S <Plug>(easymotion-overwin-f2)
-
-" Turn on case insensitive feature.
-let g:EasyMotion_smartcase = 1
-
-" Move down or up lines using EasyMotion.
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" =============================================================================
-" GitGutter
-
-" Shorter update time for gitgutter.
-set updatetime=100
-
-" Stage and undo hunks (in addition to default <Leader>hs and <Leader>hu).
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hr <Plug>GitGutterUndoHunk
-
-" Go to previous and next hunks (in addition to default ]c and [c).
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
-
-" =============================================================================
 " Miscellaneous
-
-" Startify lists.
-let g:startify_lists = [
-      \ { 'type': 'dir',       'header': ['   MRU ' . getcwd()] },
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
-      \ { 'type': 'files',     'header': ['   MRU'] },
-      \ ]
-
-" Startify bookmarks.
-let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc', '~/.zshrc-aliases', '~/.zshrc-functions', '~/.tmux.conf' ]
-
-" Limit number of files on startify.
-let g:startify_files_number = 5
-
-" Set tab completion type.
-let g:SuperTabDefaultCompletionType = ""
-
-" Prevent super tab after newline or space.
-let g:SuperTabNoCompleteAfter = ['\n', '\r', '\s']
 
 " Local config.
 if filereadable($HOME . "/.vimrc.local")

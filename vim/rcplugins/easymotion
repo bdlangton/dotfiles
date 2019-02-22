@@ -2,4 +2,15 @@
 
 Plug 'easymotion/vim-easymotion'
 
-" vim:ft=vim
+" Jump to anywhere you want with just one key binding: `s{char}{label}`.
+nmap s <Plug>(easymotion-overwin-f)
+
+" Jump to anywhere by searching for two chars in a row: `s{char}{char}{label}`.
+nmap S <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature.
+let g:EasyMotion_smartcase = 1
+
+" Move down or up lines using EasyMotion.
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
