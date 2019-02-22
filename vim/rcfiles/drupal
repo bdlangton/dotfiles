@@ -1,3 +1,11 @@
+" Prompt for a module to install.
+function! s:DrupalSingleInput(command, text)
+  call inputsave()
+  let input = input(a:text)
+  call inputrestore()
+  execute '!drupal ' a:command input
+endfunction
+
 " Drupal mappings.
 nnoremap <Leader>dcc :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal cc all<CR>:call RestoreDir()<CR>
 nnoremap <Leader>dwd :call SaveDir()<CR>:call CdDocroot()<CR>:!drush watchdog-show<CR>:call RestoreDir()<CR>
@@ -5,13 +13,5 @@ nnoremap <Leader>dce :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal config:exp
 nnoremap <Leader>dci :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal config:import<CR>:call RestoreDir()<CR>
 nnoremap <Leader>dmi :call SaveDir()<CR>:call CdDocroot()<CR>:call DrupalSingleInput('module:install', 'Enter module to install: ')<CR>:call RestoreDir()<CR>
 nnoremap <Leader>dmu :call SaveDir()<CR>:call CdDocroot()<CR>:call DrupalSingleInput('module:uninstall', 'Enter module to uninstall: ')<CR>:call RestoreDir()<CR>
-
-" Prompt for a module to install.
-function! DrupalSingleInput(command, text)
-  call inputsave()
-  let input = input(a:text)
-  call inputrestore()
-  execute '!drupal ' a:command input
-endfunction
 
 " vim:ft=vim

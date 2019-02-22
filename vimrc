@@ -1,3 +1,8 @@
+set nocompatible
+
+" Need to set the leader before defining any leader mappings
+let mapleader = ","
+
 " Ensure that plug.vim is installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs

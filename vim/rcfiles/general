@@ -5,15 +5,10 @@ if has('python3')
   silent! python3 1
 endif
 
-" Leader is comma.
-let mapleader=","
-
 " Set the zsh shell (aliases need to be in ~/.zshenv).
 if has('zsh')
   set shell=zsh\ -l
 end
-
-set nocompatible
 
 " Allow backspace to work like in most programs.
 set backspace=indent,eol,start
