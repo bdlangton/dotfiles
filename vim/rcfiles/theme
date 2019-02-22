@@ -1,0 +1,86 @@
+" Theme
+
+" Enable syntax processing.
+syntax on
+
+" Highlight current line.
+set cursorline
+
+" Show line numbers.
+set number
+
+" Show relative line numbers.
+set relativenumber
+
+" Set a line at column 81.
+set colorcolumn=81
+
+" Visual autocomplete for command menu.
+set wildmenu
+
+" Highlight matching [{()}].
+set showmatch
+
+" Search as characters are entered.
+set incsearch
+
+" Highlight matches.
+set hlsearch
+
+" Show tabs as chars so it is visible.
+set list
+set listchars=tab:>-
+
+" Set colorscheme.
+set background=dark
+set t_Co=256
+if exists('+termguicolors')
+  set termguicolors
+endif
+colorscheme solarized
+
+" Modify colors for solarized.
+hi clear SignColumn
+hi ColorColumn ctermbg=0 guibg=Grey40
+hi LineNr ctermfg=254 guifg=#e4e4e4
+hi DiffAdd guifg=White guibg=DarkCyan
+hi DiffChange guifg=White guibg=DarkYellow
+hi DiffDelete guifg=Black guibg=#ffa0a0
+hi default link GitGutterAdd DiffAdd
+hi default link GitGutterChange DiffChange
+hi default link GitGutterDelete DiffDelete
+hi DbgBreakptSign guifg=Black guibg=Cyan
+hi DbgBreakptLine guifg=Black guibg=Cyan
+hi PMenu guibg=DarkBlue
+hi PMenuSel guibg=Cyan
+hi SpecialKey guifg=black guibg=red
+
+" Clear links for doxygen sections that were linked to Todo by
+" vim-plugin-for-drupal.
+hi link doxygenBrief NONE
+hi link doxygenSpecialTypeOnelineDesc NONE
+
+" Set the lightline colorscheme.
+source ~/.vimrc-solarizedcustom-lightline
+let g:lightline = {
+      \ 'colorscheme': 'solarizedcustom',
+      \ 'component': {
+      \   'modified': '%#ModifiedColor#%{LightlineModified()}',
+      \ }
+      \ }
+
+function! LightlineModified()
+  if &modified
+    exe printf('hi ModifiedColor guifg=Black guibg=Yellow term=bold cterm=bold')
+    return ' +'
+  elseif &modifiable
+    exe printf('hi ModifiedColor guifg=White guibg=#657b83 term=bold cterm=bold')
+    return ''
+  else
+    exe printf('hi ModifiedColor guifg=White guibg=Magenta term=bold cterm=bold')
+    return ' -'
+  endif
+endfunction
+
+" Update status line for lightline plugin.
+set laststatus=2

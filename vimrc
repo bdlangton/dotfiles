@@ -43,9 +43,6 @@ if has('zsh')
   set shell=zsh\ -l
 end
 
-" Enable syntax processing.
-syntax on
-
 set nocompatible
 
 " Allow backspace to work like in most programs.
@@ -55,18 +52,6 @@ set backspace=indent,eol,start
 set swapfile
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
-
-" Set a line at column 81.
-set colorcolumn=81
-
-" Highlight current line.
-set cursorline
-
-" Show line numbers.
-set number
-
-" Show relative line numbers.
-set relativenumber
 
 " Tabs converted to spaces.
 set expandtab
@@ -83,32 +68,11 @@ set shiftwidth=2
 " Load filetype-specific indent files.
 filetype indent on
 
-" Visual autocomplete for command menu.
-set wildmenu
-
-" Highlight matching [{()}].
-set showmatch
-
-" Search as characters are entered.
-set incsearch
-
-" Highlight matches.
-set hlsearch
-
-" Show tabs as chars so it is visible.
-set list
-set listchars=tab:>-
-
 " Auto chdir into the directory of the current file.
 autocmd BufEnter * silent! lcd %:p:h
 
 " Automatically rebalance windows on vim resize.
 autocmd VimResized * :wincmd =
-
-" Clear links for doxygen sections that were linked to Todo by
-" vim-plugin-for-drupal.
-hi link doxygenBrief NONE
-hi link doxygenSpecialTypeOnelineDesc NONE
 
 " =============================================================================
 " Custom Functions
@@ -247,14 +211,13 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Open the file explorer in current working directory: current window or split.
-nmap <c-b> :e.<CR>
+" Open the file explorer in current working directory split vert or horiz.
 nmap <Leader>- :sp.<CR>
 nmap <Leader>\ :vs.<CR>
 
 " Toggle the location and quickfix windows.
-" nnoremap <silent> <leader>cl :call ToggleList("Location List", 'l')<CR>
-" nnoremap <silent> <leader>ce :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <silent> <leader>cl :call ToggleList("Location List", 'l')<CR>
+nnoremap <silent> <leader>ce :call ToggleList("Quickfix List", 'c')<CR>
 
 " FZF mappings.
 nmap <Leader>b :Buffers<CR>

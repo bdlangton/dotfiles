@@ -1,5 +1,0 @@
-" Scala - Syntax and filetype settings for Scala
-
-Plug 'derekwyatt/vim-scala'
-
-" vim:ft=vim
