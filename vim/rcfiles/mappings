@@ -1,0 +1,47 @@
+" Escape using jk.
+inoremap jk <esc>
+
+" Use <C-Z> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-Z> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+" Check syntax with Ctrl + \.
+autocmd FileType php noremap <C-\> :!/usr/bin/env php -l %<CR>
+autocmd FileType phtml noremap <C-\> :!/usr/bin/env php -l %<CR>
+
+" Add line without entering insert mode.
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+" Disable the arrow keys.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Open the file explorer in current working directory split vert or horiz.
+nmap <Leader>- :sp.<CR>
+nmap <Leader>\ :vs.<CR>
+
+" Toggle the location and quickfix windows.
+nnoremap <silent> <leader>cl :call ToggleList("Location List", 'l')<CR>
+nnoremap <silent> <leader>ce :call ToggleList("Quickfix List", 'c')<CR>
+
+" Neovim specific.
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+" Zoom a vim pane (<leader>+), <leader>= to re-balance.
+nnoremap <leader>+ :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" Swap windows like tmux.
+nmap <leader>{ <C-w>x
+nmap <leader>} <C-w>x
+
+" Close current window like tmux.
+nmap <leader>x :hide<CR>
+
+" vim:ft=vim

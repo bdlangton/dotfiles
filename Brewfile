@@ -19,11 +19,20 @@ brew "jq"
 ##############################################################################
 # Programming
 
+# PHP programming language.
+brew "php"
+
+# Distributed revision control system.
+brew "git"
+
 # Interpreted, interactive, object-oriented programming language.
 brew "python"
 
 # Ruby version manager.
 brew "rbenv"
+
+# Platform built on V8 to build network applications.
+brew "node"
 
 # DDev.
 tap "drud/ddev"
@@ -41,6 +50,9 @@ brew "tig"
 
 # User-friendly cURL replacement (command-line HTTP client).
 brew "httpie"
+
+# Internet file retriever.
+brew "wget"
 
 ##############################################################################
 # Search
@@ -75,6 +87,18 @@ brew "rcm"
 
 # Programmatically correct mistyped console commands.
 brew "thefuck"
+
+# Improved top (interactive process viewer).
+brew "htop"
+
+# Port scanning utility for large networks.
+brew "nmap"
+
+# Lynx-like WWW browser that supports tables, menus, etc.
+brew "links"
+
+# Executes a program periodically, showing output fullscreen.
+brew "watch"
 
 # Command-line benchmark tool.
 brew "bench"

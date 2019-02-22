@@ -1,0 +1,60 @@
+" Save the cwd to a variable so it can be retrieved at a later time.
+function! SaveDir()
+  let w:saved_dir = getcwd()
+endfunction
+
+" Restore the directory that was last saved with SaveDir().
+function! RestoreDir()
+  if exists("w:saved_dir")
+    :cd `=w:saved_dir`
+  endif
+endfunction
+
+" Change directory to docroot if possible.
+" This is just for D8 sites where the current dir might be above docroot and
+" we need to be in docroot for drush/drupal console.
+function! CdDocroot()
+  if isdirectory('docroot')
+    cd docroot
+  endif
+endfunction
+
+" Prompt for a directory to CD into.
+function! PromptDir()
+  let root = getcwd()
+  call inputsave()
+  let input = input('Search dir: ' . root . '/')
+  call inputrestore()
+  if (isdirectory(root . '/' . input))
+    exe 'cd ' . root . '/' . input
+  endif
+endfunction
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+" vim:ft=vim

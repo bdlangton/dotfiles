@@ -2,4 +2,7 @@
 
 Plug 'Asheq/close-buffers.vim'
 
+" Close buffers.
+nnoremap <silent> Q :CloseBuffersMenu<CR>
+
 " vim:ft=vim
