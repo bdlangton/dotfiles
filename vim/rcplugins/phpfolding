@@ -1,6 +1,8 @@
-" .
+" Automatic folding of PHP functions, classes,.. (also folds related PhpDoc).
 
 Plug 'rayburgemeestre/phpfolding.vim'
 
 " Disable auto folding.
 let g:DisableAutoPHPFolding = 1
+
+" vim:ft=vim

@@ -1,4 +1,4 @@
-" .
+" Find out which project a file belongs to, easy to use in scripts/mappings.
 
 Plug 'dbakker/vim-projectroot'
 

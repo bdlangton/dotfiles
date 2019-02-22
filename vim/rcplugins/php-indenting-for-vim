@@ -1,4 +1,4 @@
-" PHP Indenting for VIM.
+" The official VIm indent script for PHP.
 
 Plug '2072/PHP-Indenting-for-VIm'
 

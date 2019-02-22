@@ -1,4 +1,4 @@
-" .
+" Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.).
 
 Plug 'vim-vdebug/vdebug'
 
@@ -10,7 +10,7 @@ let g:vdebug_options= {
 \    "on_close" : 'detach',
 \    "break_on_open" : 0,
 \    "ide_key" : '',
-\    "path_maps" : {"/var/www/html": "/Users/barrett/fulcrum/sites"},
+\    "path_maps" : {"/var/www/html": "/Users/barrett/Sites"},
 \    "debug_window_level" : 0,
 \    "debug_file_level" : 0,
 \    "debug_file" : "",
@@ -24,3 +24,5 @@ let g:vdebug_options= {
 \      'DebuggerStatus': 'belowright new +res5'
 \    }
 \}
+
+" vim:ft=vim

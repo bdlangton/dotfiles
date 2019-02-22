@@ -1,51 +1,83 @@
 # Execute this file with 'brew bundle'.
-# Post install, run:
-# $(brew --prefix)/opt/fzf/install
-# brew install vim --with-python3jk
-# brew services
+# Run install.sh after this.
 
-brew "tmux"
-brew "reattach-to-user-namespace"
-brew "libevent"
-brew "fzf"
-brew "the_silver_searcher"
-brew "fd"
-brew "bat"
+##############################################################################
+# Text and files
+
+# Treat text as a database.
+brew "q"
+
+# Make JSON greppable.
+brew "gron"
+
+# CLI program that accepts piped input and presents files for selection.
+brew "fpp"
+
+# Lightweight and flexible command-line JSON processor.
+brew "jq"
+
+##############################################################################
+# Programming
+
+# Interpreted, interactive, object-oriented programming language.
 brew "python"
 
-# Ruby.
+# Ruby version manager.
 brew "rbenv"
-
-# Analyze and free disk space.
-brew "ncdu"
-
-# Interactively filter results from a command (like fzf).
-brew "peco"
-brew "q"
 
 # DDev.
 tap "drud/ddev"
 brew "ddev"
 
-brew "bench"
-brew "wrk"
-brew "exa"
+# Tmux and related.
+brew "tmux"
+brew "reattach-to-user-namespace"
 
-# Correct command line typos.
-brew "thefuck"
+# Clone of cat(1) with syntax highlighting and Git integration.
+brew "bat"
 
-# Interactive git browser.
+# Text interface for Git repositories.
 brew "tig"
 
-# Interactive file picker.
-brew "fpp"
-
-# Replacement for curl.
+# User-friendly cURL replacement (command-line HTTP client).
 brew "httpie"
 
-# Explore JSON.
-brew "gron"
+##############################################################################
+# Search
 
-# Install RCM for dotfiles.
+# Command-line fuzzy finder written in Go.
+brew "fzf"
+
+# Code-search similar to ack.
+brew "the_silver_searcher"
+
+# Interactively filter results from a command (like fzf).
+brew "peco"
+
+# Simple, fast and user-friendly alternative to find.
+brew "fd"
+
+##############################################################################
+# Utilities
+
+# Modern replacement for 'ls'.
+brew "exa"
+
+# Analyze and free disk space.
+brew "ncdu"
+
+# Asynchronous event library.
+brew "libevent"
+
+# RCM used for installing dotfiles.
 tap "thoughtbot/formulae"
 brew "rcm"
+
+# Programmatically correct mistyped console commands.
+brew "thefuck"
+
+# Command-line benchmark tool.
+brew "bench"
+
+# HTTP benchmarking tool.
+brew "wrk"

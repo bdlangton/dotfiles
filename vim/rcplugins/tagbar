@@ -1,6 +1,8 @@
-" .
+" Vim plugin that displays tags in a window, ordered by scope.
 
 Plug 'majutsushi/tagbar'
 
 " Toggle the display of tagbar.
 noremap <c-t> :TagbarToggle<CR>
+
+" vim:ft=vim

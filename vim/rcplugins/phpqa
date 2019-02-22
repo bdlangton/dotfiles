@@ -1,6 +1,8 @@
-" .
+" PHP QA tools for Vim.
 
 Plug 'joonty/vim-phpqa'
 
 " Set the codesniffer args.
 let g:phpqa_codesniffer_args = "--standard=Drupal"
+
+" vim:ft=vim

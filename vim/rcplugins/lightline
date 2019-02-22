@@ -1,4 +1,5 @@
-" Lightline
+" A light and configurable statusline/tabline plugin.
 
 Plug 'itchyny/lightline.vim'
 
+" vim:ft=vim

@@ -48,3 +48,7 @@ cd $HOME/.vim/bundle
 
 # Create vim swap directory.
 mkdir -p $HOME/.vim/tmp
+
+# Install remaining brew functionality.
+[ ! -x "$(command -v fzf)" ] && $(brew --prefix)/opt/fzf/install
+[ ! -x "$(command -v vim)" ] && brew install vim --with-python3 && brew services

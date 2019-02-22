@@ -1,4 +1,4 @@
-" .
+" An up-to-date Vim syntax for PHP (7.x supported).
 
 Plug 'StanAngeloff/php.vim'
 

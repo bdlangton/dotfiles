@@ -1,4 +1,4 @@
-" .
+" The fancy start screen for Vim.
 
 Plug 'mhinz/vim-startify'
 
@@ -14,3 +14,5 @@ let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc', '~/.zshrc-aliases', '~/.zsh
 
 " Limit number of files on startify.
 let g:startify_files_number = 5
+
+" vim:ft=vim

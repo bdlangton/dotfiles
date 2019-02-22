@@ -1,7 +1,7 @@
-" Conflicted - Enhancements build on fugitive to handle git conflicts
-" -------------------------------------------------------------------
+" Conflicted - Enhancements build on fugitive to handle git conflicts.
 
 Plug 'christoomey/vim-conflicted'
+
 nnoremap <leader>gnc :GitNextConflict<cr>
 
 " set stl+=%{ConflictedVersion()}

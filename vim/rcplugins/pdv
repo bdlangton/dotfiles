@@ -1,4 +1,4 @@
-" PDV.
+" PHP Documentor for VIM - Generates PHP docblocks.
 
 Plug 'tobyS/pdv'
 
@@ -7,3 +7,5 @@ nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 " PDV templates directory.
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+
+" vim:ft=vim

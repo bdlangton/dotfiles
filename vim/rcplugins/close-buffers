@@ -1,4 +1,4 @@
-" Close buffers.
+" Quickly close (delete) many buffers.
 
 Plug 'Asheq/close-buffers.vim'
 

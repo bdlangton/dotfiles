@@ -1,7 +1,8 @@
-" Commentary - Comment / uncomment via text operator w/ text objects
-"-------------------------------------------------------------------
+" Commentary - Comment / uncomment via text operator w/ text objects.
 
 Plug 'tpope/vim-commentary'
 
 " Change vim-commentary to use `//` instead of `/* */`.
 autocmd FileType php setlocal commentstring=//\ %s
+
+" vim:ft=vim

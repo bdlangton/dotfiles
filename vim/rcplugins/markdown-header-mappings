@@ -1,5 +1,4 @@
 " Markdown Header Mappings - Easy setting of markdown headers
-"------------------------------------------------------------
 
 function! s:SmartLevelThreeHeader()
   call s:DeleteExistingUnderline()

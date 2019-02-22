@@ -12,3 +12,5 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 " Go to previous and next hunks (in addition to default ]c and [c).
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+" vim:ft=vim

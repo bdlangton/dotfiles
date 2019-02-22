@@ -1,3 +1,5 @@
-" .
+" Improved PHP omnicompletion.
 
 Plug 'shawncplus/phpcomplete.vim'
+
+" vim:ft=vim
