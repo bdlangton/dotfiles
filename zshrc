@@ -1,10 +1,19 @@
-# Oh-my-zsh.
-export ZSH=/Users/barrett/.oh-my-zsh
-plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions)
-export UPDATE_ZSH_DAYS=30
-
 # Thefuck.
 eval $(thefuck --alias)
+
+# Zplug.
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug 'mafredri/zsh-async'
+zplug 'sindresorhus/pure'
+zplug "zsh-users/zsh-autosuggestions", from:github
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
+zplug "rupa/z", from:github, use:z.sh
+zplug "tmuxinator/tmuxinator", from:github, use:completion/tmuxinator.zsh
+zplug "junegunn/fzf", from:github, hook-build:"./install"
+
+zplug load
 
 # Load custom executable functions.
 for function in ~/.zsh/functions/*; do
@@ -42,16 +51,12 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# Source files (oh-my-zsh source needs to be after zsh configs).
-source $ZSH/oh-my-zsh.sh
-source $HOME/git/z/z.sh
-source $HOME/git/tmuxinator/completion/tmuxinator.zsh
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer/vendor/bin"
 
 # Directory colors for solarized (has to be after sources).
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# Aliases (has to be after sourcing oh-my-zsh).
+# Aliases.
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # Local config.

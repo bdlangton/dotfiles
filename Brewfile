@@ -28,7 +28,8 @@ brew "git"
 # Interpreted, interactive, object-oriented programming language.
 brew "python"
 
-# Ruby version manager.
+# Ruby packages.
+brew "ruby-build"
 brew "rbenv"
 
 # Platform built on V8 to build network applications.
@@ -71,6 +72,9 @@ brew "fd"
 
 ##############################################################################
 # Utilities
+
+# A next-generation plugin manager for zsh
+brew "zplug"
 
 # Modern replacement for 'ls'.
 brew "exa"
