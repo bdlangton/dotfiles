@@ -6,7 +6,7 @@ nnoremap <leader>v- :VtrOpenRunner { "orientation": "v" }<cr>
 nnoremap <leader>v\ :VtrOpenRunner { "orientation": "h" }<cr>
 nnoremap <leader>vk :VtrKillRunner<cr>
 nnoremap <leader>va :VtrAttachToPane<cr>
-nnoremap <leader>vf :vtrfocusrunner<cr>
+nnoremap <leader>vf :VtrFocusRunner<cr>
 nnoremap <leader>vs :VtrSendCommandToRunner<space>
 
 " vim:ft=vim

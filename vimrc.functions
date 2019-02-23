@@ -11,11 +11,13 @@ function! g:RestoreDir()
 endfunction
 
 " Change directory to docroot if possible.
-" This is just for D8 sites where the current dir might be above docroot and
+" This is just for Drupal sites where the current dir might be above docroot and
 " we need to be in docroot for drush/drupal console.
 function! g:CdDocroot()
   if isdirectory('docroot')
     cd docroot
+  elseif isdirectory('web')
+    cd web
   endif
 endfunction
 

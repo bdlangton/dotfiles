@@ -1,17 +1,17 @@
 " Prompt for a module to install.
-function! s:DrupalSingleInput(command, text)
+function! DrupalSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute '!drupal ' a:command input
+  execute 'VtrSendCommandToRunner drupal ' a:command input
 endfunction
 
-" Drupal mappings.
-nnoremap <Leader>dcc :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal cc all<CR>:call RestoreDir()<CR>
-nnoremap <Leader>dwd :call SaveDir()<CR>:call CdDocroot()<CR>:!drush watchdog-show<CR>:call RestoreDir()<CR>
-nnoremap <Leader>dce :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal config:export<CR>:call RestoreDir()<CR>
-nnoremap <Leader>dci :call SaveDir()<CR>:call CdDocroot()<CR>:!drupal config:import<CR>:call RestoreDir()<CR>
-nnoremap <Leader>dmi :call SaveDir()<CR>:call CdDocroot()<CR>:call DrupalSingleInput('module:install', 'Enter module to install: ')<CR>:call RestoreDir()<CR>
-nnoremap <Leader>dmu :call SaveDir()<CR>:call CdDocroot()<CR>:call DrupalSingleInput('module:uninstall', 'Enter module to uninstall: ')<CR>:call RestoreDir()<CR>
+" Drupal mappings to the vim-tmux-runner.
+nnoremap <Leader>dcc :VtrSendCommandToRunner drupal cc all<CR>
+nnoremap <Leader>dwd :VtrSendCommandToRunner drush watchdog-show<CR>
+nnoremap <Leader>dce :VtrSendCommandToRunner drupal config:export<CR>
+nnoremap <Leader>dci :VtrSendCommandToRunner drupal config:import<CR>
+nnoremap <Leader>dmi :call DrupalSingleInput('module:install', 'Enter module to install: ')<CR>
+nnoremap <Leader>dmu :call DrupalSingleInput('module:uninstall', 'Enter module to uninstall: ')<CR>
 
 " vim:ft=vim
