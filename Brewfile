@@ -43,6 +43,10 @@ brew "ddev"
 brew "tmux"
 brew "reattach-to-user-namespace"
 
+# Nerd fonts.
+tap "caskroom/fonts"
+cask "font-hack-nerd-font"
+
 # Clone of cat(1) with syntax highlighting and Git integration.
 brew "bat"
 
