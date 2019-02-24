@@ -52,8 +52,11 @@ mkdir -p $HOME/.vim/tmp
 [ ! -x "$(command -v fzf)" ] && $(brew --prefix)/opt/fzf/install
 [ ! -x "$(command -v vim)" ] && brew install vim --with-python3 && brew services
 
+# Install oh-my-zsh.
+[ ! -x "$(command -v uninstall_oh_my_zsh)" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Install oh-my-zsh plugins and themes.
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/fz" ] && git clone https://github.com/changyuheng/fz.git ~/.oh-my-zsh/custom/plugins/fz
-[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel9k" ] && git clone https://github.com/hilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel9k" ] && git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
