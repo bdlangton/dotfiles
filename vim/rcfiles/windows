@@ -24,7 +24,7 @@ function! s:GetBufferList()
   return buflist
 endfunction
 
-function! s:ToggleList(bufname, pfx)
+function! ToggleList(bufname, pfx)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
     if bufwinnr(bufnum) != -1

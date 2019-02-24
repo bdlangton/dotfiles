@@ -1,3 +1,9 @@
+# Without oh-my-zsh, ctrl-e on the command line (along with other commands) no
+# longer worked. Adding back until I can figure out how to remove it without
+# issues.
+export ZSH=/Users/barrett/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
 # Thefuck.
 eval $(thefuck --alias)
 
