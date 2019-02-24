@@ -52,3 +52,6 @@ mkdir -p $HOME/.vim/tmp
 # Install remaining brew functionality.
 [ ! -x "$(command -v fzf)" ] && $(brew --prefix)/opt/fzf/install
 [ ! -x "$(command -v vim)" ] && brew install vim --with-python3 && brew services
+
+# Install zsh-syntax-highlighting for oh-my-zsh.
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

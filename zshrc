@@ -1,25 +1,10 @@
-# Without oh-my-zsh, ctrl-e on the command line (along with other commands) no
-# longer worked. Adding back until I can figure out how to remove it without
-# issues.
+# Oh-my-zsh.
 export ZSH=/Users/barrett/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting)
+export UPDATE_ZSH_DAYS=30
 
 # Thefuck.
 eval $(thefuck --alias)
-
-# Zplug.
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug 'mafredri/zsh-async'
-zplug 'sindresorhus/pure'
-zplug "zsh-users/zsh-autosuggestions", from:github
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
-zplug "rupa/z", from:github, use:z.sh
-zplug "tmuxinator/tmuxinator", from:github, use:completion/tmuxinator.zsh
-zplug "junegunn/fzf", from:github, hook-build:"./install"
-
-zplug load
 
 # Load custom executable functions.
 for function in ~/.zsh/functions/*; do
@@ -57,12 +42,16 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer/vendor/bin"
+# Source files (oh-my-zsh source needs to be after zsh configs).
+source $ZSH/oh-my-zsh.sh
+source $HOME/git/z/z.sh
+source $HOME/git/tmuxinator/completion/tmuxinator.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Directory colors for solarized (has to be after sources).
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# Aliases.
+# Aliases (has to be after sourcing oh-my-zsh).
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # Local config.
