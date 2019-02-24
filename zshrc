@@ -1,10 +1,7 @@
 # Oh-my-zsh.
 export ZSH=/Users/barrett/.oh-my-zsh
-plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting z fz tmuxinator thefuck)
 export UPDATE_ZSH_DAYS=30
-
-# Thefuck.
-eval $(thefuck --alias)
 
 # Load custom executable functions.
 for function in ~/.zsh/functions/*; do
@@ -42,10 +39,10 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer/vendor/bin"
+
 # Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
-source $HOME/git/z/z.sh
-source $HOME/git/tmuxinator/completion/tmuxinator.zsh
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Directory colors for solarized (has to be after sources).

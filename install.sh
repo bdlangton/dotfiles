@@ -23,7 +23,6 @@ done
 
 # Install git repos.
 [ ! -d "$HOME/git/git" ] && git clone https://github.com/git/git $HOME/git/git
-[ ! -d "$HOME/git/z" ] && git clone https://github.com/rupa/z $HOME/git/z
 [ ! -d "$HOME/git/tmuxinator" ] && git clone https://github.com/tmuxinator/tmuxinator $HOME/git/tmuxinator
 [ ! -d "$HOME/git/githud" ] && git clone https://github.com/gbataille/githud $HOME/git/githud
 
@@ -54,6 +53,7 @@ mkdir -p $HOME/.vim/tmp
 [ ! -x "$(command -v vim)" ] && brew install vim --with-python3 && brew services
 
 # Install oh-my-zsh plugins and themes.
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fz" ] && git clone https://github.com/changyuheng/fz.git ~/.oh-my-zsh/custom/plugins/fz
+[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel9k" ] && git clone https://github.com/hilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
