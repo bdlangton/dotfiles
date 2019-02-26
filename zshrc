@@ -45,6 +45,9 @@ export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
+# Set g to autocomplete like git (needs to be after oh-my-zsh).
+compdef g=git
+
 # Directory colors for solarized (has to be after sources).
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
