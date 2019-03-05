@@ -1,6 +1,3 @@
-# Execute this file with 'brew bundle'.
-# Run install.sh after this.
-
 ##############################################################################
 # Text and files
 
@@ -25,6 +22,12 @@ brew "php"
 # Distributed revision control system.
 brew "git"
 
+# VIM.
+brew "vim"
+
+# Fast GitHub client, used in git-create-pull-request.
+brew 'hub'
+
 # Interpreted, interactive, object-oriented programming language.
 brew "python"
 
@@ -42,10 +45,6 @@ brew "ddev"
 # Tmux and related.
 brew "tmux"
 brew "reattach-to-user-namespace"
-
-# Nerd fonts.
-tap "caskroom/fonts"
-cask "font-hack-nerd-font"
 
 # Clone of cat(1) with syntax highlighting and Git integration.
 brew "bat"
@@ -96,6 +95,9 @@ brew "rcm"
 # Programmatically correct mistyped console commands.
 brew "thefuck"
 
+# Official AWS CLI
+brew 'awscli'
+
 # Improved top (interactive process viewer).
 brew "htop"
 
@@ -113,3 +115,45 @@ brew "bench"
 
 # HTTP benchmarking tool.
 brew "wrk"
+
+##############################################################################
+# Casks
+
+# Main applications that I use.
+cask 'firefox'
+cask 'slack'
+cask 'postman'
+cask 'sequel-pro'
+cask 'kindle'
+cask 'evernote'
+cask 'notion'
+cask 'pocket-casts'
+cask 'google-backup-and-sync'
+cask 'marshallofsound-google-play-music-player'
+cask 'whatsapp'
+
+# Nerd fonts.
+tap "caskroom/fonts"
+cask "font-hack-nerd-font"
+
+# Keyboard remapping for MacOS.
+cask 'karabiner-elements'
+
+# Resizing and moving around apps and windows.
+cask 'spectacle'
+
+# 1Password.
+cask '1password'
+cask '1password-cli'
+
+# aText.
+cask 'atext'
+
+# Dropbox.
+cask 'dropbox'
+
+# Caffeine to keep the display on.
+cask 'caffeine'
+
+# Removes blue light at night time.
+cask 'flux'
