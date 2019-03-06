@@ -92,6 +92,20 @@ info "\nInstalling remaining brew functionality if not already installed..."
 [ ! -x "$(command -v vim)" ] && brew install vim --with-python3 && brew services
 info "Finished remaining brew functionality"
 
+if ! echo "$SHELL" | grep -Fq zsh; then
+  info "\nYour shell is not Zsh. Changing it to Zsh..."
+  chsh -s /bin/zsh
+fi
+
+if [ ! -f "$HOME/.rcrc" ]; then
+  # Before `rcup` runs, there is no ~/.rcrc, so we must tell `rcup` where to look.
+  # We need the rcrc because it tells `rcup` to ignore thousands of useless Vim
+  # backup files that slow it down significantly.
+  info "\nLinking dotfiles into ~..."
+  RCRC=rcrc rcup -d .
+  info "Done linking dotfiles"
+fi
+
 info "\nInstalling oh-my-zsh plugins and themes if not already installed..."
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting

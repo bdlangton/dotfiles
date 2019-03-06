@@ -124,6 +124,7 @@ cask 'firefox'
 cask 'slack'
 cask 'postman'
 cask 'sequel-pro'
+cask 'todoist'
 cask 'kindle'
 cask 'evernote'
 cask 'notion'
@@ -131,10 +132,33 @@ cask 'pocket-casts'
 cask 'google-backup-and-sync'
 cask 'marshallofsound-google-play-music-player'
 cask 'whatsapp'
+cask 'grammarly'
+cask 'harvest'
+
+# Java.
+cask 'java'
+
+# Viewing docker containers.
+cask 'kitematic'
+
+# Office suite.
+cask 'libreoffice'
+
+# Proton VPN client.
+cask 'protonvpn'
+
+# Handbrake video file editor.
+cask 'handbrake'
+
+# Hazel file organizer.
+cask 'hazel'
 
 # Nerd fonts.
 tap "caskroom/fonts"
 cask "font-hack-nerd-font"
+
+# Focus app.
+cask 'focus'
 
 # Keyboard remapping for MacOS.
 cask 'karabiner-elements'
