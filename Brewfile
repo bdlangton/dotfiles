@@ -17,7 +17,11 @@ brew "jq"
 # Programming
 
 # PHP programming language.
-brew "php"
+brew 'php'
+brew 'composer'
+brew 'phpmd'
+brew 'phpunit'
+brew 'phplint'
 
 # Distributed revision control system.
 brew "git"
@@ -37,6 +41,8 @@ brew "rbenv"
 
 # Platform built on V8 to build network applications.
 brew "node"
+brew 'npm'
+brew 'nvm'
 
 # DDev.
 tap "drud/ddev"
@@ -75,6 +81,12 @@ brew "fd"
 
 ##############################################################################
 # Utilities
+
+# Todoist CLI.
+# Will need to enter API token after first run:
+# https://todoist.com/prefs/integrations
+tap 'sachaos/todoist'
+brew 'todoist'
 
 # A next-generation plugin manager for zsh
 brew "zplug"
@@ -124,7 +136,8 @@ cask 'firefox'
 cask 'slack'
 cask 'postman'
 cask 'sequel-pro'
-cask 'todoist'
+cask 'harvest'
+cask 'grammarly'
 cask 'kindle'
 cask 'evernote'
 cask 'notion'
@@ -132,14 +145,17 @@ cask 'pocket-casts'
 cask 'google-backup-and-sync'
 cask 'marshallofsound-google-play-music-player'
 cask 'whatsapp'
-cask 'grammarly'
-cask 'harvest'
 
-# Java.
+# Java and Chromedriver for Behat tests.
 cask 'java'
+cask 'chromedriver'
 
 # Viewing docker containers.
 cask 'kitematic'
+
+# Vagrant.
+cask 'vagrant'
+cask 'virtualbox'
 
 # Office suite.
 cask 'libreoffice'

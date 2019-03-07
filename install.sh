@@ -1,3 +1,16 @@
+# Things to do pre install:
+# Have to download this repo from git, which also means installing xcode tools,
+# and adding github ssh key
+
+# Things to do post install:
+# Need to set up karabiner-elements
+# - simple modification to map caps lock to escape and vice versa.
+# Need to set iterm
+# - to use solarized dark theme
+# - text to use font 'Hack Nerd Font'
+# - profile -> keys, set left and right option keys to Esc+
+# Install todoist manually
+
 info() {
   echo "$@"
 }
@@ -34,25 +47,13 @@ else
   info "Already installed"
 fi
 
-info "\nInstalling composer if not already installed..."
-if [ ! -x "$(command -v composer)" ]; then
-  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-  php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-  php composer-setup.php
-  mv composer.phar $HOME/.bin/composer
-  php -r "unlink('composer-setup.php');"
-else
-  info "Already installed"
-fi
-
 info "\nInstalling composer global packages if not already installed..."
-for package in 'behat/behat' 'drupal/coder' 'drupal/console-launcher' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'phpmd/phpmd' 'phpunit/phpunit' 'sebastian/phpcpd'
+for package in 'behat/behat' 'drupal/coder' 'drupal/console-launcher' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer'
 do
   if [ ! -d "$HOME/.composer/vendor/$package" ]; then
     composer global require $package
   fi
 done
-[ ! -d "$HOME/.composer/vendor/phpunit/phpunit" ] && composer global require phpunit/phpunit:^7.0
 info "Finished composer global packages"
 
 info "\nInstalling git repos if not already installed..."
@@ -102,7 +103,7 @@ if [ ! -f "$HOME/.rcrc" ]; then
   # We need the rcrc because it tells `rcup` to ignore thousands of useless Vim
   # backup files that slow it down significantly.
   info "\nLinking dotfiles into ~..."
-  RCRC=rcrc rcup -d .
+  RCRC=rcrc rcup
   info "Done linking dotfiles"
 fi
 

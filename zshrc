@@ -43,7 +43,8 @@ export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer
 
 # Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+source /usr/local/opt/fzf/shell/completion.zsh
+source /usr/local/opt/fzf/shell/key-bindings.zsh
 
 # Set g to autocomplete like git (needs to be after oh-my-zsh).
 compdef g=git

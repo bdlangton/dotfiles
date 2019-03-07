@@ -10,6 +10,8 @@ alias todo='ag TODO'
 alias hist='history | tail -n 100; echo "Only last 100 results listed. For full history, type: history"'
 alias cat='bat'
 alias top='htop'
+alias c='composer'
+alias mux='tmuxinator'
 
 # ==============================================================================
 # Git aliases
