@@ -48,6 +48,9 @@ brew 'nvm'
 tap "drud/ddev"
 brew "ddev"
 
+# Docker.
+brew 'docker'
+
 # Tmux and related.
 brew "tmux"
 brew "reattach-to-user-namespace"
@@ -152,6 +155,9 @@ cask 'chromedriver'
 
 # Viewing docker containers.
 cask 'kitematic'
+
+# Docker.
+cask 'docker'
 
 # Vagrant.
 cask 'vagrant'
