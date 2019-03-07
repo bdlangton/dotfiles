@@ -1,3 +1,18 @@
+# If a parameter is supplied, print the todoist list, otherwise search TODO.
+function todo() {
+  if [ $1 = 'personal' ]; then
+    todoist list --filter '##Personal & (today | overdue)'
+  elif [ $1 = 'professional' ]; then
+    todoist list --filter '##Professional & (today | overdue)'
+  elif [ $1 = 'work' ]; then
+    todoist list --filter '##Work & (today | overdue)'
+  elif [ $1 = 'all' ]; then
+    todoist list --filter '(today | overdue)'
+  else
+    ag TODO
+  fi
+}
+
 # Make directory and change into it.
 function mcd() {
   mkdir -p "$1" && cd "$1";
