@@ -60,6 +60,7 @@ info "\nInstalling git repos if not already installed..."
 [ ! -d "$HOME/git/git" ] && git clone https://github.com/git/git $HOME/git/git
 [ ! -d "$HOME/git/tmuxinator" ] && git clone https://github.com/tmuxinator/tmuxinator $HOME/git/tmuxinator
 [ ! -d "$HOME/git/githud" ] && git clone https://github.com/gbataille/githud $HOME/git/githud
+[ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 info "Finished git repos"
 
 info "\nInstalling npm packages if not already installed..."
