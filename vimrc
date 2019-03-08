@@ -1,7 +1,7 @@
 set nocompatible
 
-" Need to set the leader before defining any leader mappings
-let mapleader = ","
+" Need to set the leader before defining any leader mappings.
+let mapleader = " "
 
 " Ensure that plug.vim is installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
