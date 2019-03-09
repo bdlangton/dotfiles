@@ -68,15 +68,17 @@ let g:lightline = {
       \ }
 
 function! LightlineModified()
-  if &modified
-    exe printf('hi ModifiedColor guifg=Black guibg=Yellow term=bold cterm=bold')
-    return ' +'
-  elseif &modifiable
-    exe printf('hi ModifiedColor guifg=White guibg=#657b83 term=bold cterm=bold')
-    return ''
-  else
-    exe printf('hi ModifiedColor guifg=White guibg=Magenta term=bold cterm=bold')
-    return ' -'
+  if !has('nvim')
+    if &modified
+      exe printf('hi ModifiedColor guifg=Black guibg=Yellow term=bold cterm=bold')
+      return ' +'
+    elseif &modifiable
+      exe printf('hi ModifiedColor guifg=White guibg=#657b83 term=bold cterm=bold')
+      return ''
+    else
+      exe printf('hi ModifiedColor guifg=White guibg=Magenta term=bold cterm=bold')
+      return ' -'
+    endif
   endif
 endfunction
 
