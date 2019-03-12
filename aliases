@@ -81,7 +81,7 @@ alias gcpf='git ci --amend --no-edit && git pf'
 # Search
 
 # Ag search defaults.
-alias ag="ag $* -W 80 -f -r --column -S"
+alias ag="ag $* -U -W 80 -f -r --column -S"
 
 # ==============================================================================
 # Drupal
