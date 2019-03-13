@@ -148,10 +148,14 @@ cask 'pocket-casts'
 cask 'google-backup-and-sync'
 cask 'marshallofsound-google-play-music-player'
 cask 'whatsapp'
+cask 'signal'
 
-# Java and Chromedriver for Behat tests.
+# Java.
 cask 'java'
+
+# Chromedriver and geckodriver (Firefox) for behavioral tests.
 cask 'chromedriver'
+brew 'geckodriver'
 
 # Viewing docker containers.
 cask 'kitematic'
