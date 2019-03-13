@@ -54,6 +54,8 @@ do
     composer global require $package
   fi
 done
+phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+phpcs --config-set default_standard Drupal
 info "Finished composer global packages"
 
 info "\nInstalling git repos if not already installed..."
