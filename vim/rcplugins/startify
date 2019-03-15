@@ -10,7 +10,7 @@ let g:startify_lists = [
       \ ]
 
 " Startify bookmarks.
-let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc', '~/.zshrc-aliases', '~/.zshrc-functions', '~/.tmux.conf' ]
+let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc', '~/.tmux.conf', '~/.aliases' ]
 
 " Limit number of files on startify.
 let g:startify_files_number = 5
