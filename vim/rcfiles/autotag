@@ -1,0 +1,4 @@
+" Set tags file.
+let g:autotagTagsFile="tags"
+
+" vim:ft=vim

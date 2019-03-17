@@ -29,6 +29,9 @@ brew "git"
 # VIM.
 brew "vim"
 
+# Exuberant ctags instead of regular ctags.
+brew 'ctags'
+
 # Fast GitHub client, used in git-create-pull-request.
 brew 'hub'
 

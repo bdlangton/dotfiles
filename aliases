@@ -9,6 +9,7 @@ alias exa='exa --git -l'
 alias hist='history | tail -n 100; echo "Only last 100 results listed. For full history, type: history"'
 alias cat='bat'
 alias top='htop'
+alias ctags='/usr/local/bin/ctags'
 
 # ==============================================================================
 # Programming related
