@@ -14,4 +14,6 @@ nnoremap <Leader>dci :VtrSendCommandToRunner drupal config:import<CR>
 nnoremap <Leader>dmi :call DrupalSingleInput('module:install', 'Enter module to install: ')<CR>
 nnoremap <Leader>dmu :call DrupalSingleInput('module:uninstall', 'Enter module to uninstall: ')<CR>
 
+autocmd BufRead,BufNewFile *.theme setlocal filetype=php
+
 " vim:ft=vim
