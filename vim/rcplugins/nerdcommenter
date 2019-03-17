@@ -1,5 +1,0 @@
-" Vim plugin for intensely orgasmic commenting.
-
-Plug 'scrooloose/nerdcommenter'
-
-" vim:ft=vim
