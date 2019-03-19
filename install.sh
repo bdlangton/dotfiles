@@ -48,7 +48,7 @@ else
 fi
 
 info "\nInstalling composer global packages if not already installed..."
-for package in 'behat/behat' 'drupal/coder' 'drupal/console-launcher' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer'
+for package in 'behat/behat' 'drupal/coder' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer'
 do
   if [ ! -d "$HOME/.composer/vendor/$package" ]; then
     composer global require $package
@@ -57,6 +57,14 @@ done
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
 info "Finished composer global packages"
+
+info "\nInstalling drupal console launcher if not already installed..."
+if [ ! -x "$(command -v drupal)" ]; then
+  curl https://drupalconsole.com/installer -L -o drupal.phar
+  mv drupal.phar /usr/local/bin/drupal
+  chmod +x /usr/local/bin/drupal
+fi
+info "Finished drupal console launcher"
 
 info "\nInstalling git repos if not already installed..."
 [ ! -d "$HOME/git/git" ] && git clone https://github.com/git/git $HOME/git/git
