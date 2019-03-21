@@ -150,6 +150,7 @@ cask 'notion'
 cask 'pocket-casts'
 cask 'google-backup-and-sync'
 cask 'marshallofsound-google-play-music-player'
+cask 'spotify'
 cask 'whatsapp'
 cask 'signal'
 
