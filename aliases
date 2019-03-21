@@ -25,7 +25,7 @@ alias be='bundle exec'
 # Git aliases
 
 # Git fetch from every remote.
-alias gfetch='git fetch --all'
+alias gfa='git fetch --all'
 
 # Git checkout staging branch.
 alias gcost='git co origin/staging'

@@ -7,6 +7,7 @@
 [merge]
   tool = vimdiff
 [alias]
+  fa = fetch --all
   st = status -s
   ci = commit
   ca = commit --amend --no-edit
