@@ -46,6 +46,11 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/opt/fzf/shell/completion.zsh
 source /usr/local/opt/fzf/shell/key-bindings.zsh
 
+# Git and fzf key bindings for searching git commits/tags/branches/remotes/files
+# in a git repo.
+bind-git-helper f t b g r
+unset -f bind-git-helper
+
 # Set g to autocomplete like git (needs to be after oh-my-zsh).
 compdef g=git
 
