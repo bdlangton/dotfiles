@@ -140,74 +140,65 @@ brew "wrk"
 # Main applications that I use.
 cask 'firefox'
 cask 'slack'
-cask 'postman'
-cask 'sequel-pro'
-cask 'harvest'
-cask 'grammarly'
 cask 'kindle'
-cask 'evernote'
-cask 'notion'
-cask 'pocket-casts'
-cask 'google-backup-and-sync'
-cask 'marshallofsound-google-play-music-player'
-cask 'spotify'
-cask 'whatsapp'
-cask 'signal'
 
-# Java.
+# Work related.
+cask 'harvest'
+cask 'toggl'
+
+# Programming.
+cask 'sequel-pro'
+cask 'postman'
 cask 'java'
+cask 'docker'
+cask 'kitematic'
+cask 'vagrant'
+cask 'virtualbox'
 
 # Chromedriver and geckodriver (Firefox) for behavioral tests.
 cask 'chromedriver'
 brew 'geckodriver'
 
-# Viewing docker containers.
-cask 'kitematic'
-
-# Docker.
-cask 'docker'
-
-# Vagrant.
-cask 'vagrant'
-cask 'virtualbox'
-
-# Office suite.
-cask 'libreoffice'
-
-# Proton VPN client.
-cask 'protonvpn'
-
-# Handbrake video file editor.
-cask 'handbrake'
-
-# Hazel file organizer.
-cask 'hazel'
-
 # Nerd fonts.
 tap "caskroom/fonts"
 cask "font-hack-nerd-font"
 
-# Focus app.
+# Notes.
+cask 'evernote'
+cask 'notion'
+cask 'libreoffice'
+cask 'grammarly'
+
+# Messaging.
+cask 'whatsapp'
+cask 'signal'
+
+# File syncing.
+cask 'dropbox'
+cask 'google-backup-and-sync'
+
+# Video and Music.
+cask 'marshallofsound-google-play-music-player'
+cask 'spotify'
+cask 'handbrake'
+cask 'pocket-casts'
+
+# Proton VPN client.
+cask 'protonvpn'
+
+# Productivity.
 cask 'focus'
+cask 'spectacle'
 
 # Keyboard remapping for MacOS.
 cask 'karabiner-elements'
-
-# Resizing and moving around apps and windows.
-cask 'spectacle'
 
 # 1Password.
 cask '1password'
 cask '1password-cli'
 
-# aText.
+# Tools.
 cask 'atext'
-
-# Dropbox.
-cask 'dropbox'
-
-# Caffeine to keep the display on.
+cask 'hazel'
 cask 'caffeine'
-
-# Removes blue light at night time.
 cask 'flux'
