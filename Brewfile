@@ -13,6 +13,9 @@ brew "fpp"
 # Lightweight and flexible command-line JSON processor.
 brew "jq"
 
+# Rename files.
+brew "rename"
+
 ##############################################################################
 # Programming
 
