@@ -39,6 +39,7 @@ colorscheme solarized
 
 " Modify colors for solarized.
 hi clear SignColumn
+hi CursorLine ctermbg=0 guibg=DarkCyan guifg=White
 hi ColorColumn ctermbg=0 guibg=Grey40
 hi LineNr ctermfg=254 guifg=#e4e4e4
 hi DiffAdd guifg=White guibg=DarkCyan

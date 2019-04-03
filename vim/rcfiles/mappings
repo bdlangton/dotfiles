@@ -14,6 +14,9 @@ autocmd FileType phtml noremap <C-\> :!/usr/bin/env php -l %<CR>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+" Use 'I' to insert a single character and exit from insert mode.
+noremap I i <Esc>r
+
 " Disable the arrow keys.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
