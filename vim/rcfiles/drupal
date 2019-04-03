@@ -1,18 +1,35 @@
-" Prompt for a module to install.
+" Prompt for a single input.
 function! DrupalSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drupal ' a:command input
+  execute 'VtrSendCommandToRunner drush ' s:drush_alias a:command input
 endfunction
 
+" Execute a drush command.
+function! ExecuteDrushCommand(command)
+  execute 'VtrSendCommandToRunner drush ' s:drush_alias a:command
+endfunction
+
+" Prompt for a drush alias to use.
+function! SetDrushAlias()
+  call inputsave()
+  let s:drush_alias = input('Use drush alias: ')
+  call inputrestore()
+  echohl String | echo "\rDrush alias set to: " . s:drush_alias | echohl None
+endfunction
+
+" Set default drush alias to blank.
+let s:drush_alias = ''
+
 " Drupal mappings to the vim-tmux-runner.
-nnoremap <Leader>dcc :VtrSendCommandToRunner drupal cc all<CR>
-nnoremap <Leader>dwd :VtrSendCommandToRunner drush watchdog-show<CR>
-nnoremap <Leader>dce :VtrSendCommandToRunner drupal config:export<CR>
-nnoremap <Leader>dci :VtrSendCommandToRunner drupal config:import<CR>
-nnoremap <Leader>dmi :call DrupalSingleInput('module:install', 'Enter module to install: ')<CR>
-nnoremap <Leader>dmu :call DrupalSingleInput('module:uninstall', 'Enter module to uninstall: ')<CR>
+nnoremap <Leader>dcc :call ExecuteDrushCommand('cr')<CR>
+nnoremap <Leader>dwd :call ExecuteDrushCommand('watchdog-show')<CR>
+nnoremap <Leader>dce :call ExecuteDrushCommand('cex')<CR>
+nnoremap <Leader>dci :call ExecuteDrushCommand('cim')<CR>
+nnoremap <Leader>dmi :call DrupalSingleInput('en', 'Enter module to install: ')<CR>
+nnoremap <Leader>dmu :call DrupalSingleInput('pm-uninstall', 'Enter module to uninstall: ')<CR>
+nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
 
