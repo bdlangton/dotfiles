@@ -53,6 +53,8 @@ hi DbgBreakptLine guifg=Black guibg=Cyan
 hi PMenu guibg=DarkBlue
 hi PMenuSel guibg=Cyan
 hi SpecialKey guifg=black guibg=red
+hi LightlineRight_active_warning guifg=black guibg=yellow
+hi LightlineRight_active_error guifg=white guibg=red
 
 " Clear links for doxygen sections that were linked to Todo by
 " vim-plugin-for-drupal.
@@ -67,6 +69,36 @@ let g:lightline = {
       \   'modified': '%#ModifiedColor#%{LightlineModified()}',
       \ }
       \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c "
+
+" Set the active right side to include ale linting.
+let g:lightline.active = { 'right': [
+      \     [
+      \         'linter_checking', 'linter_errors',
+      \         'linter_warnings', 'linter_ok'
+      \     ],
+      \     [ 'lineinfo' ],
+      \     [ 'percent' ],
+      \     [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ]
+      \ ] }
 
 function! LightlineModified()
   if !has('nvim')

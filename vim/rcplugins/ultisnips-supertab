@@ -12,7 +12,7 @@ let g:SuperTabNoCompleteAfter = ['\n', '\r', '\s']
 
 let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
-let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsEditSplit='horizontal'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
