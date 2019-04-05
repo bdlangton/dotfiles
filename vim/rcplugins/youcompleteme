@@ -1,0 +1,5 @@
+" A code-completion engine for Vim.
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+" vim:ft=vim
