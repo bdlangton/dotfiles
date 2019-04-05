@@ -34,10 +34,10 @@ let s:drush_alias = ''
 nnoremap <Leader>dcc :call ExecuteDrushCommand('cr')<CR>
 nnoremap <Leader>dul :call ExecuteDrushCommand('uli')<CR>
 nnoremap <Leader>dwd :call ExecuteDrushCommand('watchdog-show')<CR>
-nnoremap <Leader>dce :call ExecuteDrushCommand('cex')<CR>
-nnoremap <Leader>dci :call ExecuteDrushCommand('cim')<CR>
+nnoremap <Leader>dce :call ExecuteDrushCommand('cex sync -y')<CR>
+nnoremap <Leader>dci :call ExecuteDrushCommand('cim sync -y')<CR>
 nnoremap <Leader>dmi :call DrushSingleInput('en', 'Enter module to install: ')<CR>
-nnoremap <Leader>dmu :call DrushSingleInput('pmu', 'Enter module to uninstall: ')<CR>
+nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
