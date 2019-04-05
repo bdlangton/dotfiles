@@ -48,7 +48,7 @@ else
 fi
 
 info "\nInstalling composer global packages if not already installed..."
-for package in 'behat/behat' 'drupal/coder' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer'
+for package in 'behat/behat' 'drupal/coder' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer', 'friendsofphp/php-cs-fixer', 'phpstan/phpstan'
 do
   if [ ! -d "$HOME/.composer/vendor/$package" ]; then
     composer global require $package
