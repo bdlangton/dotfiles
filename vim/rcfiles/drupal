@@ -1,5 +1,13 @@
-" Prompt for a single input.
+" Prompt for a single input to pass to Drupal Console.
 function! DrupalSingleInput(command, text)
+  call inputsave()
+  let input = input(a:text)
+  call inputrestore()
+  execute 'VtrSendCommandToRunner drupal ' s:drush_alias a:command input
+endfunction
+
+" Prompt for a single input to pass to Drush.
+function! DrushSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
@@ -24,11 +32,12 @@ let s:drush_alias = ''
 
 " Drupal mappings to the vim-tmux-runner.
 nnoremap <Leader>dcc :call ExecuteDrushCommand('cr')<CR>
+nnoremap <Leader>dul :call ExecuteDrushCommand('uli')<CR>
 nnoremap <Leader>dwd :call ExecuteDrushCommand('watchdog-show')<CR>
 nnoremap <Leader>dce :call ExecuteDrushCommand('cex')<CR>
 nnoremap <Leader>dci :call ExecuteDrushCommand('cim')<CR>
-nnoremap <Leader>dmi :call DrupalSingleInput('en', 'Enter module to install: ')<CR>
-nnoremap <Leader>dmu :call DrupalSingleInput('pm-uninstall', 'Enter module to uninstall: ')<CR>
+nnoremap <Leader>dmi :call DrushSingleInput('en', 'Enter module to install: ')<CR>
+nnoremap <Leader>dmu :call DrushSingleInput('pmu', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
