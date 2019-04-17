@@ -16,11 +16,6 @@ git-add-subdirectory() {
   fi
 }
 
-# Pull request to the project (current repo) with current branch.
-gitlab () {
-  chrome "https://git.ifsight.net/`git remote show origin -n | grep "Fetch URL:" | sed 's/.*://;s/.git$//'`/merge_requests/new?merge_request[source_branch]=`git branch | grep \* | cut -d ' ' -f2`"
-}
-
 # Detect the project type of the git repo that you're currently in.
 project_type() {
   # Not in a git repo, display the Apple icon.

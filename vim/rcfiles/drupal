@@ -37,7 +37,7 @@ nnoremap <Leader>dul :call ExecuteDrushCommand('uli')<CR>
 nnoremap <Leader>dwd :call ExecuteDrushCommand('watchdog-show')<CR>
 nnoremap <Leader>dce :call ExecuteDrushCommand('cex sync -y')<CR>
 nnoremap <Leader>dci :call ExecuteDrushCommand('cim sync -y')<CR>
-nnoremap <Leader>dmi :call DrushSingleInput('en', 'Enter module to install: ')<CR>
+nnoremap <Leader>dmi :call DrushSingleInput('en -y', 'Enter module to install: ')<CR>
 nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 
