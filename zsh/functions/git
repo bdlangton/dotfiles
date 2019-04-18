@@ -41,3 +41,14 @@ project_type() {
     echo -n "\uf1d2"
   fi
 }
+
+# Print out lines that were removed/changed from the specified sha/branch.
+# This is so you can see if you've removed/changed something that was just
+# recently modified.
+git-blame-removals() {
+  if [ -n "$1" ]; then
+    php ~/.php/git-blame-removals.php $1
+  else
+    echo "You must provide a sha or branch to compare against."
+  fi
+}
