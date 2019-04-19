@@ -18,6 +18,9 @@ function mcd() {
   mkdir -p "$1" && cd "$1";
 }
 
+# Do an ls after a cd.
+cd() { builtin cd "$@" && ls; }
+
 # Print line(s) from a file.
 # To print lines 10-20: printLine 10,20 file.txt
 lines () {

@@ -16,11 +16,6 @@ git-add-subdirectory() {
   fi
 }
 
-# Pull request to the project (current repo) with current branch.
-gitlab () {
-  chrome "https://git.ifsight.net/`git remote show origin -n | grep "Fetch URL:" | sed 's/.*://;s/.git$//'`/merge_requests/new?merge_request[source_branch]=`git branch | grep \* | cut -d ' ' -f2`"
-}
-
 # Detect the project type of the git repo that you're currently in.
 project_type() {
   # Not in a git repo, display the Apple icon.
@@ -44,5 +39,16 @@ project_type() {
   # Generic git icon.
   else
     echo -n "\uf1d2"
+  fi
+}
+
+# Print out lines that were removed/changed from the specified sha/branch.
+# This is so you can see if you've removed/changed something that was just
+# recently modified.
+git-blame-removals() {
+  if [ -n "$1" ]; then
+    php ~/.php/git-blame-removals.php $1
+  else
+    echo "You must provide a sha or branch to compare against."
   fi
 }
