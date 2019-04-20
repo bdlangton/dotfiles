@@ -10,6 +10,8 @@
 # - text to use font 'Hack Nerd Font'
 # - profile -> keys, set left and right option keys to Esc+
 # Install todoist manually
+# Configure Cloudflare as DNS server: https://1.1.1.1/dns/
+# - If using pi-hole, put the pi-hole IP address first
 
 info() {
   echo "$@"
