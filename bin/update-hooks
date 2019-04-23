@@ -8,5 +8,5 @@ if [ -z "$GIT_DIR" ]; then
 fi
 
 # Remove existing hooks and re-init to copy new hooks.
-rm $GIT_DIR/hooks/*
+rm -r $GIT_DIR/hooks/*
 git init

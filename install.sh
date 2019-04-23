@@ -56,6 +56,8 @@ do
     composer global require $package
   fi
 done
+composer global require symfony/console
+composer global require symfony/process
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
 info "Finished composer global packages"
