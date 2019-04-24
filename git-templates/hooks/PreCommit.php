@@ -182,16 +182,16 @@ class PreCommit extends ApplicationBase {
    *   Return TRUE if the check passed, FALSE otherwise.
    */
   protected function checkPhpcs(array $files, string $standard = 'Drupal') {
-    $commandLineArgs = [
+    $processArgs = [
       'phpcs',
       '--standard=' . $standard,
       '--extensions=' . implode(',', $this->fileExtensions),
     ];
 
     foreach ($files as $file) {
-      $commandLineArgs[3] = $file;
+      $processArgs[3] = $file;
 
-      $process = new Process($commandLineArgs);
+      $process = new Process($processArgs);
       $process->setWorkingDirectory($this->projectRoot);
       $process->run();
 
@@ -220,15 +220,15 @@ class PreCommit extends ApplicationBase {
    *   Return TRUE if the check passed, FALSE otherwise.
    */
   protected function checkPhpLint(array $files) {
-    $commandLineArgs = [
+    $processArgs = [
       'php',
       '-l',
     ];
 
     foreach ($files as $file) {
-      $commandLineArgs[2] = $file;
+      $processArgs[2] = $file;
 
-      $process = new Process($commandLineArgs);
+      $process = new Process($processArgs);
       $process->setWorkingDirectory($this->projectRoot);
       $process->run();
 
@@ -253,7 +253,7 @@ class PreCommit extends ApplicationBase {
    *   print out errors if they exist, but it will always pass.
    */
   protected function checkPhpmd(array $files) {
-    $commandLineArgs = [
+    $processArgs = [
       'phpmd',
       '',
       'text',
@@ -262,16 +262,16 @@ class PreCommit extends ApplicationBase {
     ];
 
     foreach ($files as $file) {
-      $commandLineArgs[1] = $file;
+      $processArgs[1] = $file;
 
-      $process = new Process($commandLineArgs);
+      $process = new Process($processArgs);
       $process->setWorkingDirectory($this->projectRoot);
       $process->run();
 
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
         $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-        $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
       }
     }
     return TRUE;
@@ -287,7 +287,7 @@ class PreCommit extends ApplicationBase {
    *   Return TRUE if the check passed, FALSE otherwise.
    */
   protected function checkPhpDebugging(array $files) {
-    $commandLineArgs = [
+    $processArgs = [
       'git',
       'diff',
       '--cached',
@@ -313,8 +313,8 @@ class PreCommit extends ApplicationBase {
     foreach ($files as $file) {
       // Check for debugging code that was committed.
       foreach ($debugging_searches as $search) {
-        $commandLineArgs[4] = $file;
-        $gitdiff = new Process($commandLineArgs);
+        $processArgs[4] = $file;
+        $gitdiff = new Process($processArgs);
         $gitdiff->setWorkingDirectory($this->projectRoot);
         $gitdiff->run();
         $process = new Process(['grep', '\+.*' . $search]);
@@ -369,16 +369,14 @@ class PreCommit extends ApplicationBase {
    *   Return TRUE if the check passed, FALSE otherwise.
    */
   protected function checkPhpcpd() {
-    $commandLineArgs = [
+    $process = new Process([
       'phpcpd',
       '--exclude=vendor',
       '--exclude=core',
       '--exclude=contrib',
       '--exclude=sites/default',
       '.',
-    ];
-
-    $process = new Process($commandLineArgs);
+    ]);
     $process->setWorkingDirectory($this->projectRoot);
     $process->run();
 
