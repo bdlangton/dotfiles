@@ -112,7 +112,6 @@ class PreCommit extends ApplicationBase {
     $this->output = $output;
 
     $output->writeln('<fg=white;options=bold;bg=cyan> -- Code Quality Pre-Commit Check -- </fg=white;options=bold;bg=cyan>');
-    $output->writeln('<info>Fetching files</info>');
     $files = $this->getChangedFiles();
 
     // These checks require valid changed files.
@@ -198,13 +197,15 @@ class PreCommit extends ApplicationBase {
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
         $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-        $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln('');
         return FALSE;
       }
       elseif (!empty($process->getOutput())) {
         // Print output that exists but don't fail the commit.
         $this->output->writeln($file);
-        $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln('');
       }
     }
     return TRUE;
@@ -235,7 +236,8 @@ class PreCommit extends ApplicationBase {
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
         $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-        $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln('');
         return FALSE;
       }
     }
@@ -272,6 +274,7 @@ class PreCommit extends ApplicationBase {
         $this->output->writeln($file);
         $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
         $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln('');
       }
     }
     return TRUE;
@@ -324,7 +327,8 @@ class PreCommit extends ApplicationBase {
         if (!$process->isSuccessful() && !empty($process->getOutput())) {
           $this->output->writeln($file);
           $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-          $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+          $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+          $this->output->writeln('');
           return FALSE;
         }
       }
@@ -382,7 +386,8 @@ class PreCommit extends ApplicationBase {
 
     if (!$process->isSuccessful()) {
       $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-      $this->output->writeln(sprintf('<info>%s</info>', trim($process->getOutput())));
+      $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+      $this->output->writeln('');
       return FALSE;
     }
     return TRUE;
