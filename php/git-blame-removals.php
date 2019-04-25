@@ -76,7 +76,11 @@ foreach ($files as $file) {
     }
 
     // Run a git blame and find the line that matches the removed line.
-    $quote = '^[^(]*? (\([^)]*\))\s*' . str_replace('\$', '.', preg_quote($removal_diff)) . '$';
+    $quote = '^[^(]*? (\([^)]*\))\s*' . str_replace(
+      ['\$', '"', '`'],
+      ['.', '.', '.'],
+      preg_quote($removal_diff)
+    ) . '$';
     exec("git blame --date=relative $sha -- $file | grep -E \"$quote\"", $d);
     $diffs += $d;
   }

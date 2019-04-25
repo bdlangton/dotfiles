@@ -3,7 +3,7 @@ function! DrupalSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drupal ' s:drush_alias a:command input
+  execute 'VtrSendCommandToRunner drupal' s:drush_alias a:command input
 endfunction
 
 " Prompt for a single input to pass to Drush.
@@ -11,12 +11,12 @@ function! DrushSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drush ' s:drush_alias a:command input
+  execute 'VtrSendCommandToRunner drush' s:drush_alias a:command input
 endfunction
 
 " Execute a drush command.
 function! ExecuteDrushCommand(command)
-  execute 'VtrSendCommandToRunner drush ' s:drush_alias a:command
+  execute 'VtrSendCommandToRunner drush' s:drush_alias a:command
 endfunction
 
 " Prompt for a drush alias to use.
