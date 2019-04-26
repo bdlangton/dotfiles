@@ -24,6 +24,11 @@ function! SetDrushAlias()
   call inputsave()
   let s:drush_alias = input('Use drush alias: ')
   call inputrestore()
+  call EchoDrushAlias()
+endfunction
+
+" Echo the drush alias.
+function! EchoDrushAlias()
   echohl String | echo "\rDrush alias set to: " . s:drush_alias | echohl None
 endfunction
 
@@ -40,6 +45,7 @@ nnoremap <Leader>dci :call ExecuteDrushCommand('cim sync -y')<CR>
 nnoremap <Leader>dmi :call DrushSingleInput('en -y', 'Enter module to install: ')<CR>
 nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
+nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
 
