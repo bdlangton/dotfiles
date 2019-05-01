@@ -16,7 +16,7 @@ alias ctags='/usr/local/bin/ctags'
 
 alias c='composer'
 alias mux='tmuxinator'
-alias d='drupal'
+alias d='drush'
 alias v='vim'
 alias b='bundle'
 alias be='bundle exec'
