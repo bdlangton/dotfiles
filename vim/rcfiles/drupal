@@ -3,7 +3,7 @@ function! DrupalSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drupal' s:drush_alias a:command input
+  execute 'VtrSendCommandToRunner drupal' g:drush_alias a:command input
 endfunction
 
 " Prompt for a single input to pass to Drush.
@@ -11,29 +11,29 @@ function! DrushSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drush' s:drush_alias a:command input
+  execute 'VtrSendCommandToRunner drush' g:drush_alias a:command input
 endfunction
 
 " Execute a drush command.
 function! ExecuteDrushCommand(command)
-  execute 'VtrSendCommandToRunner drush' s:drush_alias a:command
+  execute 'VtrSendCommandToRunner drush' g:drush_alias a:command
 endfunction
 
 " Prompt for a drush alias to use.
 function! SetDrushAlias()
   call inputsave()
-  let s:drush_alias = input('Use drush alias: ')
+  let g:drush_alias = input('Use drush alias: ')
   call inputrestore()
   call EchoDrushAlias()
 endfunction
 
 " Echo the drush alias.
 function! EchoDrushAlias()
-  echohl String | echo "\rDrush alias set to: " . s:drush_alias | echohl None
+  echohl String | echo "\rDrush alias set to: " . g:drush_alias | echohl None
 endfunction
 
 " Set default drush alias to blank.
-let s:drush_alias = ''
+let g:drush_alias = ''
 
 " Drupal mappings to the vim-tmux-runner.
 nnoremap <Leader>dcc :call ExecuteDrushCommand('cr')<CR>
