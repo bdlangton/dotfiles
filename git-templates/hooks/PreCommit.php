@@ -17,34 +17,6 @@ use Symfony\Component\Process\Process;
 class PreCommit extends ApplicationBase {
 
   /**
-   * The Symfony output interface.
-   *
-   * @var Symfony\Component\Console\Output\OutputInterface
-   */
-  protected $output;
-
-  /**
-   * The Symfony input interface.
-   *
-   * @var Symfony\Component\Console\Input\InputInterface
-   */
-  protected $input;
-
-  /**
-   * The directory of the project root (the git hooks directory).
-   *
-   * @var string
-   */
-  protected $projectRoot;
-
-  /**
-   * The root directory of the git repo.
-   *
-   * @var string
-   */
-  protected $gitRoot;
-
-  /**
    * File extensions to check.
    *
    * If a modified file doesn't contain one of these extensions, then it will
@@ -111,44 +83,43 @@ class PreCommit extends ApplicationBase {
     $this->input = $input;
     $this->output = $output;
 
-    $output->writeln('<fg=white;options=bold;bg=cyan> -- Code Quality Pre-Commit Check -- </fg=white;options=bold;bg=cyan>');
     $files = $this->getChangedFiles();
 
     // These checks require valid changed files.
     if (!empty($files)) {
       // PHPCS.
-      $output->writeln('<info>Checking PHPCS</info>');
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCS -- </fg=white;options=bold;bg=cyan>\n");
       if (!$this->checkPhpcs($files)) {
         $exceptions .= "There were PHPCS errors that need fixed.\n";
       }
 
       // PHP Lint.
-      $output->writeln('<info>Checking PHP Lint</info>');
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Lint -- </fg=white;options=bold;bg=cyan>\n");
       if (!$this->checkPhpLint($files)) {
         $exceptions .= "There were PHP Linting errors that need fixed.\n";
       }
 
       // PHPMD.
-      $output->writeln('<info>Checking PHPMD</info>');
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPMD -- </fg=white;options=bold;bg=cyan>\n");
       if (!$this->checkPhpmd($files)) {
         $exceptions .= "There were PHPMD errors that need fixed.\n";
       }
 
       // PHP Debugging.
-      $output->writeln('<info>Checking PHP Debugging</info>');
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Debugging -- </fg=white;options=bold;bg=cyan>\n");
       if (!$this->checkPhpDebugging($files)) {
         $exceptions .= "There were PHP Debugging errors that need fixed.\n";
       }
     }
 
     // PHPCPD.
-    $output->writeln('<info>Checking PHPCPD</info>');
+    $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCPD -- </fg=white;options=bold;bg=cyan>\n");
     if (!$this->checkPhpcpd()) {
       $exceptions .= "There were PHPCPD errors that need fixed.\n";
     }
 
     // Composer.
-    $output->writeln('<info>Checking Composer</info>');
+    $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking Composer -- </fg=white;options=bold;bg=cyan>\n");
     if (!$this->checkComposer($files)) {
       $exceptions .= 'Composer error: composer.lock must be commited if composer.json is modified.';
     }
@@ -156,9 +127,6 @@ class PreCommit extends ApplicationBase {
     // If any exceptions were found, throw an exception.
     if (!empty($exceptions)) {
       throw new \Exception($exceptions);
-    }
-    else {
-      $output->writeln('<fg=white;options=bold;bg=green> -- Code Quality: Passed! -- </fg=white;options=bold;bg=green>');
     }
   }
 
