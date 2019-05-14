@@ -82,6 +82,9 @@ alias gitregex=~/bin/git-regex.sh
 # Git commit amend with no edit and push force with lease.
 alias gcpf='git ci --amend --no-edit && git pf'
 
+# List out files that have conflicts.
+alias guu='git st | ag "^[DU]U"'
+
 # ==============================================================================
 # Search
 
