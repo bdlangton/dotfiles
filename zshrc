@@ -1,5 +1,5 @@
 # Oh-my-zsh.
-export ZSH=/Users/barrett/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting z fz tmuxinator thefuck)
 export UPDATE_ZSH_DAYS=30
 
@@ -43,8 +43,13 @@ export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer
 
 # Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
-source /usr/local/opt/fzf/shell/completion.zsh
-source /usr/local/opt/fzf/shell/key-bindings.zsh
+if [ -d "/usr/local/opt/fzf" ]; then
+  source /usr/local/opt/fzf/shell/completion.zsh
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+fi
+
+# Source fzf.zsh if it exists in the home directory.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Git and fzf key bindings for searching git commits/tags/branches/remotes/files
 # in a git repo.
