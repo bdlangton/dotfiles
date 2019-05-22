@@ -177,8 +177,7 @@ cask 'whatsapp'
 cask 'signal'
 
 # File syncing.
-cask 'dropbox'
-cask 'google-backup-and-sync'
+cask 'nextcloud'
 
 # Video and Music.
 cask 'marshallofsound-google-play-music-player'
