@@ -29,7 +29,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # Elements for the left and right prompt, and git hooks.
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status command_execution_time custom_project dir vcs time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status command_execution_time os_icon custom_project dir vcs time)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-tagname)
 

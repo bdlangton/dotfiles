@@ -18,8 +18,8 @@ git-add-subdirectory() {
 
 # Detect the project type of the git repo that you're currently in.
 project_type() {
-  # Not in a git repo, display the Apple icon.
-  is_in_git_repo || { echo -n "\ue711"; return }
+  # Not in a git repo, display nothing.
+  is_in_git_repo || { echo -n ""; return }
 
   # Get the base git repo directory.
   local base_dir="$(git rev-parse --show-toplevel)"
