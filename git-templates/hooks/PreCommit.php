@@ -164,8 +164,7 @@ class PreCommit extends ApplicationBase {
 
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
-        $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<error>%s</error>', trim($process->getOutput())));
         $this->output->writeln('');
         return FALSE;
       }
@@ -203,8 +202,7 @@ class PreCommit extends ApplicationBase {
 
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
-        $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-        $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+        $this->output->writeln(sprintf('<error>%s</error>', trim($process->getOutput())));
         $this->output->writeln('');
         return FALSE;
       }
@@ -240,7 +238,6 @@ class PreCommit extends ApplicationBase {
 
       if (!$process->isSuccessful()) {
         $this->output->writeln($file);
-        $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
         $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
         $this->output->writeln('');
       }
@@ -288,14 +285,15 @@ class PreCommit extends ApplicationBase {
         $gitdiff = new Process($processArgs);
         $gitdiff->setWorkingDirectory($this->projectRoot);
         $gitdiff->run();
+
+        // TODO: This is not actually getting debugging code.
         $process = new Process(['grep', '\+.*' . $search]);
         $process->setInput($gitdiff->getOutput());
         $process->run();
 
-        if (!$process->isSuccessful() && !empty($process->getOutput())) {
+        if (!$process->isSuccessful() && $process->getOutput()) {
           $this->output->writeln($file);
-          $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-          $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+          $this->output->writeln(sprintf('<error>Found %s in the code</error>', $search));
           $this->output->writeln('');
           return FALSE;
         }
@@ -353,8 +351,7 @@ class PreCommit extends ApplicationBase {
     $process->run();
 
     if (!$process->isSuccessful()) {
-      $this->output->writeln(sprintf('<error>%s</error>', trim($process->getErrorOutput())));
-      $this->output->writeln(sprintf('<fg=yellow>%s</fg=yellow>', trim($process->getOutput())));
+      $this->output->writeln(sprintf('<error>%s</error>', trim($process->getOutput())));
       $this->output->writeln('');
       return FALSE;
     }
