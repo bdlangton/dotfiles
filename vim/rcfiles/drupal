@@ -46,6 +46,7 @@ nnoremap <Leader>dmi :call DrushSingleInput('en -y', 'Enter module to install: '
 nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
+nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
 
