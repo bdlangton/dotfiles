@@ -9,7 +9,9 @@ info() {
 info "Installing keys and apt-sources..."
 wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add
 echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
+echo "deb http://pkg.jenkins-ci.org/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 info "Finished installing keys and apt-sources"
 
@@ -18,7 +20,7 @@ sudo apt-get update
 sudo apt-get remove vim
 sudo apt-get install vim-nox build-essential cmake python3-dev
 sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-sudo apt-get install php php-xml php-mbstring git zsh exuberant-ctags rbenv nodejs fzf thefuck awscli htop nmap ncdu wrk zplug docker-ce rcm
+sudo apt-get install php php-xml php-mbstring git zsh exuberant-ctags rbenv nodejs fzf thefuck awscli htop nmap ncdu wrk zplug docker-ce rcm silversearcher-ag
 info "Finished installing apt-get packages"
 
 info "Installing oh-my-zsh if not already installed..."

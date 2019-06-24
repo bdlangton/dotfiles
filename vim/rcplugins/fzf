@@ -2,7 +2,11 @@
 
 Plug 'junegunn/fzf.vim'
 
+" MacOS.
 set rtp+=/usr/local/opt/fzf
+
+" Linux.
+set rtp+=~/.fzf
 
 " FZF customization.
 let $FZF_DEFAULT_COMMAND='ag --hidden -W 80 -S -g ""'
