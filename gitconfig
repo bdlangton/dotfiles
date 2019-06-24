@@ -10,11 +10,13 @@
   fa = fetch --all
   st = status -s
   ci = commit
+  # Quick commit and amend without editing the commit msg.
   ca = commit --amend --no-edit
   co = checkout
   nb = checkout -b
   br = branch
   db = branch -D
+  # Push force (as long as other users haven't made pushes that your local doesn't know about).
   pf = push --force-with-lease
   psu = push --set-upstream
   rh = reset --hard
@@ -25,15 +27,25 @@
   ss = stash save
   cp = cherry-pick
   bi = bisect
+  # Clean out untracked files and directories.
   clean = clean -fd
   remotes = remote -v
+  # History in pretty format.
   hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short
-  histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short HEAD --not origin/master
+  # Show history of commits that are local but not in specified branch/hash.
+  # Required to provide a branch/hash after 'histdiff'.
+  histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short HEAD --not
+  # Show history of specific file even if it is currently deleted.
+  filehist = log --full-history --
+  # Git log just for the last commit.
   last = log -1 HEAD
+  # Show type of specific hash.
   type = cat-file -t
+  # Show dump info for specific hash (tree hash, parent hash[es], author, etc).
   dump = cat-file -p
   pu = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
   count = "!f() { compareBranch=${1-master}; git rev-list --count HEAD ^$compareBranch; }; f"
+  # Open conflicts in vim.
   conflicted = !vim +Conflicted
 [color]
   ui = auto

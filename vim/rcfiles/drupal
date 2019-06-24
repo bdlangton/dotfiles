@@ -19,6 +19,11 @@ function! ExecuteDrushCommand(command)
   execute 'VtrSendCommandToRunner drush' g:drush_alias a:command
 endfunction
 
+" Execute command to send to runner.
+function! ExecuteVtrCommand(command)
+  execute 'VtrSendCommandToRunner ' a:command
+endfunction
+
 " Prompt for a drush alias to use.
 function! SetDrushAlias()
   call inputsave()
@@ -46,6 +51,7 @@ nnoremap <Leader>dmi :call DrushSingleInput('en -y', 'Enter module to install: '
 nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
 nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
+nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
 autocmd BufRead,BufNewFile *.theme setlocal filetype=php
 
