@@ -43,7 +43,10 @@
   type = cat-file -t
   # Show dump info for specific hash (tree hash, parent hash[es], author, etc).
   dump = cat-file -p
+  # Checkout deleted files (takes a parameter to limit the deletion to a specific path).
+  codel = "!f() { git diff --no-renames --name-only --diff-filter=D -z $1 | xargs -0 git checkout --; }; f"
   pu = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
+  # Display the number of commits in current branch that aren't in compared branch.
   count = "!f() { compareBranch=${1-master}; git rev-list --count HEAD ^$compareBranch; }; f"
   # Open conflicts in vim.
   conflicted = !vim +Conflicted
