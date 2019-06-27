@@ -1,5 +1,5 @@
 " Escape using jk.
-inoremap jk <esc>
+inoremap jk <esc>:w<CR>
 
 " Use <C-Z> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
