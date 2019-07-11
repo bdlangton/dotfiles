@@ -226,7 +226,7 @@ class PreCommit extends ApplicationBase {
       '',
       'text',
       '.git/hooks/phpmd-ruleset.xml',
-      '--suffixes php,inc,module.install,test,profile',
+      '--suffixes php,inc,module,install,test,profile',
     ];
 
     foreach ($files as $file) {
