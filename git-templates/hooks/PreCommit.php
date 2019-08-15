@@ -38,6 +38,24 @@ class PreCommit extends ApplicationBase {
   ];
 
   /**
+   * PHP File extensions.
+   *
+   * Only files ending with these extensions will be checked by PHP checks.
+   *
+   * @var array
+   */
+  protected $phpFileExtensions = [
+    'php',
+    'module',
+    'inc',
+    'install',
+    'test',
+    'profile',
+    'theme',
+    'class',
+  ];
+
+  /**
    * Ignore filenames that contain these strings.
    *
    * @var array
@@ -153,7 +171,7 @@ class PreCommit extends ApplicationBase {
     $processArgs = [
       'phpcs',
       '--standard=' . $standard,
-      '--extensions=' . implode(',', $this->fileExtensions),
+      '--extensions=' . implode(',', $this->phpFileExtensions),
     ];
 
     foreach ($files as $file) {
@@ -195,6 +213,11 @@ class PreCommit extends ApplicationBase {
     ];
 
     foreach ($files as $file) {
+      // Skip non-PHP files.
+      if (!$this->verifyPhpFile($file)) {
+        continue;
+      }
+
       $processArgs[2] = $file;
 
       $process = new Process($processArgs);
@@ -231,6 +254,11 @@ class PreCommit extends ApplicationBase {
     ];
 
     foreach ($files as $file) {
+      // Skip non-PHP files.
+      if (!$this->verifyPhpFile($file)) {
+        continue;
+      }
+
       $processArgs[1] = $file;
 
       $process = new Process($processArgs);

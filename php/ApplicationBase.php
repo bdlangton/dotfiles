@@ -54,6 +54,15 @@ abstract class ApplicationBase extends Application {
   protected $fileExtensions;
 
   /**
+   * PHP File extensions.
+   *
+   * Only files ending with these extensions will be checked by PHP checks.
+   *
+   * @var array
+   */
+  protected $phpFileExtensions;
+
+  /**
    * Ignore filenames that contain these strings.
    *
    * @var array
@@ -128,6 +137,33 @@ abstract class ApplicationBase extends Application {
       || !empty($ignore_filenames)
       || !empty($ignore_file_paths)
     ) {
+      return FALSE;
+    }
+
+    return TRUE;
+  }
+
+  /**
+   * Check if the file is a PHP file based on extension.
+   *
+   * @param string $file
+   *   The file to check.
+   *
+   * @return bool
+   *   Return TRUE if the file is a PHP file, FALSE if not.
+   */
+  protected function verifyPhpFile($file) {
+    // Skip files that don't exist.
+    if (!file_exists($file)) {
+      return FALSE;
+    }
+
+    // Get the filename extension.
+    $ext = pathinfo($file, PATHINFO_EXTENSION);
+
+    // Skip over the file if it does not match one of the included PHP file
+    // extensions.
+    if (!empty($this->phpFileExtensions) && !in_array($ext, $this->phpFileExtensions)) {
       return FALSE;
     }
 
