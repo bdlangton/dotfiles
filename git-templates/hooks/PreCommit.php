@@ -34,6 +34,7 @@ class PreCommit extends ApplicationBase {
     'theme',
     'txt',
     'class',
+    'json',
   ];
 
   /**
@@ -110,18 +111,18 @@ class PreCommit extends ApplicationBase {
       if (!$this->checkPhpDebugging($files)) {
         $exceptions .= "There were PHP Debugging errors that need fixed.\n";
       }
+
+      // Composer.
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking Composer -- </fg=white;options=bold;bg=cyan>\n");
+      if (!$this->checkComposer($files)) {
+        $exceptions .= "Composer validation failed.\n";
+      }
     }
 
     // PHPCPD.
     $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCPD -- </fg=white;options=bold;bg=cyan>\n");
     if (!$this->checkPhpcpd()) {
       $exceptions .= "There were PHPCPD errors that need fixed.\n";
-    }
-
-    // Composer.
-    $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking Composer -- </fg=white;options=bold;bg=cyan>\n");
-    if (!$this->checkComposer($files)) {
-      $exceptions .= 'Composer error: composer.lock must be commited if composer.json is modified.';
     }
 
     // If any exceptions were found, throw an exception.
@@ -304,7 +305,7 @@ class PreCommit extends ApplicationBase {
   }
 
   /**
-   * Check if composer.json was changed, that composer.lock is also changed.
+   * Check if composer is valid if composer.json was updated.
    *
    * @param array $files
    *   Array of files to check.
@@ -313,22 +314,26 @@ class PreCommit extends ApplicationBase {
    *   Return TRUE if the check passed, FALSE otherwise.
    */
   private function checkComposer(array $files) {
-    $composerJsonDetected = FALSE;
-    $composerLockDetected = FALSE;
-
     foreach ($files as $file) {
-      if ($file === 'composer.json') {
-        $composerJsonDetected = TRUE;
-      }
+      if (strpos($file, 'composer.json') !== FALSE) {
+        $process = new Process([
+          'composer',
+          'validate',
+          '--no-check-all',
+          '--ansi',
+        ]);
+        $directory = explode('composer.json', $file);
+        $process->setWorkingDirectory($directory[0]);
+        $process->run();
 
-      if ($file === 'composer.lock') {
-        $composerLockDetected = TRUE;
+        if (!$process->isSuccessful()) {
+          $this->output->writeln($process->getErrorOutput());
+          $this->output->writeln('');
+          return FALSE;
+        }
       }
     }
 
-    if ($composerJsonDetected && !$composerLockDetected) {
-      return FALSE;
-    }
     return TRUE;
   }
 
