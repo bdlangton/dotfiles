@@ -5,8 +5,7 @@
  * Pre-commit console application to run checks on committed code.
  */
 
-require getenv('HOME') . '/.php/ApplicationBase.php';
-
+use Barrett\Git\ApplicationBase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;

@@ -1,11 +1,6 @@
 <?php
 
-/**
- * @file
- * Console application to run git blame on lines removed.
- */
-
-require 'ApplicationBase.php';
+namespace Barrett\Git;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

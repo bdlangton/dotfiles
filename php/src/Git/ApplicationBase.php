@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @file
- * Base application class.
- */
+namespace Barrett\Git;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;

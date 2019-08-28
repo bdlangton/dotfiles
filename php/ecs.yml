@@ -1,0 +1,3 @@
+services:
+    Symplify\CodingStandard\Sniffs\DeadCode\UnusedPublicMethodSniff: ~
+    Barrett\Finder\PhpFilesProvider: ~

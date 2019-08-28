@@ -7,7 +7,8 @@
  */
 
 require getenv('HOME') . '/.composer/vendor/autoload.php';
-require 'GitBlameRemovals.php';
+
+use Barrett\Git\GitBlameRemovals;
 
 $console = new GitBlameRemovals($argv[1]);
 $console->run();
