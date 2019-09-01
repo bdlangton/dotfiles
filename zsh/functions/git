@@ -25,17 +25,17 @@ project_type() {
   local base_dir="$(git rev-parse --show-toplevel)"
 
   # PHP.
-  if [[ -f $base_dir/composer.json || -f $base_dir/web/composer.json  || -f $base_dir/docroot/composer.json ]]; then
+  if [[ -f $base_dir/composer.json || -f $base_dir/web/composer.json || -f $base_dir/docroot/composer.json ]]; then
     echo -n "\ue608"
   # Ruby.
-  elif [[ -f $base_dir/Gemfile ]]; then
+  elif [[ -f $base_dir/Gemfile || -f $base_dir/docroot/Gemfile ]]; then
     echo -n "\ue21e"
-  # Docker.
-  elif [[ -f $base_dir/docker-compose.yml ]]; then
-    echo -n "\uf308"
   # Node.
   elif [[ -f $base_dir/package.json ]]; then
     echo -n "\ue718"
+  # Docker.
+  elif [[ -f $base_dir/docker-compose.yml ]]; then
+    echo -n "\uf308"
   # Generic git icon.
   else
     echo -n "\uf1d2"

@@ -102,44 +102,48 @@ class PreCommit extends ApplicationBase {
     $this->output = $output;
 
     $files = $this->getChangedFiles();
+    $project_type = $this->getProjectType();
 
-    // These checks require valid changed files.
-    if (!empty($files)) {
-      // PHPCS.
-      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCS -- </fg=white;options=bold;bg=cyan>\n");
-      if (!$this->checkPhpcs($files)) {
-        $exceptions .= "There were PHPCS errors that need fixed.\n";
+    // PHP specific tests.
+    if ($project_type == 'php') {
+      // These checks require valid changed files.
+      if (!empty($files)) {
+        // PHPCS.
+        $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCS -- </fg=white;options=bold;bg=cyan>\n");
+        if (!$this->checkPhpcs($files)) {
+          $exceptions .= "There were PHPCS errors that need fixed.\n";
+        }
+
+        // PHP Lint.
+        $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Lint -- </fg=white;options=bold;bg=cyan>\n");
+        if (!$this->checkPhpLint($files)) {
+          $exceptions .= "There were PHP Linting errors that need fixed.\n";
+        }
+
+        // PHPMD.
+        $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPMD -- </fg=white;options=bold;bg=cyan>\n");
+        if (!$this->checkPhpmd($files)) {
+          $exceptions .= "There were PHPMD errors that need fixed.\n";
+        }
+
+        // PHP Debugging.
+        $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Debugging -- </fg=white;options=bold;bg=cyan>\n");
+        if (!$this->checkPhpDebugging($files)) {
+          $exceptions .= "There were PHP Debugging errors that need fixed.\n";
+        }
+
+        // Composer.
+        $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking Composer -- </fg=white;options=bold;bg=cyan>\n");
+        if (!$this->checkComposer($files)) {
+          $exceptions .= "Composer validation failed.\n";
+        }
       }
 
-      // PHP Lint.
-      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Lint -- </fg=white;options=bold;bg=cyan>\n");
-      if (!$this->checkPhpLint($files)) {
-        $exceptions .= "There were PHP Linting errors that need fixed.\n";
+      // PHPCPD.
+      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCPD -- </fg=white;options=bold;bg=cyan>\n");
+      if (!$this->checkPhpcpd()) {
+        $exceptions .= "There were PHPCPD errors that need fixed.\n";
       }
-
-      // PHPMD.
-      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPMD -- </fg=white;options=bold;bg=cyan>\n");
-      if (!$this->checkPhpmd($files)) {
-        $exceptions .= "There were PHPMD errors that need fixed.\n";
-      }
-
-      // PHP Debugging.
-      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHP Debugging -- </fg=white;options=bold;bg=cyan>\n");
-      if (!$this->checkPhpDebugging($files)) {
-        $exceptions .= "There were PHP Debugging errors that need fixed.\n";
-      }
-
-      // Composer.
-      $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking Composer -- </fg=white;options=bold;bg=cyan>\n");
-      if (!$this->checkComposer($files)) {
-        $exceptions .= "Composer validation failed.\n";
-      }
-    }
-
-    // PHPCPD.
-    $output->writeln("<fg=white;options=bold;bg=cyan> -- Checking PHPCPD -- </fg=white;options=bold;bg=cyan>\n");
-    if (!$this->checkPhpcpd()) {
-      $exceptions .= "There were PHPCPD errors that need fixed.\n";
     }
 
     // If any exceptions were found, throw an exception.

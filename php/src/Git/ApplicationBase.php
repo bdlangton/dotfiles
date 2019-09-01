@@ -167,4 +167,46 @@ abstract class ApplicationBase extends Application {
     return TRUE;
   }
 
+  /**
+   * Get the project type of the current git project.
+   *
+   * Detects the project type by the existence of specific files.
+   *
+   * @return string
+   *   Return the programming language name of the project, NULL if it couldn't
+   *   determine it.
+   */
+  protected function getProjectType() {
+    $return = [];
+
+    exec('git rev-parse --show-toplevel', $return);
+
+    if (!empty($return[0])) {
+      $base_dir = $return[0];
+
+      if (
+        file_exists($base_dir . '/composer.json') ||
+        file_exists($base_dir . '/web/composer.json') ||
+        file_exists($base_dir . '/docroot/composer.json')
+      ) {
+        return 'php';
+      }
+      elseif (
+        file_exists($base_dir . '/Gemfile') ||
+        file_exists($base_dir . '/web/Gemfile') ||
+        file_exists($base_dir . '/docroot/Gemfile')
+      ) {
+        return 'ruby';
+      }
+      elseif (file_exists($base_dir . '/package.json')) {
+        return 'node';
+      }
+      elseif (file_exists($base_dir . '/docker-composer.yml')) {
+        return 'docker';
+      }
+    }
+
+    return NULL;
+  }
+
 }
