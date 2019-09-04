@@ -8,19 +8,23 @@
   tool = vimdiff
 [alias]
   fa = fetch --all
+  # Get status (short).
   st = status -s
   ci = commit
   # Quick commit and amend without editing the commit msg.
   ca = commit --amend --no-edit
   co = checkout
-  nb = checkout -b
+  # Checkout new branch w/o tracking remote branch as tracking (if specified).
+  nb = checkout --no-track -b
   br = branch
+  # Delete branch (can't be currently on the deleted branch).
   db = branch -D
   # Push force (as long as other users haven't made pushes that your local doesn't know about).
   pf = push --force-with-lease
   psu = push --set-upstream
   rh = reset --hard
   diff = diff --word-diff
+  # Show changes staged for the next commit.
   dc = diff --cached
   sa = stash apply
   sl = stash list
@@ -29,6 +33,7 @@
   bi = bisect
   # Clean out untracked files and directories.
   clean = clean -fd
+  # Show all remotes verbosely.
   remotes = remote -v
   # History in pretty format.
   hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short
