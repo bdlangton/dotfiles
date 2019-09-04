@@ -47,6 +47,8 @@ composer global require symfony/process
 ln -s $HOME/.config/composer $HOME/.composer
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
+phpcs --config-set ignore_warnings_on_exit 1
+phpcs --config-set colors 1
 info "Finished composer global packages"
 
 info "\nInstalling drupal console launcher if not already installed..."
