@@ -1,15 +1,3 @@
-" Save the cwd to a variable so it can be retrieved at a later time.
-function! g:SaveDir()
-  let w:saved_dir = getcwd()
-endfunction
-
-" Restore the directory that was last saved with SaveDir().
-function! g:RestoreDir()
-  if exists("w:saved_dir")
-    :cd `=w:saved_dir`
-  endif
-endfunction
-
 " Change directory to docroot if possible.
 " This is just for Drupal sites where the current dir might be above docroot and
 " we need to be in docroot for drush/drupal console.
@@ -24,6 +12,9 @@ endfunction
 " Prompt for a directory to CD into.
 function! g:PromptDir()
   let root = getcwd()
+  if exists("w:saved_dir")
+    let root = w:saved_dir
+  endif
   call inputsave()
   let input = input('Search dir: ' . root . '/')
   call inputrestore()
