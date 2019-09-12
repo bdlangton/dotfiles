@@ -36,10 +36,10 @@
   # Show all remotes verbosely.
   remotes = remote -v
   # History in pretty format.
-  hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short
+  hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short
   # Show history of commits that are local but not in specified branch/hash.
   # Required to provide a branch/hash after 'histdiff'.
-  histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%C(auto)\" --graph --date=short HEAD --not
+  histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short HEAD --not
   # Show history of specific file even if it is currently deleted.
   filehist = log --full-history --
   # Git log just for the last commit.
