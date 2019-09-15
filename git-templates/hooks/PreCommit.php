@@ -5,7 +5,7 @@
  * Pre-commit console application to run checks on committed code.
  */
 
-use Barrett\Git\ApplicationBase;
+use Bdlangton\Php\Git\ApplicationBase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;

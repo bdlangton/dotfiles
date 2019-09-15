@@ -5,7 +5,7 @@
  * Commit-msg console application to run checks on commit message.
  */
 
-use Barrett\Git\ApplicationBase;
+use Bdlangton\Php\Git\ApplicationBase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

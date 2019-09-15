@@ -1,8 +1,0 @@
-{
-    "name": "barrett/php",
-    "description": "My custom PHP classes",
-    "version": "1.0",
-    "autoload": {
-        "psr-4": {"Barrett\\": "src"}
-    }
-}
