@@ -36,15 +36,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 info "Finished installing fzf..."
 
 info "\nInstalling composer global packages if not already installed..."
-for package in 'behat/behat' 'drupal/coder' 'drush/drush' 'phploc/phploc' 'phpmetrics/phpmetrics' 'sebastian/phpcpd' 'squizlabs/PHP_CodeSniffer', 'friendsofphp/php-cs-fixer', 'phpstan/phpstan'
-do
-  if [ ! -d "$HOME/.composer/vendor/$package" ]; then
-    composer global require $package
-  fi
-done
-composer global require symfony/console
-composer global require symfony/process
 ln -s $HOME/.config/composer $HOME/.composer
+composer global install
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
 phpcs --config-set ignore_warnings_on_exit 1
