@@ -1,7 +1,7 @@
 " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP)
 " integration. Also lightline integration for ale.
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 
 " Fix files on save.
@@ -21,7 +21,6 @@ let g:ale_fixers = {
 \}
 
 " Global settings.
-let g:ale_php_phpcs_executable = '~/.composer/vendor/bin/phpcs'
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_php_phpmd_ruleset = '~/.git-templates/hooks/phpmd-ruleset.xml'
 
