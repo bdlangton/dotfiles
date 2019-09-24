@@ -41,6 +41,9 @@ _load_settings "$HOME/.zsh/configs"
 
 export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer/vendor/bin"
 
+# Node path.
+export NODE_PATH="/usr/local/lib/node_modules"
+
 # Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
 if [ -d "/usr/local/opt/fzf" ]; then

@@ -73,7 +73,7 @@ info "\nInstalling git repos if not already installed..."
 info "Finished git repos"
 
 info "\nInstalling npm packages if not already installed..."
-for command in 'git-stats' 'tldr'
+for command in 'git-stats' 'tldr', 'eslint', 'remark-lint', 'remark-cli', 'remark-preset-lint-recommended'
 do
   if [ ! -x "$(command -v $command)" ]; then
     npm i -g $command
