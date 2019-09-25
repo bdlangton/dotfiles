@@ -26,6 +26,9 @@ brew 'phpmd'
 brew 'phpunit'
 brew 'phplint'
 
+# Database.
+brew 'mysql'
+
 # Distributed revision control system.
 brew "git"
 
