@@ -90,9 +90,12 @@ fi
 info "Finished gems"
 
 info "\nInstalling pip packages if not already installed..."
-if [ ! -x "$(command -v yamllint)" ]; then
-  pip install --user yamllint
-fi
+for command in 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique'
+do
+  if [ ! -x "$(command -v $command)" ]; then
+    pip install $command
+  fi
+done
 info "Finished pip"
 
 info "\nInstalling vim bundles if not already installed..."
