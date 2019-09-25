@@ -23,5 +23,6 @@ let g:ale_fixers = {
 " Global settings.
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_php_phpmd_ruleset = '~/.git-templates/hooks/phpmd-ruleset.xml'
+let g:ale_gitcommit_gitlint_options = '-C ~/.gitlint'
 
 " vim:ft=vim

@@ -90,7 +90,7 @@ fi
 info "Finished gems"
 
 info "\nInstalling pip packages if not already installed..."
-for command in 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique'
+for command in 'gitlint', 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique'
 do
   if [ ! -x "$(command -v $command)" ]; then
     pip install $command

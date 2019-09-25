@@ -1,0 +1,36 @@
+[general]
+# Ignore certain rules (comma-separated list), you can reference them by their id or by their full name
+ignore=body-is-missing
+
+# verbosity should be a value between 1 and 3, the commandline -v flags take precedence over this
+verbosity = 3
+
+# By default gitlint will ignore merge commits. Set to 'false' to disable.
+ignore-merge-commits=true
+
+# By default gitlint will ignore fixup commits. Set to 'false' to disable.
+ignore-fixup-commits=true
+
+# By default gitlint will ignore squash commits. Set to 'false' to disable.
+ignore-squash-commits=true
+
+# Ignore any data send to gitlint via stdin
+ignore-stdin=false
+
+# Enable debug mode (prints more output). Disabled by default.
+debug=false
+
+[title-max-length]
+line-length=50
+
+[title-must-not-contain-word]
+# Comma-separated list of words that should not occur in the title. Matching is case
+# insensitive. It's fine if the keyword occurs as part of a larger word (so "WIPING"
+# will not cause a violation, but "WIP: my title" will.
+words=wip
+
+[body-max-line-length]
+line-length=72
+
+[body-min-length]
+min-length=5
