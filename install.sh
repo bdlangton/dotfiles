@@ -87,6 +87,13 @@ if [ ! -x "$(command -v tmuxinator)" ]; then
 else
   info "Already installed"
 fi
+info "Finished gems"
+
+info "\nInstalling pip packages if not already installed..."
+if [ ! -x "$(command -v yamllint)" ]; then
+  pip install --user yamllint
+fi
+info "Finished pip"
 
 info "\nInstalling vim bundles if not already installed..."
 mkdir -p $HOME/.vim/bundle

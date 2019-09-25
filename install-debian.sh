@@ -68,6 +68,12 @@ do
 done
 info "Finished npm packages"
 
+info "\nInstalling pip packages if not already installed..."
+if [ ! -x "$(command -v yamllint)" ]; then
+  pip install --user yamllint
+fi
+info "Finished pip"
+
 info "\nInstalling vim bundles if not already installed..."
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle

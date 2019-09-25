@@ -39,7 +39,7 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$PATH:$HOME/.composer/vendor/bin"
+export PATH="$HOME/.bin:$HOME/.rbenv/shims:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH:$HOME/.composer/vendor/bin"
 
 # Node path.
 export NODE_PATH="/usr/local/lib/node_modules"
