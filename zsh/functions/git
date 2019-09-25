@@ -52,3 +52,5 @@ git-blame-removals() {
     echo "You must provide a sha or branch to compare against."
   fi
 }
+
+# vim:ft=sh

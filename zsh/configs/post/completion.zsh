@@ -12,3 +12,5 @@ fi;
 # disable zsh bundled function mtools command mcd
 # which causes a conflict.
 compdef -d mcd
+
+# vim:ft=sh

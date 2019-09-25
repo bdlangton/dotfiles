@@ -19,10 +19,17 @@ function mcd() {
 }
 
 # Do an ls after a cd.
-cd() { builtin cd "$@" && ls; }
+cd() {
+  COUNT="$(ps -ef | grep prettier | wc -l)"
+  if [ $COUNT -lt 2 ]; then
+    builtin cd "$@" && ls
+  fi
+}
 
 # Print line(s) from a file.
 # To print lines 10-20: printLine 10,20 file.txt
 lines () {
   sed -n -e "$1p" "$2"
 }
+
+# vim:ft=sh
