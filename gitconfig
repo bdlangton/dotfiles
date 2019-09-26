@@ -22,6 +22,7 @@
   # Push force (as long as other users haven't made pushes that your local doesn't know about).
   pf = push --force-with-lease
   psu = push --set-upstream
+  r = reset
   rh = reset --hard
   diff = diff --word-diff
   # Show changes staged for the next commit.
