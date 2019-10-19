@@ -9,6 +9,8 @@
 # - to use solarized dark theme
 # - text to use font 'Hack Nerd Font'
 # - profile -> keys, set left and right option keys to Esc+
+# Install the latest python version with pyenv
+# - ex: pyenv install 3.7.3 && pyenv global 3.7.3
 # Install todoist manually
 # Configure Cloudflare as DNS server: https://1.1.1.1/dns/
 # - If using pi-hole, put the pi-hole IP address first

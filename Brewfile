@@ -43,6 +43,7 @@ brew 'hub'
 
 # Interpreted, interactive, object-oriented programming language.
 brew "python"
+brew "pyenv"
 
 # Ruby packages.
 brew "ruby-build"
