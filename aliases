@@ -94,7 +94,6 @@ alias ag="ag $* -U -W 80 -f -r --column -S"
 # ==============================================================================
 # Drupal
 
-alias d='drupal'
 alias dcc='drupal cc all'
 alias dwd='drupal dblp'
 alias dce='drupal config_split:export -y'
