@@ -2,6 +2,9 @@
 nnoremap <silent> <leader>cl :call ToggleList("Location List", 'l')<CR>
 nnoremap <silent> <leader>ce :call ToggleList("Quickfix List", 'c')<CR>
 
+" Needed for Mac OSX when trying to copy files using: mt > mf > mc.
+let g:netrw_keepdir=0
+
 " Open the file explorer in current working directory split vert or horiz.
 nmap <Leader>- :sp.<CR>
 nmap <Leader>\ :vs.<CR>
