@@ -6,10 +6,6 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-Z> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" Check syntax with Ctrl + \.
-autocmd FileType php noremap <C-\> :!/usr/bin/env php -l %<CR>
-autocmd FileType phtml noremap <C-\> :!/usr/bin/env php -l %<CR>
-
 " Add line without entering insert mode.
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
