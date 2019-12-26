@@ -26,6 +26,13 @@ cd() {
   fi
 }
 
+# Cd with no ls (the regular way).
+# This is used in tmuxinator scripts so the 'cd' command won't fail due to also
+# doing an 'ls'.
+function cd-no-ls() {
+  builtin cd "$@"
+}
+
 # Print line(s) from a file.
 # To print lines 10-20: printLine 10,20 file.txt
 lines () {
