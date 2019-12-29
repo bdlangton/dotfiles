@@ -1,13 +1,13 @@
 # If a parameter is supplied, print the todoist list, otherwise search TODO.
 function todo() {
   if [ $1 = 'personal' ]; then
-    todoist list --filter '##Personal & (today | overdue)'
+    todoist list --filter '##Personal & (tomorrow | today | overdue)'
   elif [ $1 = 'professional' ]; then
-    todoist list --filter '##Professional & (today | overdue)'
+    todoist list --filter '##Professional & (tomorrow | today | overdue)'
   elif [ $1 = 'work' ]; then
-    todoist list --filter '##Work & (today | overdue)'
+    todoist list --filter '##Work & (tomorrow | today | overdue)'
   elif [ $1 = 'all' ]; then
-    todoist list --filter '(today | overdue)'
+    todoist list --filter '(tomorrow | today | overdue)'
   else
     ag TODO
   fi
