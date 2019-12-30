@@ -1,0 +1,5 @@
+" Implementation of the Mustache template system in VIMScript.
+
+Plug 'tobyS/vmustache'
+
+" vim:ft=vim

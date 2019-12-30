@@ -2,10 +2,10 @@
 
 Plug 'tobyS/pdv'
 
+" PDV templates directory.
+let g:pdv_template_dir = $HOME . "/.vim/bundle/pdv/templates_snip"
+
 " PDV mapping for docblock creation.
 nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
-
-" PDV templates directory.
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 
 " vim:ft=vim
