@@ -10,13 +10,20 @@ if has('zsh')
   set shell=zsh\ -l
 end
 
-" Allow backspace to work like in most programs.
+" Hide buffers instead of closing them (so you can have unwritten changes to a
+" file and leave it).
+set hidden
+
+" Allow backspace to work like in most programs in insert mode.
 set backspace=indent,eol,start
 
 " Set swap file to go in a tmp directory.
 set swapfile
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
+
+" Ignore case if search pattern is all lowercase, otherwise case-sensitive.
+set smartcase
 
 " Tabs converted to spaces.
 set expandtab
@@ -29,6 +36,12 @@ set softtabstop=2
 
 " Set shift width.
 set shiftwidth=2
+
+" Don't beep.
+set visualbell
+
+" Don't beep.
+set noerrorbells
 
 " Load filetype-specific indent files.
 filetype indent on

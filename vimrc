@@ -1,3 +1,4 @@
+" This must be first because it changes other options as a side effect.
 set nocompatible
 
 " Need to set the leader before defining any leader mappings.
