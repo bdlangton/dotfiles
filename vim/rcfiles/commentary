@@ -1,3 +1,0 @@
-autocmd FileType php setlocal commentstring=//\ %s
-
-" vim:ft=vim
