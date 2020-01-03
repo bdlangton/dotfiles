@@ -1,0 +1,5 @@
+" An extension to fugitive.vim for gitlab support.
+
+Plug 'shumphrey/fugitive-gitlab.vim'
+
+" vim:ft=vim

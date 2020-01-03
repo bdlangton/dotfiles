@@ -1,0 +1,5 @@
+" Add Bitbucket URL support to fugitive.vim's :Gbrowse command.
+
+Plug 'tommcdo/vim-fubitive'
+
+" vim:ft=vim
