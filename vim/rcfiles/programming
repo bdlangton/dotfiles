@@ -58,12 +58,14 @@ nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 call lexima#add_rule({'char': '(', 'at': '\%#.', 'delete': '1'})
 
 " Set tags file.
-let g:autotagTagsFile="tags"
+let g:autotagTagsFile = 'tags'
 
-" Commentary comment string for php.
-autocmd FileType php setlocal commentstring=//\ %s
+augroup programming
+  " Commentary comment string for php.
+  autocmd FileType php setlocal commentstring=//\ %s
 
-" Set *.theme files to be php filetype.
-autocmd BufRead,BufNewFile *.theme setlocal filetype=php
+  " Set *.theme files to be php filetype.
+  autocmd BufRead,BufNewFile *.theme setlocal filetype=php
+augroup end
 
 " vim:ft=vim
