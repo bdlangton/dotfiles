@@ -53,9 +53,8 @@ nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
 nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
-" When adding a parenthesis that is succeeded by a non-newline character, don't
-" add the closing parenthesis.
-call lexima#add_rule({'char': '(', 'at': '\%#.', 'delete': '1'})
+" When inside inserted chars from lexima, go to the right of all of them.
+inoremap <C-l> <C-r>=lexima#insmode#leave_all("")<CR>
 
 " Set tags file.
 let g:autotagTagsFile = 'tags'
