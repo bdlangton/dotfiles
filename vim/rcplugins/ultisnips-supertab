@@ -10,7 +10,6 @@ let g:SuperTabDefaultCompletionType = ""
 " Prevent super tab after newline or space.
 let g:SuperTabNoCompleteAfter = ['\n', '\r', '\s']
 
-let g:UltiSnipsSnippetsDir='~/.vim/mysnippets'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
 let g:UltiSnipsEditSplit='horizontal'
 let g:UltiSnipsExpandTrigger="<c-t>"
