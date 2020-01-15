@@ -1,0 +1,80 @@
+## Entities.
+
+snippet entity_storage "Drupal get entity storage"
+\Drupal::entityTypeManager()->getStorage('${1:entity}');
+endsnippet
+
+## Links and URLs.
+
+snippet lftau "Link from Text and URL"
+Link::fromTextAndUrl('${1:text}', ${2:$url});
+endsnippet
+
+snippet lfr "Link from Route"
+Link::createFromRoute('${1:text}', '${2:route_name}', $params, $options);
+endsnippet
+
+snippet ufr "URL from Route"
+Url::fromRoute('${1:route_name}', $params, $options);
+endsnippet
+
+snippet ufu "URL from URI"
+Url::fromUri('internal:/${1:uri}');
+endsnippet
+
+## Debugging.
+
+snippet log "Drupal Logger"
+\Drupal::logger('${1:module}')->debug('${2:message}');
+endsnippet
+
+snippet php_debug "Display errors with ini_set"
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+endsnippet
+
+## Services.
+
+snippet service "Drupal service"
+\Drupal::service('${1:variable}');
+endsnippet
+
+## Config and state.
+
+snippet config_get "Config get"
+\Drupal::service('config')->get('${1:variable}');
+endsnippet
+
+snippet config_set "Config set"
+\Drupal::service('config')->set('${1:variable}', ${2:value});
+endsnippet
+
+snippet state_get "State get"
+\Drupal::service('state')->get('${1:variable}');
+endsnippet
+
+snippet state_set "State set"
+\Drupal::service('state')->set('${1:variable}', ${2:value});
+endsnippet
+
+## Queries.
+
+snippet entity_query "Drupal Entity Query"
+$result = \Drupal::entityQuery('${1:entity type}')
+      ->condition('type', '${2:bundle}')
+      ->execute();
+endsnippet
+
+snippet query "Drupal DB Query"
+$results = \Drupal::database()->query('${1:query}')->fetchAll();
+endsnippet
+
+## Docblocks.
+
+snippet filedoc "File Docblock"
+/**
+ * @file
+ * ${1:description}
+ */
+endsnippet

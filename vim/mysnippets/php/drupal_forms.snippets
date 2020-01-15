@@ -1,0 +1,71 @@
+## Forms API.
+
+snippet checkbox
+$form['${1:/* form element */}'] = [
+	'#type' => 'checkbox',
+	'#title' => t('${2:/* title */}'),
+	'#description' => t('${3:/* description */}'),
+];
+endsnippet
+
+snippet checkboxes
+$form['${1:/* form element */}'] = [
+	'#type' => 'checkboxes',
+	'#title' => t('${2:/* title */}'),
+	'#description' => t('${3:/* description */}'),
+	'#options' => [
+		'${4:/* key */}' => t('${5:/* value */}'),
+	],
+];
+endsnippet
+
+snippet file
+$form['${1:/* form element */}'] = [
+	'#type' => 'file',
+	'#title' => t('${2:/* title */}'),
+	'#description' => t('${3:/* description */}'),
+];
+endsnippet
+
+snippet select
+$form['${1:/* form element */}'] = [
+	'#type' => 'select',
+	'#title' => t('${2:/* title */}'),
+	'#description' => t('${3:/* description */}'),
+	'#options' => [
+		'${4:/* key */}' => t('${5:/* value */}'),
+	],
+];
+endsnippet
+
+snippet submit
+$form['${1:/* form element */}'] = [
+	'#type' => 'submit',
+	'#value' => t('${2:/* value */}'),
+];
+endsnippet
+
+snippet textarea
+$form['${1:/* form element */}'] = [
+	'#type' => 'textarea',
+	'#title' => t('${2:/* title */}'),
+	'#rows' => ${3:/* default:5 */},
+];
+endsnippet
+
+snippet textfield
+$form['${1:/* form element */}'] = [
+	'#type' => 'textfield',
+	'#title' => t('${2:/* title */}'),
+	'#size' => ${3:/* default:60 */},
+];
+endsnippet
+
+snippet text_format
+$form['${1:/* form element */}'] = [
+	'#type' => 'text_format',
+	'#title' => t('${2:/* title */}'),
+	'#size' => ${3:/* default:60 */},
+	'#format' => ${4:NULL},
+];
+endsnippet
