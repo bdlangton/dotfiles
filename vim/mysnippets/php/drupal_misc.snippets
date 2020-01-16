@@ -78,3 +78,9 @@ snippet filedoc "File Docblock"
  * ${1:description}
  */
 endsnippet
+
+## Miscellaneous.
+
+snippet setmsg "Drupal set message (Status, Warning, Error)"
+\Drupal::messenger()->add${1:Status}(t('${2:message}'));
+endsnippet

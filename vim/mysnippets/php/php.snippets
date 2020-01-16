@@ -1,9 +1,130 @@
+## Overrides of vim-snippets.
+
+snippet pub "Public function" b
+/**
+ * ${3:undocumented function}
+ */
+public function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet pro "Protected function" b
+/**
+ * ${3:undocumented function}
+ */
+protected function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet pri "Private function" b
+/**
+ * ${3:undocumented function}
+ */
+private function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet pubs "Public static function" b
+/**
+ * ${3:undocumented function}
+ */
+public static function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet pros "Protected static function" b
+/**
+ * ${3:undocumented function}
+ */
+protected static function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet pris "Private static function" b
+/**
+ * ${3:undocumented function}
+ */
+private static function ${1:name}(${2}) {
+	${4}
+}
+$0
+endsnippet
+
+snippet fu "Function snip" b
+function ${1:name}(${2}) {
+	${3}
+}
+$0
+endsnippet
+
 ## PHP Functions.
 
 snippet ne "!empty"
 !empty($${1:var})
 endsnippet
 
+## Strings.
+
+snippet str_replace
+$${4:result} = str_replace(${1:$search}, ${2:$replace}, ${3:$subject});
+endsnippet
+
+snippet substr
+$${4:result} = substr(${1:$string}, ${2:$start}${3:, $length});
+endsnippet
+
+snippet explode
+$${3:result} = explode(${1:$delimiter}, ${2:$string});
+endsnippet
+
+snippet implode
+$${3:result} = implode(${1:$glue}, ${2:array $pieces});
+endsnippet
+
+## Arrays.
+
+snippet acm "array_combine"
+$${3:result} = array_combine(${1:array $keys}, ${2:array $values}');
+endsnippet
+
 snippet ac "array_column"
-array_column($${1:array $input}, '${2:mixed $column_key}')
+$${3:result} = array_column(${1:array $input}, '${2:mixed $column_key}');
+endsnippet
+
+snippet af "array_filter"
+$1 = array_filter(${1:$array}${2:, $callback});
+endsnippet
+
+snippet as "array_shift"
+array_shift(${1:&$array});
+endsnippet
+
+snippet asl "array_slice"
+$${4:result} = array_slice(${1:$array}, ${2:$offset}${3:, $length});
+endsnippet
+
+snippet asp "array_splice"
+$${5:result} = array_splice(${1:$array}, ${2:$offset}${3:, $length}${4:, $replacement});
+endsnippet
+
+snippet au "array_unshift"
+array_unshift(${1:&$array}${2:, $value});
+endsnippet
+
+snippet av "array_values"
+$${2:result} = array_values(${1:$array});
+endsnippet
+
+snippet aw "array_walk"
+array_walk(${1:&$array}, ${2:$callback});
 endsnippet
