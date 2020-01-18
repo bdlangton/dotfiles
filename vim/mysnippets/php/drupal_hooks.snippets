@@ -14,7 +14,7 @@ snippet hook_cron
  * Implements hook_cron().
  */
 function `!p snip.rv = snip.basename`_cron() {
-	 ${1:/* Your code here. */}
+	 ${1:// Your code.}
 }
 endsnippet
 
@@ -24,7 +24,7 @@ snippet hook_form_alter
  */
 function `!p snip.rv = snip.basename`_form_alter(&$form, $form_state, $form_id) {
 	switch ($form_id) {
-		case '${1:/* your form */}':
+		case '${1:/* Your form */}':
 			${2:// Your code.}
 	}
 }
@@ -35,34 +35,7 @@ snippet hook_form_FORM_ID_alter
  * Implements hook_form_FORM_ID_alter().
  */
 function `!p snip.rv = snip.basename`_form_${1:form id}_alter(&$form, $form_state) {
-	${2:// your code}
-}
-endsnippet
-
-snippet hook_menu
-/**
- * Implements hook_menu().
- */
-function `!p snip.rv = snip.basename`_menu() {
-	$items['${1:path/to/register}'] = [
-		'title' => '${2:Page title}',
-		'page callback' => '${3:callback_function}',
-		'page arguments' => [${4}],
-		'access arguments' => ['${5:View published content}'],
-		'type' => ${6:MENU_NORMAL_ITEM}, // MENU_CALLBACK, MENU_LOCAL_TASK, MENU_DEFAULT_LOCAL_TASK, MENU_LOCAL_ACTION, MENU_SUGGESTED_ITEM,
-		// 'file' => '${7:`!p snip.rv = snip.basename`.pages.inc}',
-	];
-
-	return $items;
-}
-endsnippet
-
-snippet hook_menu_alter
-/**
- * Implements hook_menu_alter().
- */
-function `!p snip.rv = snip.basename`_menu_alter(&$items) {
-	${1:/* Your code here. */}
+	${2:// Your code.}
 }
 endsnippet
 

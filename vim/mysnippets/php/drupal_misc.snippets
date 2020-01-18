@@ -1,49 +1,23 @@
 ## Entities.
 
 snippet entity_storage "Drupal get entity storage"
-\Drupal::entityTypeManager()->getStorage('${1:entity}');
+$${2:$1}Storage = \Drupal::entityTypeManager()->getStorage('${1:entity}');
 endsnippet
 
-## Links and URLs.
-
-snippet lftau "Link from Text and URL"
-Link::fromTextAndUrl('${1:text}', ${2:$url});
-endsnippet
-
-snippet lfr "Link from Route"
-Link::createFromRoute('${1:text}', '${2:route_name}', $params, $options);
-endsnippet
-
-snippet ufr "URL from Route"
-Url::fromRoute('${1:route_name}', $params, $options);
-endsnippet
-
-snippet ufu "URL from URI"
-Url::fromUri('internal:/${1:uri}');
-endsnippet
-
-## Debugging.
-
-snippet log "Drupal Logger"
-\Drupal::logger('${1:module}')->debug('${2:message}');
-endsnippet
-
-snippet php_debug "Display errors with ini_set"
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+snippet entity_load "Drupal load entity"
+$${3:$1} = \Drupal::entityTypeManager()->getStorage('${1:entity}')->load(${2:entity_id});
 endsnippet
 
 ## Services.
 
 snippet service "Drupal service"
-\Drupal::service('${1:variable}');
+$${2:$1} = \Drupal::service('${1:variable}');
 endsnippet
 
 ## Config and state.
 
 snippet config_get "Config get"
-\Drupal::service('config')->get('${1:variable}');
+${2:$result} = \Drupal::service('config')->get('${1:variable}');
 endsnippet
 
 snippet config_set "Config set"
@@ -51,7 +25,7 @@ snippet config_set "Config set"
 endsnippet
 
 snippet state_get "State get"
-\Drupal::service('state')->get('${1:variable}');
+${2:$result} = \Drupal::service('state')->get('${1:variable}');
 endsnippet
 
 snippet state_set "State set"
@@ -60,7 +34,7 @@ endsnippet
 
 ## Queries.
 
-snippet entity_query "Drupal Entity Query"
+snippet entityQuery "Drupal Entity Query"
 $result = \Drupal::entityQuery('${1:entity type}')
       ->condition('type', '${2:bundle}')
       ->execute();
@@ -70,9 +44,67 @@ snippet query "Drupal DB Query"
 $results = \Drupal::database()->query('${1:query}')->fetchAll();
 endsnippet
 
+snippet query_insert "Drupal Insert Query"
+$query = \Drupal::database()->insert('${1:table}');
+$query->fields(${2:[/* Array of fields. */]});
+$query->values(${3:[/* Array of values. */]});
+$query->execute();
+endsnippet
+
+snippet query_update "Drupal Update Query"
+$query = \Drupal::database()->update('${1:table}');
+$query->fields(['${2:field}' => '${3:update_value}']);
+$query->condition('${4:column}', '${5:value}');
+$query->execute();
+endsnippet
+
+snippet query_delete "Drupal Delete Query"
+$query = \Drupal::database()->delete('${1:table}');
+$query->condition('${2:column}', '${3:value}');
+$query->execute();
+endsnippet
+
+## Links and URLs.
+
+snippet link_text "Link from Text and URL"
+${3:$link} = Link::fromTextAndUrl('${1:text}', ${2:$url});
+endsnippet
+
+snippet link_route "Link from Route"
+${3:$link} = Link::createFromRoute('${1:text}', '${2:route_name}', $params, $options);
+endsnippet
+
+snippet link_generator "Link Generator"
+${3:$link} = \Drupal::service('link_generator')->generate('${1:text}', ${2:$url});
+endsnippet
+
+snippet url_route "URL from Route"
+${2:$url} = Url::fromRoute('${1:route_name}', $params, $options);
+endsnippet
+
+snippet url_internal "URL from URI (Internal)"
+${2:$url} = Url::fromUri('internal:/${1:uri}');
+endsnippet
+
+snippet url_external "URL from URI (External)"
+${2:$url} = Url::fromUri('https://${1:uri}');
+endsnippet
+
+## Debugging.
+
+snippet logger "Drupal Logger"
+\Drupal::logger('${1:module}')->debug('${2:message}');
+endsnippet
+
+snippet ini_set_errors "Display errors with ini_set"
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+endsnippet
+
 ## Docblocks.
 
-snippet filedoc "File Docblock"
+snippet file_doc "File Docblock"
 /**
  * @file
  * ${1:description}
@@ -81,6 +113,14 @@ endsnippet
 
 ## Miscellaneous.
 
-snippet setmsg "Drupal set message (Status, Warning, Error)"
+snippet current_user "Drupal current user"
+$account = \Drupal::currentUser();
+endsnippet
+
+snippet request "Drupal request"
+$request = \Drupal::request();
+endsnippet
+
+snippet messenger "Drupal set message (Status, Warning, Error)"
 \Drupal::messenger()->add${1:Status}(t('${2:message}'));
 endsnippet
