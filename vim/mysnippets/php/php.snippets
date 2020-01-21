@@ -79,6 +79,10 @@ snippet str_replace
 $${4:result} = str_replace(${1:$search}, ${2:$replace}, ${3:$subject});
 endsnippet
 
+snippet strpos
+strpos(${1:$haystack}, ${2:$needle}${3:, $offset});
+endsnippet
+
 snippet substr
 $${4:result} = substr(${1:$string}, ${2:$start}${3:, $length});
 endsnippet
