@@ -85,6 +85,9 @@ alias gcpf='git ci --amend --no-edit && git pf'
 # List out files that have conflicts.
 alias guu='git st | ag "^[DU]U"'
 
+# Change the date of the most recent commit to now.
+alias gchangedate='LC_ALL=C GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"'
+
 # ==============================================================================
 # Search
 
