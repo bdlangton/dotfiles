@@ -1,3 +1,8 @@
+" Set folding so it only folds the top level and doesn't auto fold.
+set foldmethod=indent
+set nofoldenable
+set foldlevel=20
+
 " Prompt for a single input to pass to Drupal Console.
 function! DrupalSingleInput(command, text)
   call inputsave()
