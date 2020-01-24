@@ -2,4 +2,16 @@
 
 Plug 'tpope/vim-fugitive'
 
+" Add command aliases for git diff.
+command! Gdiff Gdiffsplit
+command! Gd Gdiffsplit
+command! Gdiffoff call g:Gdiffoff()
+command! Gdo Gdiffoff
+
+" Mappings for git diff.
+nnoremap <Leader>gd :Gdiffsplit<CR>
+nnoremap <Leader>gdo :Gdiffoff<CR>
+nnoremap <Leader>dg :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
+
 " vim:ft=vim

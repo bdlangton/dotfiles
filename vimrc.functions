@@ -29,17 +29,17 @@ function! g:PromptDir()
   endif
 endfunction
 
-command! Gdiffoff call Gdiffoff()
-
 " Handle closing diff opened with :Gdiff
-function! Gdiffoff()
+function! g:Gdiffoff()
   let diffbufnr = bufnr('^fugitive:')
   if diffbufnr > -1 && &diff
-      diffoff | q
-      if bufnr('%') == diffbufnr | Gedit | endif
-      setlocal nocursorbind
+    diffoff | q
+    if bufnr('%') == diffbufnr
+      Gedit
+    endif
+    setlocal nocursorbind
   else
-      echo 'Error: Not in diff or file'
+    echo 'Error: Not in diff or file'
   endif
 endfunction
 
