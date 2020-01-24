@@ -58,6 +58,16 @@ nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
 nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
+" Add fzf searches to specific backend/frontend directories if available.
+if exists("g:backend_dir")
+  nnoremap <Leader>Ab :call CdDir(g:backend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <Leader>Am :call CdDir(g:backend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+endif
+if exists("g:frontend_dir")
+  nnoremap <Leader>Af :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <Leader>At :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+endif
+
 " When inside inserted chars from lexima, go to the right of all of them.
 inoremap <C-l> <C-r>=lexima#insmode#leave_all("")<CR>
 

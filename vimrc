@@ -37,6 +37,14 @@ call plug#begin('~/.vim/bundle')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
 
+" Load project specific vimrc if it exists.
+" Has to be after rcplugins and before rcfiles.
+let b:projectroot = projectroot#guess()
+if b:projectroot != '' && filereadable(b:projectroot . '/.vimrc')
+  let b:local_vimrc = b:projectroot . '/.vimrc'
+  exec 'source ' . b:local_vimrc
+endif
+
 call s:SourceConfigFilesIn('rcfiles')
 
 " Local config.

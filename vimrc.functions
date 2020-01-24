@@ -9,6 +9,12 @@ function! g:CdDocroot()
   endif
 endfunction
 
+" CD into a directory.
+function! g:CdDir(dir)
+  let root = projectroot#guess() . '/' . a:dir
+  exe 'cd ' . root
+endfunction
+
 " Prompt for a directory to CD into.
 function! g:PromptDir()
   let root = getcwd()
