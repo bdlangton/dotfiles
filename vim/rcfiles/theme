@@ -70,6 +70,10 @@ let g:lightline = {
       \ }
       \ }
 
+let g:lightline.component_function = {
+      \   'gitbranch': 'fugitive#head'
+      \ }
+
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
@@ -97,7 +101,11 @@ let g:lightline.active = { 'right': [
       \     ],
       \     [ 'lineinfo' ],
       \     [ 'percent' ],
-      \     [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ]
+      \     [ 'fileencoding', 'filetype' ]
+      \ ],
+      \ 'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'filename', 'gitbranch', 'readonly', 'modified' ]
       \ ] }
 
 function! LightlineModified()
