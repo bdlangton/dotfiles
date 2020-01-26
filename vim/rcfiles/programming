@@ -58,17 +58,22 @@ nnoremap <Leader>dsa :call SetDrushAlias()<CR>
 nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
 nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
-" Add fzf searches to specific backend/frontend directories if available.
+" Add fzf searches to specific backend/frontend/vendor directories if available.
 if exists("g:backend_dir")
   nnoremap <Leader>Ab :call CdDir(g:backend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
   nnoremap <Leader>Am :call CdDir(g:backend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <expr> <Leader>Fb ':Files ' . g:backend_dir . '/<CR>'
+  nnoremap <expr> <Leader>Fm ':Files ' . g:backend_dir . '/<CR>'
 endif
 if exists("g:frontend_dir")
   nnoremap <Leader>Af :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
   nnoremap <Leader>At :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <expr> <Leader>Ff ':Files ' . g:frontend_dir . '/<CR>'
+  nnoremap <expr> <Leader>Ft ':Files ' . g:frontend_dir . '/<CR>'
 endif
 if exists("g:vendor_dir")
   nnoremap <Leader>Av :call CdDir(g:vendor_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <expr> <Leader>Fv ':Files ' . g:vendor_dir . '/<CR>'
 endif
 
 " When inside inserted chars from lexima, go to the right of all of them.
