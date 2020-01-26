@@ -39,10 +39,13 @@ call plug#end()
 
 " Load project specific vimrc if it exists.
 " Has to be after rcplugins and before rcfiles.
-let b:projectroot = projectroot#guess()
-if b:projectroot != '' && filereadable(b:projectroot . '/.vimrc')
-  let b:local_vimrc = b:projectroot . '/.vimrc'
-  exec 'source ' . b:local_vimrc
+let g:projroot = projectroot#guess()
+if g:projroot != ''
+  autocmd BufEnter * exec 'lcd ' . g:projroot
+  if filereadable(g:projroot . '/.vimrc')
+    let b:local_vimrc = g:projroot . '/.vimrc'
+    exec 'source ' . b:local_vimrc
+  endif
 endif
 
 call s:SourceConfigFilesIn('rcfiles')
