@@ -67,6 +67,9 @@ if exists("g:frontend_dir")
   nnoremap <Leader>Af :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
   nnoremap <Leader>At :call CdDir(g:frontend_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
 endif
+if exists("g:vendor_dir")
+  nnoremap <Leader>Av :call CdDir(g:vendor_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+endif
 
 " When inside inserted chars from lexima, go to the right of all of them.
 inoremap <C-l> <C-r>=lexima#insmode#leave_all("")<CR>
