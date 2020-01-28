@@ -55,6 +55,7 @@ hi PMenuSel guibg=Cyan
 hi SpecialKey guifg=black guibg=red
 hi LightlineRight_active_warning guifg=black guibg=yellow
 hi LightlineRight_active_error guifg=white guibg=red
+hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
 
 " Clear links for doxygen sections that were linked to Todo by
 " vim-plugin-for-drupal.
@@ -97,15 +98,11 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 let g:lightline.active = { 'right': [
       \     [
       \         'linter_checking', 'linter_errors',
-      \         'linter_warnings', 'linter_ok'
+      \         'linter_warnings', 'linter_ok', 'gitbranch'
       \     ],
       \     [ 'lineinfo' ],
       \     [ 'percent' ],
       \     [ 'fileencoding', 'filetype' ]
-      \ ],
-      \ 'left': [
-      \     [ 'mode', 'paste' ],
-      \     [ 'filename', 'gitbranch', 'readonly', 'modified' ]
       \ ] }
 
 function! LightlineModified()
