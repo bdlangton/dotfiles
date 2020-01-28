@@ -71,6 +71,10 @@ if exists("g:frontend_dir")
   nnoremap <expr> <Leader>Ff ':Files ' . g:frontend_dir . '/<CR>'
   nnoremap <expr> <Leader>Ft ':Files ' . g:frontend_dir . '/<CR>'
 endif
+if exists("g:config_dir")
+  nnoremap <Leader>Ac :call CdDir(g:config_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
+  nnoremap <expr> <Leader>Fc ':Files ' . g:config_dir . '/<CR>'
+endif
 if exists("g:vendor_dir")
   nnoremap <Leader>Av :call CdDir(g:vendor_dir)<CR>:Ag<CR>:ProjectRootCD<CR>
   nnoremap <expr> <Leader>Fv ':Files ' . g:vendor_dir . '/<CR>'
