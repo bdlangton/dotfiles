@@ -17,7 +17,7 @@ endfunction
 
 function! s:DeleteExistingUnderline()
   if !s:OnLastLineOfFile()
-    let saved_cursor = getpos(".")
+    let saved_cursor = getpos('.')
     +1g/\v^[-=]+$/d
     call setpos('.', saved_cursor)
   endif
@@ -28,7 +28,7 @@ function! s:SmartUnderline(char)
   call s:DeleteExistingLeadingHeaderMarks()
   let underline = repeat(a:char, len(getline('.')))
   call append(line('.'), underline)
-  if a:char == '='
+  if a:char ==# '='
     silent! call repeat#set("\<Plug>UnderlineH1", v:count)
   else
     silent! call repeat#set("\<Plug>UnderlineH2", v:count)

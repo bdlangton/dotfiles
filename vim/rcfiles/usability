@@ -1,12 +1,14 @@
-" Save the directory of the current file.
-" Don't change current working directory because we always want the current
-" directory to be the project root, so FZF search functionality always starts
-" from the root. Then if results are saved to a QuickFix window, then the
-" paths to the files are correct.
-autocmd BufEnter * silent! let w:saved_dir = expand("%:p:h")
+augroup Usability
+  " Save the directory of the current file.
+  " Don't change current working directory because we always want the current
+  " directory to be the project root, so FZF search functionality always starts
+  " from the root. Then if results are saved to a QuickFix window, then the
+  " paths to the files are correct.
+  autocmd BufEnter * silent! let w:saved_dir = expand("%:p:h")
 
-" Automatically rebalance windows on vim resize.
-autocmd VimResized * :wincmd =
+  " Automatically rebalance windows on vim resize.
+  autocmd VimResized * :wincmd =
+augroup END
 
 " When you start searching text with /, search is performed at every new
 " character insertion.

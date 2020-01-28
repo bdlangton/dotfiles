@@ -3,10 +3,10 @@
 Plug 'junegunn/fzf.vim'
 
 " MacOS.
-set rtp+=/usr/local/opt/fzf
+set runtimepath+=/usr/local/opt/fzf
 
 " Linux.
-set rtp+=~/.fzf
+set runtimepath+=~/.fzf
 
 " Prevents :Ag from matching filenames (it'll only match text inside files).
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)

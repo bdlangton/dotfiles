@@ -4,6 +4,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 1
 
-autocmd BufEnter *.es6 setf javascript
+augroup Javascript
+  autocmd BufEnter *.es6 setf javascript
+augroup END
 
 " vim:ft=vim

@@ -5,13 +5,15 @@ set nocompatible
 let mapleader = "\\"
 
 " Set local leader (used for the Vim Plugin for Drupal).
-let maplocalleader = ","
+let maplocalleader = ','
 
 " Ensure that plug.vim is installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup PlugInstall
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
 endif
 
 " Matches more opening and closing functions/methods/etc with '%' than
@@ -19,7 +21,7 @@ endif
 runtime macros/matchit.vim
 
 " Source in vim functions.
-if filereadable($HOME . "/.vimrc.functions")
+if filereadable($HOME . '/.vimrc.functions')
   source ~/.vimrc.functions
 endif
 
@@ -53,6 +55,6 @@ endif
 call s:SourceConfigFilesIn('rcfiles')
 
 " Local config.
-if filereadable($HOME . "/.vimrc.local")
+if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif

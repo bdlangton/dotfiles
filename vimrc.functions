@@ -18,7 +18,7 @@ endfunction
 " Prompt for a directory to CD into.
 function! g:PromptDir()
   let root = getcwd()
-  if exists("w:saved_dir")
+  if exists('w:saved_dir')
     let root = w:saved_dir
   endif
   call inputsave()

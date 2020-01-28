@@ -5,16 +5,16 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 
 " Set tab completion type.
-let g:SuperTabDefaultCompletionType = ""
+let g:SuperTabDefaultCompletionType = ''
 
 " Prevent super tab after newline or space.
 let g:SuperTabNoCompleteAfter = ['\n', '\r', '\s']
 
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
 let g:UltiSnipsEditSplit='horizontal'
-let g:UltiSnipsExpandTrigger="<c-t>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger='<c-t>'
+let g:UltiSnipsJumpForwardTrigger='<c-f>'
+let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 
 nnoremap <leader>ue :UltiSnipsEdit<cr>
 
