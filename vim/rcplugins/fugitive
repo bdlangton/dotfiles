@@ -8,6 +8,9 @@ command! Gd Gdiffsplit
 command! Gdiffoff call g:Gdiffoff()
 command! Gdo Gdiffoff
 
+" Map git status.
+nnoremap <Leader>gs :20Gstatus<CR>
+
 " Mappings for git diff.
 nnoremap <Leader>gd :Gdiffsplit<CR>
 nnoremap <Leader>gdo :Gdiffoff<CR>
