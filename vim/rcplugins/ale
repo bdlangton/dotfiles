@@ -21,9 +21,10 @@ let g:ale_fixers = {
 \}
 
 " Global settings.
-let g:ale_php_phpcs_standard = 'Drupal'
+let g:ale_php_phpcs_executable = $HOME . '/.composer/vendor/bin/phpcs'
 let g:ale_php_phpcs_use_global = 1
-let g:ale_php_phpmd_ruleset = '~/.git-templates/hooks/phpmd-ruleset.xml'
+let g:ale_php_phpmd_executable = $HOME . '/.composer/vendor/bin/phpmd'
+let g:ale_php_phpmd_ruleset = $HOME . '/.git-templates/hooks/phpmd-ruleset.xml'
 let g:ale_gitcommit_gitlint_options = '-C ~/.gitlint'
 
 " vim:ft=vim
