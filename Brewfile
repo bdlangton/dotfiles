@@ -2,19 +2,19 @@
 # Text and files
 
 # Treat text as a database.
-brew "q"
+brew 'q'
 
 # Make JSON greppable.
-brew "gron"
+brew 'gron'
 
 # CLI program that accepts piped input and presents files for selection.
-brew "fpp"
+brew 'fpp'
 
 # Lightweight and flexible command-line JSON processor.
-brew "jq"
+brew 'jq'
 
 # Rename files.
-brew "rename"
+brew 'rename'
 
 ##############################################################################
 # Programming
@@ -26,14 +26,31 @@ brew 'phpmd'
 brew 'phpunit'
 brew 'phplint'
 
-# Database.
+# Python packages.
+brew 'python'
+brew 'pyenv'
+
+# Ruby packages.
+brew 'ruby-build'
+brew 'rbenv'
+
+# Other programming languages.
+brew 'clojure'
+brew 'erlang'
+brew 'io'
+brew 'scala'
+brew 'swi-prolog'
+
+# Databases.
 brew 'mysql'
+brew 'postgresql'
+brew 'redis'
 
 # Distributed revision control system.
-brew "git"
+brew 'git'
 
 # VIM.
-brew "vim"
+brew 'vim'
 
 # Exuberant ctags instead of regular ctags.
 brew 'ctags'
@@ -41,56 +58,48 @@ brew 'ctags'
 # Fast GitHub client, used in git-create-pull-request.
 brew 'hub'
 
-# Interpreted, interactive, object-oriented programming language.
-brew "python"
-brew "pyenv"
-
-# Ruby packages.
-brew "ruby-build"
-brew "rbenv"
-
 # Platform built on V8 to build network applications.
-brew "node"
+brew 'node'
 brew 'npm'
 brew 'nvm'
 
 # DDev.
-tap "drud/ddev"
-brew "ddev"
+tap 'drud/ddev'
+brew 'ddev'
 
 # Docker.
 brew 'docker'
 
 # Tmux and related.
-brew "tmux"
-brew "reattach-to-user-namespace"
+brew 'tmux'
+brew 'reattach-to-user-namespace'
 
 # Clone of cat(1) with syntax highlighting and Git integration.
-brew "bat"
+brew 'bat'
 
 # Text interface for Git repositories.
-brew "tig"
+brew 'tig'
 
 # User-friendly cURL replacement (command-line HTTP client).
-brew "httpie"
+brew 'httpie'
 
 # Internet file retriever.
-brew "wget"
+brew 'wget'
 
 ##############################################################################
 # Search
 
 # Command-line fuzzy finder written in Go.
-brew "fzf"
+brew 'fzf'
 
 # Code-search similar to ack.
-brew "the_silver_searcher"
+brew 'the_silver_searcher'
 
 # Interactively filter results from a command (like fzf).
-brew "peco"
+brew 'peco'
 
 # Simple, fast and user-friendly alternative to find.
-brew "fd"
+brew 'fd'
 
 ##############################################################################
 # Utilities
@@ -102,44 +111,44 @@ tap 'sachaos/todoist'
 brew 'todoist'
 
 # A next-generation plugin manager for zsh
-brew "zplug"
+brew 'zplug'
 
 # Modern replacement for 'ls'.
-brew "exa"
+brew 'exa'
 
 # Analyze and free disk space.
-brew "ncdu"
+brew 'ncdu'
 
 # Asynchronous event library.
-brew "libevent"
+brew 'libevent'
 
 # RCM used for installing dotfiles.
-tap "thoughtbot/formulae"
-brew "rcm"
+tap 'thoughtbot/formulae'
+brew 'rcm'
 
 # Programmatically correct mistyped console commands.
-brew "thefuck"
+brew 'thefuck'
 
-# Official AWS CLI
+# Official AWS CLI.
 brew 'awscli'
 
 # Improved top (interactive process viewer).
-brew "htop"
+brew 'htop'
 
 # Port scanning utility for large networks.
-brew "nmap"
+brew 'nmap'
 
 # Lynx-like WWW browser that supports tables, menus, etc.
-brew "links"
+brew 'links'
 
 # Executes a program periodically, showing output fullscreen.
-brew "watch"
+brew 'watch'
 
 # Command-line benchmark tool.
-brew "bench"
+brew 'bench'
 
 # HTTP benchmarking tool.
-brew "wrk"
+brew 'wrk'
 
 ##############################################################################
 # Casks
@@ -167,8 +176,8 @@ cask 'chromedriver'
 brew 'geckodriver'
 
 # Nerd fonts.
-tap "caskroom/fonts"
-cask "font-hack-nerd-font"
+tap 'caskroom/fonts'
+cask 'font-hack-nerd-font'
 
 # Notes.
 cask 'evernote'
