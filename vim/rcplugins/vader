@@ -1,0 +1,5 @@
+" A simple Vimscript test framework.
+
+Plug 'junegunn/vader.vim'
+
+" vim:ft=vim
