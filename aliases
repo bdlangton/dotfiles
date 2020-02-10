@@ -21,8 +21,8 @@ alias v='vim'
 alias b='bundle'
 alias be='bundle exec'
 
-# Power off all vagrant and ddev instances.
-alias vm-power-off='cd-no-ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$1}}" | xargs -n 1 vagrant halt; ddev poweroff; cd-no-ls -;'
+# Power off all vagrant, ddev, and docker instances.
+alias vm-power-off='cd-no-ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$1}}" | xargs -n 1 vagrant halt; ddev poweroff; docker stop $(docker ps -q); cd-no-ls -;'
 
 # ==============================================================================
 # Git aliases
