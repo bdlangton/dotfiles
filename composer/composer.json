@@ -18,7 +18,7 @@
         "symplify/coding-standard": "^6.0",
         "symplify/easy-coding-standard": "^6.0",
         "bdlangton/php": "^1.0",
-        "phpunit/phpunit": "^7.0",
+        "phpunit/phpunit": "^8.0",
         "drupal/console-launcher": "^1.8",
         "phpmetrics/phpmetrics": "^2.4",
         "phploc/phploc": "^4.0"
