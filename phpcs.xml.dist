@@ -15,6 +15,7 @@
 
   <!-- Use colors in output. -->
   <arg name="colors"/>
+
   <!-- Show progress. -->
   <arg value="p"/>
 

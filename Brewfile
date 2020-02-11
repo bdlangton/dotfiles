@@ -22,9 +22,6 @@ brew 'rename'
 # PHP programming language.
 brew 'php'
 brew 'composer'
-brew 'phpmd'
-brew 'phpunit'
-brew 'phplint'
 
 # Python packages.
 brew 'python'
