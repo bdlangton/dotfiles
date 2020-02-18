@@ -9,6 +9,9 @@
   <config name="ignore_warnings_on_exit" value="1" />
   <config name="ignore_errors_on_exit" value="0" />
 
+  <!-- Set extensions to check. -->
+  <arg name="extensions" value="php,inc,module"/>
+
   <!-- Set ignore extensions. -->
   <!-- @see https://www.drupal.org/node/2867601#comment-12075633 -->
   <arg name="ignore" value="*.css,*.md,*.txt,*.png,*.gif,*.jpeg,*.jpg,*.svg"/>
@@ -28,6 +31,8 @@
 
   <file>docroot/modules/custom</file>
   <file>docroot/themes/custom</file>
+  <file>web/modules/custom</file>
+  <file>web/themes/custom</file>
 
   <exclude-pattern>*/behat</exclude-pattern>
   <exclude-pattern>*/node_modules</exclude-pattern>
