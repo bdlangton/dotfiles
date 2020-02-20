@@ -27,6 +27,8 @@
   <rule ref="DrupalPractice">
     <!-- Ignore specific sniffs. -->
     <exclude name="DrupalPractice.InfoFiles.NamespacedDependency"/>
+    <!-- Ignore this so there aren't errors for {@inheritdoc} comments. -->
+    <exclude name="Drupal.Commenting.DocComment.ShortNotCapital"/>
   </rule>
 
   <file>docroot/modules/custom</file>
