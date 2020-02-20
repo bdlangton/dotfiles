@@ -12,7 +12,7 @@ set runtimepath+=~/.fzf
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " FZF customization.
-let $FZF_DEFAULT_COMMAND='ag --hidden -W 80 -S -g ""'
+let $FZF_DEFAULT_COMMAND='ag -U -f --column --hidden -W 120 -S -g ""'
 
 " FZF default options (use exact matches by default).
 let $FZF_DEFAULT_OPTS='--exact'

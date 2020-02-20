@@ -95,7 +95,7 @@ alias gchangedate='LC_ALL=C GIT_COMMITTER_DATE="$(date)" git commit --amend --no
 # Search
 
 # Ag search defaults.
-alias ag="ag $* -U -W 80 -f -r --column -S"
+alias ag="ag $* -U -f -W 120 --column --hidden -S"
 
 # ==============================================================================
 # Drupal
