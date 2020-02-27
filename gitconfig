@@ -31,6 +31,7 @@
   sl = stash list
   ss = stash save
   cp = cherry-pick
+  ch = cherry -v
   bi = bisect
   # Clean out untracked files and directories.
   cl = clean -fd

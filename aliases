@@ -75,8 +75,8 @@ alias gfind='git rev-list --all | xargs git grep -F %1'
 # Diff of changed words.
 alias gwdiff='git diff --word-diff=color'
 
-# Check which changes from a branch are already upstream.
-alias gcherry='git cherry -v master'
+# Check which changes from a branch are not yet on origin/master.
+alias gcherry='git cherry -v origin/master'
 
 # Git regular expression commands
 # https://gist.github.com/owenbush/4f85b004ad86459d9621
