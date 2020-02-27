@@ -83,6 +83,9 @@ brew 'httpie'
 # Internet file retriever.
 brew 'wget'
 
+# Small collection of programs that operate on patch files.
+brew 'patchutils'
+
 ##############################################################################
 # Search
 
