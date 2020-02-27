@@ -45,6 +45,9 @@ alias gdiff='git diff'
 # Git diff of staged files.
 alias gdiffc='git diff --cached'
 
+# Git log with stats.
+alias gl='git log --stat'
+
 # Stage changes by chunks.
 alias gadd='git add -p'
 
@@ -54,8 +57,8 @@ alias gadds='git-add-subdirectory'
 # Stage all modified/deleted changes but ignore untracked files.
 alias gaddu='git add -u'
 
-# Pull origin/staging and rebase the local branch on it.
-alias gpull='git pull --rebase origin staging'
+# Pull with rebase.
+alias gpull='git pull --rebase'
 
 # Git checkout and clean the config directories.
 alias gclean='git co -- $(git rev-parse --show-toplevel)/config && git clean -fd $(git rev-parse --show-toplevel)/config'
@@ -70,10 +73,7 @@ alias gdelmerged='git branch --merged | xargs git branch -d'
 alias gfind='git rev-list --all | xargs git grep -F %1'
 
 # Diff of changed words.
-alias gwdiff='git diff --word-diff'
-
-# Pull with rebase
-alias gpullrebase='git pull --rebase'
+alias gwdiff='git diff --word-diff=color'
 
 # Check which changes from a branch are already upstream.
 alias gcherry='git cherry -v master'

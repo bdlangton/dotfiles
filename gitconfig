@@ -24,7 +24,7 @@
   psu = push --set-upstream
   r = reset
   rh = reset --hard
-  diff = diff --word-diff
+  d = diff --word-diff=color
   # Show changes staged for the next commit.
   dc = diff --cached
   sa = stash apply
@@ -33,11 +33,15 @@
   cp = cherry-pick
   bi = bisect
   # Clean out untracked files and directories.
-  clean = clean -fd
+  cl = clean -fd
   # Show all remotes verbosely.
   remotes = remote -v
+  # Show log with stats.
+  l = log --stat
   # History in pretty format.
   hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short
+  # History in pretty format with stats.
+  hists = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short --stat
   # Show history of commits that are local but not in specified branch/hash.
   # Required to provide a branch/hash after 'histdiff'.
   histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short HEAD --not
