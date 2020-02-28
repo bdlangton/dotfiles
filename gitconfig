@@ -22,8 +22,8 @@
   # Push force (as long as other users haven't made pushes that your local doesn't know about).
   pf = push --force-with-lease
   psu = push --set-upstream
-  r = reset
-  rh = reset --hard
+  rs = reset
+  rsh = reset --hard
   d = diff --word-diff=color
   # Show changes staged for the next commit.
   dc = diff --cached
@@ -39,6 +39,8 @@
   remotes = remote -v
   # Show log with stats.
   l = log --stat
+  # Ls-tree (must provide a commit/tree hash).
+  ls = ls-tree
   # History in pretty format.
   hist = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short
   # History in pretty format with stats.

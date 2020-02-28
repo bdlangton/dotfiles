@@ -57,11 +57,26 @@ alias gadds='git-add-subdirectory'
 # Stage all modified/deleted changes but ignore untracked files.
 alias gaddu='git add -u'
 
+# Git remote.
+alias grm='git remote'
+
+# Git push.
+alias gpush='git push'
+
+# Git bisect.
+alias gbi='git bisect'
+
 # Pull with rebase.
 alias gpull='git pull --rebase'
 
+# Git clean.
+alias gcl='git clean -fd'
+
+# Git ls-tree (must provide a commit/tree hash).
+alias gls='git ls-tree'
+
 # Git checkout and clean the config directories.
-alias gclean='git co -- $(git rev-parse --show-toplevel)/config && git clean -fd $(git rev-parse --show-toplevel)/config'
+alias gcleanconfig='git co -- $(git rev-parse --show-toplevel)/config && git clean -fd $(git rev-parse --show-toplevel)/config'
 
 # Check which branches have been merged into the current branch.
 alias gcheckmerged='git branch --merged'
