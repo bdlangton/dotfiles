@@ -97,38 +97,38 @@ endsnippet
 
 ## Arrays.
 
-snippet array_combine "array_combine"
+snippet array_combine
 $${3:result} = array_combine(${1:array $keys}, ${2:array $values}');
 endsnippet
 
-snippet array_column "array_column"
+snippet array_column
 $${3:result} = array_column(${1:array $input}, '${2:mixed $column_key}');
 endsnippet
 
-snippet array_filter "array_filter"
+snippet array_filter
 $1 = array_filter(${1:$array}${2:, $callback});
 endsnippet
 
-snippet array_shift "array_shift"
+snippet array_shift
 array_shift(${1:&$array});
 endsnippet
 
-snippet array_slice "array_slice"
+snippet array_slice
 $${4:result} = array_slice(${1:$array}, ${2:$offset}${3:, $length});
 endsnippet
 
-snippet array_splice "array_splice"
+snippet array_splice
 $${5:result} = array_splice(${1:$array}, ${2:$offset}${3:, $length}${4:, $replacement});
 endsnippet
 
-snippet array_unshift "array_unshift"
+snippet array_unshift
 array_unshift(${1:&$array}${2:, $value});
 endsnippet
 
-snippet array_values "array_values"
+snippet array_values
 $${2:result} = array_values(${1:$array});
 endsnippet
 
-snippet array_walk "array_walk"
+snippet array_walk
 array_walk(${1:&$array}, ${2:$callback});
 endsnippet
