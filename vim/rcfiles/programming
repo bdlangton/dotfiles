@@ -42,6 +42,9 @@ function! EchoDrushAlias()
   echohl String | echo "\rDrush alias set to: " . g:drush_alias | echohl None
 endfunction
 
+" View detailed information about a linting error.
+nnoremap <Leader>i :ALEDetail<CR>
+
 " Set default drush alias to blank.
 let g:drush_alias = ''
 
