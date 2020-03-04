@@ -1,25 +1,7 @@
 ##############################################################################
-# Text and files
-
-# Treat text as a database.
-brew 'q'
-
-# Make JSON greppable.
-brew 'gron'
-
-# CLI program that accepts piped input and presents files for selection.
-brew 'fpp'
-
-# Lightweight and flexible command-line JSON processor.
-brew 'jq'
-
-# Rename files.
-brew 'rename'
-
-##############################################################################
 # Programming
 
-# PHP programming language.
+# PHP packages.
 brew 'php'
 brew 'composer'
 
@@ -43,17 +25,18 @@ brew 'mysql'
 brew 'postgresql'
 brew 'redis'
 
+# Enterprise search platform from the Apache Lucene project.
+brew 'solr'
+
 # Distributed revision control system.
 brew 'git'
 
-# VIM.
+# Vi 'workalike' with many additional features.
 brew 'vim'
 
-# Exuberant ctags instead of regular ctags.
-brew 'ctags'
-
-# Fast GitHub client, used in git-create-pull-request.
-brew 'hub'
+# Tmux and related.
+brew 'tmux'
+brew 'reattach-to-user-namespace'
 
 # Platform built on V8 to build network applications.
 brew 'node'
@@ -64,15 +47,18 @@ brew 'nvm'
 tap 'drud/ddev'
 brew 'ddev'
 
-# Docker.
+# Pack, ship and run any application as a lightweight container.
 brew 'docker'
 
-# Tmux and related.
-brew 'tmux'
-brew 'reattach-to-user-namespace'
+##############################################################################
+# Programming Utilities
 
-# Clone of cat(1) with syntax highlighting and Git integration.
-brew 'bat'
+# Git utilities.
+# https://github.com/nvie/gitflow
+# https://github.com/ddollar/git-utils
+brew 'hub'
+brew 'git-flow'
+brew 'git-utils'
 
 # Text interface for Git repositories.
 brew 'tig'
@@ -85,6 +71,16 @@ brew 'wget'
 
 # Small collection of programs that operate on patch files.
 brew 'patchutils'
+
+# Automatic configure script builder.
+brew 'autoconf'
+
+# Makefiles.
+brew 'automake'
+brew 'cmake'
+
+# Exuberant ctags instead of regular ctags.
+brew 'ctags'
 
 ##############################################################################
 # Search
@@ -101,6 +97,33 @@ brew 'peco'
 # Simple, fast and user-friendly alternative to find.
 brew 'fd'
 
+# Search tool like grep, but optimized for programmers.
+brew 'ack'
+
+##############################################################################
+# Text and files
+
+# Clone of cat(1) with syntax highlighting and Git integration.
+brew 'bat'
+
+# Modern replacement for 'ls'.
+brew 'exa'
+
+# Treat text as a database.
+brew 'q'
+
+# Make JSON greppable.
+brew 'gron'
+
+# CLI program that accepts piped input and presents files for selection.
+brew 'fpp'
+
+# Lightweight and flexible command-line JSON processor.
+brew 'jq'
+
+# Rename files.
+brew 'rename'
+
 ##############################################################################
 # Utilities
 
@@ -110,17 +133,11 @@ brew 'fd'
 tap 'sachaos/todoist'
 brew 'todoist'
 
-# A next-generation plugin manager for zsh
+# A next-generation plugin manager for zsh.
 brew 'zplug'
-
-# Modern replacement for 'ls'.
-brew 'exa'
 
 # Analyze and free disk space.
 brew 'ncdu'
-
-# Asynchronous event library.
-brew 'libevent'
 
 # RCM used for installing dotfiles.
 tap 'thoughtbot/formulae'
@@ -150,12 +167,17 @@ brew 'bench'
 # HTTP benchmarking tool.
 brew 'wrk'
 
+# Asynchronous event library.
+brew 'libevent'
+
+# Tools and libraries to manipulate images in many formats.
+brew 'imagemagick'
+
 ##############################################################################
 # Casks
 
 # Main applications that I use.
 cask 'firefox'
-cask 'slack'
 cask 'kindle'
 
 # Work related.
@@ -188,6 +210,7 @@ cask 'grammarly'
 # Messaging.
 cask 'whatsapp'
 cask 'signal'
+cask 'slack'
 
 # File syncing.
 cask 'nextcloud'
@@ -202,8 +225,8 @@ cask 'pocket-casts'
 cask 'protonvpn'
 
 # Productivity.
-cask 'focus'
 cask 'spectacle'
+cask 'atext'
 
 # Keyboard remapping for MacOS.
 cask 'karabiner-elements'
@@ -213,7 +236,6 @@ cask '1password'
 cask '1password-cli'
 
 # Tools.
-cask 'atext'
 cask 'hazel'
 cask 'caffeine'
 cask 'flux'
