@@ -7,7 +7,21 @@ g () {
   fi
 }
 
+# Perform a git reset HEAD and git checkout with an optional directory supplied
+# as an argument.
+grco() {
+  if [ -n "$1" ]; then
+    git reset HEAD "$1";
+    git checkout -- "$1";
+  else
+    git reset HEAD .;
+    git checkout -- .;
+  fi
+}
+
 # Git add -p with user supplied subdirectory.
+# Even if you're cwd is in a subdirectory, the supplied subdirectory is based
+# from the root of the git repo.
 git-add-subdirectory() {
   if [ -n "$1" ]; then
     git add -p $(git rev-parse --show-toplevel)/"$1"
