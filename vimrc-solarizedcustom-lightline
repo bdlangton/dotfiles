@@ -50,21 +50,20 @@ let s:green = [ '#859900', s:cuicolors.green[s:cuiindex] ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 let s:p.normal.left = [ [ s:base3, s:blue ], [ s:base3, s:base00 ] ]
-let s:p.normal.right = [ [ s:base03, s:base1 ], [ s:base3, s:base00 ] ]
-let s:p.inactive.right = [ [ s:base03, s:base00 ], [ s:base0, s:base02 ] ]
-let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base0, s:base02 ] ]
-let s:p.insert.left = [ [ s:base3, s:green ], [ s:base3, s:green ] ]
-
-let s:p.replace.left = [ [ s:base03, s:red ], [ s:base03, s:base00 ] ]
-let s:p.visual.left = [ [ s:base3, s:magenta ], [ s:base03, s:base00 ] ]
 let s:p.normal.middle = [ [ s:base1, s:base02 ] ]
-let s:p.insert.middle = [ [ s:base3, s:green ] ]
-let s:p.inactive.middle = [ [ s:base01, s:base02 ] ]
-let s:p.tabline.left = [ [ s:base03, s:base00 ] ]
-let s:p.tabline.tabsel = [ [ s:base03, s:base1 ] ]
-let s:p.tabline.middle = [ [ s:base0, s:base02 ] ]
-let s:p.tabline.right = copy(s:p.normal.right)
+let s:p.normal.right = [ [ s:base03, s:base1 ], [ s:base3, s:base00 ] ]
 let s:p.normal.error = [ [ s:base03, s:red ] ]
 let s:p.normal.warning = [ [ s:base03, s:yellow ] ]
+let s:p.insert.left = [ [ s:base3, s:green ], [ s:base3, s:green ] ]
+let s:p.insert.middle = [ [ s:base3, s:green ] ]
+let s:p.replace.left = [ [ s:base03, s:red ], [ s:base03, s:base00 ] ]
+let s:p.visual.left = [ [ s:base3, s:magenta ], [ s:base03, s:base00 ] ]
+let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base0, s:base02 ] ]
+let s:p.inactive.middle = [ [ s:base01, s:base02 ] ]
+let s:p.inactive.right = [ [ s:base0, s:base02 ], [ s:base0, s:base02 ] ]
+let s:p.tabline.left = [ [ s:base03, s:base00 ] ]
+let s:p.tabline.middle = [ [ s:base0, s:base02 ] ]
+let s:p.tabline.right = copy(s:p.normal.right)
+let s:p.tabline.tabsel = [ [ s:base03, s:base1 ] ]
 
 let g:lightline#colorscheme#solarizedcustom#palette = lightline#colorscheme#flatten(s:p)
