@@ -7,6 +7,8 @@ command! Gdiff Gdiffsplit
 command! Gd Gdiffsplit
 command! Gdiffoff call g:Gdiffoff()
 command! Gdo Gdiffoff
+command! Gdt :Git difftool -y
+command! Gmt :Git mergetool -y
 
 " Map git status.
 nnoremap <Leader>gs :20Gstatus<CR>
@@ -16,5 +18,7 @@ nnoremap <Leader>gd :Gdiffsplit<CR>
 nnoremap <Leader>gdo :Gdiffoff<CR>
 nnoremap <Leader>dg :diffget<CR>
 nnoremap <Leader>dp :diffput<CR>
+nnoremap <Leader>gdt :Git difftool -y<CR>
+nnoremap <Leader>gmt :Git mergetool -y<CR>
 
 " vim:ft=vim
