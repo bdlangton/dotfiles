@@ -4,4 +4,5 @@ vendor
 .git/
 bower_components/
 node_modules/
+log
 *.min.js
