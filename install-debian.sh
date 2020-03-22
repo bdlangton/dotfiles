@@ -36,7 +36,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 info "Finished installing fzf..."
 
 info "\nInstalling composer global packages if not already installed..."
-ln -s $HOME/.config/composer $HOME/.composer
+ln -s "$HOME/.config/composer" "$HOME/.composer"
 composer global install
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 phpcs --config-set default_standard Drupal
@@ -53,10 +53,10 @@ fi
 info "Finished drupal console launcher"
 
 info "\nInstalling git repos if not already installed..."
-[ ! -d "$HOME/git/git" ] && git clone https://github.com/git/git $HOME/git/git
-[ ! -d "$HOME/git/tmuxinator" ] && git clone https://github.com/tmuxinator/tmuxinator $HOME/git/tmuxinator
-[ ! -d "$HOME/git/githud" ] && git clone https://github.com/gbataille/githud $HOME/git/githud
-[ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+[ ! -d "$HOME/git/git" ] && git clone https://github.com/git/git "$HOME/git/git"
+[ ! -d "$HOME/git/tmuxinator" ] && git clone https://github.com/tmuxinator/tmuxinator "$HOME/git/tmuxinator"
+[ ! -d "$HOME/git/githud" ] && git clone https://github.com/gbataille/githud "$HOME/git/githud"
+[ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 info "Finished git repos"
 
 info "\nInstalling npm packages if not already installed..."
@@ -78,14 +78,14 @@ done
 info "Finished pip"
 
 info "\nInstalling vim bundles if not already installed..."
-mkdir -p $HOME/.vim/bundle
-cd $HOME/.vim/bundle
+mkdir -p "$HOME/.vim/bundle"
+cd "$HOME/.vim/bundle" || return
 [ ! -d "vim-colors-solarized" ] && git clone git://github.com/altercation/vim-colors-solarized.git
 [ ! -d "lightline.vim" ] && git clone https://github.com/itchyny/lightline.vim
 info "Finished vim bundles"
 
 # Create vim swap directory.
-mkdir -p $HOME/.vim/tmp
+mkdir -p "$HOME/.vim/tmp"
 
 if ! echo "$SHELL" | grep -Fq zsh; then
   info "\nYour shell is not Zsh. Changing it to Zsh..."
