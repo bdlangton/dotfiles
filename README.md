@@ -3,7 +3,7 @@ Barrett's dotfiles
 
 This is heavily based on thoughtbot dotfiles. I'd recommend using their dotfiles
 as a base rather than mine. Check them out here:
-https://github.com/thoughtbot/dotfiles
+<https://github.com/thoughtbot/dotfiles>
 
 Requirements
 ------------
@@ -40,12 +40,12 @@ This command will create symlinks for config files in your home directory.
 Setting the `RCRC` environment variable tells `rcup` to use standard
 configuration options:
 
-* Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
-  the `dotfiles` repository but do not need to be symlinked in.
-* Give precedence to personal overrides which by default are placed in
-  `~/dotfiles-local`
-* Please configure the `rcrc` file if you'd like to make personal
-  overrides in a different directory
+*   Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
+    the `dotfiles` repository but do not need to be symlinked in.
+*   Give precedence to personal overrides which by default are placed in
+    `~/dotfiles-local`
+*   Please configure the `rcrc` file if you'd like to make personal
+    overrides in a different directory
 
 
 Update
@@ -68,16 +68,16 @@ Create a directory for your personal customizations:
 
 Put your customizations in `~/dotfiles-local` appended with `.local`:
 
-* `~/dotfiles-local/aliases.local`
-* `~/dotfiles-local/git_template.local/*`
-* `~/dotfiles-local/gitconfig.local`
-* `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
-  throwing an error, but you should overwrite the file with your own copy)
-* `~/dotfiles-local/tmux.conf.local`
-* `~/dotfiles-local/vimrc.local`
-* `~/dotfiles-local/vimrc.bundles.local`
-* `~/dotfiles-local/zshrc.local`
-* `~/dotfiles-local/zsh/configs/*`
+*   `~/dotfiles-local/aliases.local`
+*   `~/dotfiles-local/git_template.local/*`
+*   `~/dotfiles-local/gitconfig.local`
+*   `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+    throwing an error, but you should overwrite the file with your own copy)
+*   `~/dotfiles-local/tmux.conf.local`
+*   `~/dotfiles-local/vimrc.local`
+*   `~/dotfiles-local/vimrc.bundles.local`
+*   `~/dotfiles-local/zshrc.local`
+*   `~/dotfiles-local/zsh/configs/*`
 
 For example, your `~/dotfiles-local/aliases.local` might look like this:
 
