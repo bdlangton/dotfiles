@@ -56,8 +56,8 @@ fi
 
 # Git and fzf key bindings for searching git commits/tags/branches/remotes/files
 # in a git repo.
-bind-git-helper f t b g r
-unset -f bind-git-helper
+bind_git_helper f t b g r
+unset -f bind_git_helper
 
 # Set g to autocomplete like git (needs to be after oh-my-zsh).
 compdef g=git

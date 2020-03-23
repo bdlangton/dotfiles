@@ -22,7 +22,7 @@ grco() {
 # Git add -p with user supplied subdirectory.
 # Even if you're cwd is in a subdirectory, the supplied subdirectory is based
 # from the root of the git repo.
-git-add-subdirectory() {
+git_add_subdirectory() {
   if [ -n "$1" ]; then
     git add -p $(git rev-parse --show-toplevel)/"$1"
   else
@@ -59,7 +59,7 @@ project_type() {
 # Print out lines that were removed/changed from the specified sha/branch.
 # This is so you can see if you've removed/changed something that was just
 # recently modified.
-git-blame-removals() {
+git_blame_removals() {
   if [ -n "$1" ]; then
     php ~/.php/git-blame-removals.php $1
   else

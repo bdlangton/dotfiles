@@ -1,12 +1,12 @@
 # If a parameter is supplied, print the todoist list, otherwise search TODO.
-function todo() {
-  if [ $1 = 'personal' ]; then
+todo() {
+  if [ "$1" = 'personal' ]; then
     todoist list --filter '##Personal & (tomorrow | today | overdue)'
-  elif [ $1 = 'professional' ]; then
+  elif [ "$1" = 'professional' ]; then
     todoist list --filter '##Professional & (tomorrow | today | overdue)'
-  elif [ $1 = 'work' ]; then
+  elif [ "$1" = 'work' ]; then
     todoist list --filter '##Work & (tomorrow | today | overdue)'
-  elif [ $1 = 'all' ]; then
+  elif [ "$1" = 'all' ]; then
     todoist list --filter '(tomorrow | today | overdue)'
   else
     ag TODO
@@ -14,14 +14,14 @@ function todo() {
 }
 
 # Make directory and change into it.
-function mcd() {
-  mkdir -p "$1" && cd "$1";
+mcd() {
+  mkdir -p "$1" && cd "$1" || exit
 }
 
 # Do an ls after a cd.
 cd() {
-  COUNT="$(ps -ef | grep prettier | wc -l)"
-  if [ $COUNT -lt 2 ]; then
+  COUNT="$(pgrep prettier | wc -l)"
+  if [ "$COUNT" -lt 2 ]; then
     builtin cd "$@" && ls
   fi
 }
@@ -29,8 +29,8 @@ cd() {
 # Cd with no ls (the regular way).
 # This is used in tmuxinator scripts so the 'cd' command won't fail due to also
 # doing an 'ls'.
-function cd-no-ls() {
-  builtin cd "$@"
+cd_no_ls() {
+  builtin cd "$@" || exit
 }
 
 # Print line(s) from a file.

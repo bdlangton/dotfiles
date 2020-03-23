@@ -22,10 +22,10 @@ alias b='bundle'
 alias be='bundle exec'
 
 # Show the status for all vagrant and docker instances.
-alias vm-status='cd-no-ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$0}}"; docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"; cd-no-ls -;'
+alias vm-status='cd_no_ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$0}}"; docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"; cd_no_ls -;'
 
 # Power off all vagrant and docker instances.
-alias vm-power-off='cd-no-ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$1}}" | xargs -n 1 vagrant halt; ddev poweroff; docker stop $(docker ps -q); cd-no-ls -;'
+alias vm-power-off='cd_no_ls; vagrant global-status | awk -F" " "{if (\$3 ~ /^virtualbox\$/) {print \$1}}" | xargs -n 1 vagrant halt; ddev poweroff; docker stop $(docker ps -q); cd_no_ls -;'
 
 # ==============================================================================
 # Git aliases
@@ -55,7 +55,7 @@ alias gl='git log --stat'
 alias gadd='git add -p'
 
 # Stage changes by chunks (choose subdirectory).
-alias gadds='git-add-subdirectory'
+alias gadds='git_add_subdirectory'
 
 # Stage all modified/deleted changes but ignore untracked files.
 alias gaddu='git add -u'
