@@ -133,6 +133,10 @@ brew 'rename'
 tap 'sachaos/todoist'
 brew 'todoist'
 
+# ZSH plugins.
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+
 # A next-generation plugin manager for zsh.
 brew 'zplug'
 
