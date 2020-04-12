@@ -20,6 +20,10 @@ brew 'io'
 brew 'scala'
 brew 'swi-prolog'
 
+# Open source implementation of JavaScript.
+# Can run JS files on the command line.
+brew 'rhino'
+
 # Databases.
 brew 'mysql'
 brew 'postgresql'
