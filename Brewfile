@@ -239,9 +239,10 @@ cask 'atext'
 # Keyboard remapping for MacOS.
 cask 'karabiner-elements'
 
-# 1Password.
+# Security.
 cask '1password'
 cask '1password-cli'
+cask 'authy'
 
 # Tools.
 cask 'hazel'
