@@ -229,6 +229,9 @@ cask 'spotify'
 cask 'handbrake'
 cask 'pocket-casts'
 
+# Games.
+cask 'steam'
+
 # Proton VPN client.
 cask 'protonvpn'
 
