@@ -105,5 +105,5 @@ info "\nInstalling oh-my-zsh plugins and themes if not already installed..."
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 [ ! -d "$HOME/.oh-my-zsh/custom/plugins/fz" ] && git clone https://github.com/changyuheng/fz.git ~/.oh-my-zsh/custom/plugins/fz
-[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel9k" ] && git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] && git clone https://github.com/bhilburn/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 info "Finished oh-my-zsh plugins and themes"
