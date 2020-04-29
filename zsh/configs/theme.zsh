@@ -6,7 +6,7 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set CLICOLOR if you want Ansi Colors in iTerm2.
 export CLICOLOR=1
 
-# Set xterm 256 colors.
+# Set xterm 256 colors (for lightline).
 export TERM=xterm-256color
 
 # Set autosuggest color to something other than my default background.
