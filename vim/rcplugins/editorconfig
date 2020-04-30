@@ -1,0 +1,11 @@
+" EditorConfig plugin for Vim.
+" Helps maintain consistent coding styles for multiple developers working on the
+" same project across various editors and IDEs.
+
+Plug 'editorconfig/editorconfig-vim'
+
+" Ensure that it works with vim fugitive and don't load editorconfig for remote
+" files over ssh.
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" vim:ft=vim
