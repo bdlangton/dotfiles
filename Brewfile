@@ -208,6 +208,7 @@ brew 'geckodriver'
 # Nerd fonts.
 tap 'caskroom/fonts'
 cask 'font-hack-nerd-font'
+cask 'font-meslo-for-powerline'
 
 # Notes.
 cask 'evernote'
