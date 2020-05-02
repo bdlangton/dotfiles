@@ -206,9 +206,9 @@ cask 'chromedriver'
 brew 'geckodriver'
 
 # Nerd fonts.
-tap 'caskroom/fonts'
+tap 'homebrew/cask-fonts'
 cask 'font-hack-nerd-font'
-cask 'font-meslo-for-powerline'
+cask 'font-meslo-nerd-font'
 
 # Notes.
 cask 'evernote'

@@ -7,7 +7,9 @@
 # - simple modification to map caps lock to escape and vice versa.
 # Need to set iterm
 # - to use solarized dark theme
-# - text to use font 'Hack Nerd Font'
+# - text to use font MesloLGS NF
+#   - if not already, run 'p10k configure' to install the above font and test
+#     that you can see the icons
 # - profile -> keys, set left and right option keys to Esc+
 # Install the latest python version with pyenv
 # - ex: pyenv install 3.7.3 && pyenv global 3.7.3
