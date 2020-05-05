@@ -64,6 +64,9 @@ brew 'hub'
 brew 'git-flow'
 brew 'git-utils'
 
+# Git's official cli tool.
+brew 'github/gh/gh'
+
 # Fancier diff than the default git diff.
 brew 'diff-so-fancy'
 
@@ -156,6 +159,9 @@ brew 'rcm'
 
 # Programmatically correct mistyped console commands.
 brew 'thefuck'
+
+# Simplified and community-driven man pages.
+brew 'tldr'
 
 # Official AWS CLI.
 brew 'awscli'
