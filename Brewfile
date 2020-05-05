@@ -64,6 +64,9 @@ brew 'hub'
 brew 'git-flow'
 brew 'git-utils'
 
+# Fancier diff than the default git diff.
+brew 'diff-so-fancy'
+
 # Text interface for Git repositories.
 brew 'tig'
 
