@@ -1,0 +1,8 @@
+" A Personal Wiki For Vim.
+
+Plug 'vimwiki/vimwiki'
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimhtml/',
+                      \ 'syntax': 'default', 'ext': '.md'}]
+
+" vim:ft=vim
