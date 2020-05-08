@@ -10,7 +10,7 @@
   <config name="ignore_errors_on_exit" value="0" />
 
   <!-- Set extensions to check. -->
-  <arg name="extensions" value="php,inc,module"/>
+  <arg name="extensions" value="php,inc,module,theme"/>
 
   <!-- Set ignore extensions. -->
   <!-- @see https://www.drupal.org/node/2867601#comment-12075633 -->
