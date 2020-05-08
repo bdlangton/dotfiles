@@ -67,9 +67,6 @@ brew 'git-utils'
 # Git's official cli tool.
 brew 'github/gh/gh'
 
-# Fancier diff than the default git diff.
-brew 'diff-so-fancy'
-
 # Text interface for Git repositories.
 brew 'tig'
 
