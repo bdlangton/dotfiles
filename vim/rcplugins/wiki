@@ -3,6 +3,6 @@
 Plug 'vimwiki/vimwiki'
 
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimhtml/',
-                      \ 'syntax': 'default', 'ext': '.md'}]
+                      \ 'syntax': 'default', 'ext': '.wiki'}]
 
 " vim:ft=vim
