@@ -1,6 +1,6 @@
 # Oh-my-zsh.
 export ZSH=$HOME/.oh-my-zsh
-plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting z fz tmuxinator thefuck)
+plugins=(docker encode64 git-prompt npm osx zsh-autosuggestions zsh-syntax-highlighting z fz tmuxinator thefuck tldr)
 export UPDATE_ZSH_DAYS=30
 
 # Load custom executable functions.

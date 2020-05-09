@@ -132,6 +132,7 @@ if [ ! -f "$HOME/.rcrc" ]; then
 fi
 
 info "\nInstalling oh-my-zsh plugins and themes if not already installed..."
-[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fz" ] && git clone https://github.com/changyuheng/fz.git ~/.oh-my-zsh/custom/plugins/fz
-[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] && git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+[ ! -d "$ZSH_CUSTOM/plugins/fz" ] && git clone https://github.com/changyuheng/fz.git $ZSH_CUSTOM/plugins/fz
+[ ! -d "$ZSH_CUSTOM/plugins/tldr" ] && mkdir -p $ZSH_CUSTOM/plugins/tldr && curl https://raw.githubusercontent.com/tldr-pages/tldr-node-client/master/bin/completion/zsh/_tldr -o $ZSH_CUSTOM/plugins/tldr/_tldr
+[ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ] && git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 info "Finished oh-my-zsh plugins and themes"

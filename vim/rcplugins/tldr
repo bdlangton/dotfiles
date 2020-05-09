@@ -1,0 +1,8 @@
+" tldr client for vim/neovim.
+
+Plug 'wlemuel/vim-tldr'
+
+" Use my fork of tldr so I can add tldr pages of my own.
+let g:tldr_source_zip_url = 'https://github.com/bdlangton/tldr/archive/master.zip'
+
+" vim:ft=vim
