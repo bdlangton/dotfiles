@@ -157,9 +157,6 @@ brew 'rcm'
 # Programmatically correct mistyped console commands.
 brew 'thefuck'
 
-# Simplified and community-driven man pages.
-brew 'tldr'
-
 # Official AWS CLI.
 brew 'awscli'
 
