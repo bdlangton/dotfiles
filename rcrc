@@ -1,2 +1,2 @@
-EXCLUDES="README.md LICENSE Brewfile"
+EXCLUDES="README.md LICENSE Brewfile install.sh install-debian.sh"
 DOTFILES_DIRS="$HOME/git/dotfiles-local $HOME/git/dotfiles"

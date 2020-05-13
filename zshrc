@@ -46,12 +46,6 @@ export NODE_PATH="/usr/local/lib/node_modules"
 
 # Source files (oh-my-zsh source needs to be after zsh configs).
 source $ZSH/oh-my-zsh.sh
-if [[ -d "/usr/local/share/zsh-syntax-highlighting" ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-if [[ -d "/usr/local/share/zsh-autosuggestions" ]]; then
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
 if [ -d "/usr/local/opt/fzf" ]; then
   source /usr/local/opt/fzf/shell/completion.zsh
   source /usr/local/opt/fzf/shell/key-bindings.zsh
