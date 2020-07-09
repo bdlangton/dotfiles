@@ -8,7 +8,7 @@ function! DrupalSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drupal' g:drush_alias a:command input
+  execute 'VtrSendCommandToRunner ' g:drush a:command input
 endfunction
 
 " Prompt for a single input to pass to Drush.
@@ -16,12 +16,12 @@ function! DrushSingleInput(command, text)
   call inputsave()
   let input = input(a:text)
   call inputrestore()
-  execute 'VtrSendCommandToRunner drush' g:drush_alias a:command input
+  execute 'VtrSendCommandToRunner ' g:drush a:command input
 endfunction
 
 " Execute a drush command.
 function! ExecuteDrushCommand(command)
-  execute 'VtrSendCommandToRunner drush' g:drush_alias a:command
+  execute 'VtrSendCommandToRunner ' g:drush a:command
 endfunction
 
 " Execute command to send to runner.
@@ -29,24 +29,26 @@ function! ExecuteVtrCommand(command)
   execute 'VtrSendCommandToRunner ' a:command
 endfunction
 
-" Prompt for a drush alias to use.
-function! SetDrushAlias()
+" Prompt for a drush command to use.
+" Should include 'drush' so if you want to use an alias do 'drush @alias'. If
+" you use lando do: 'lando drush'.
+function! SetDrushCommand()
   call inputsave()
-  let g:drush_alias = input('Use drush alias: ')
+  let g:drush = input('Use drush command: ')
   call inputrestore()
-  call EchoDrushAlias()
+  call EchoDrushCommand()
 endfunction
 
-" Echo the drush alias.
-function! EchoDrushAlias()
-  echohl String | echo "\rDrush alias set to: " . g:drush_alias | echohl None
+" Echo the drush command.
+function! EchoDrushCommand()
+  echohl String | echo "\rDrush command set to: " . g:drush | echohl None
 endfunction
 
 " View detailed information about a linting error.
 nnoremap <Leader>i :ALEDetail<CR>
 
-" Set default drush alias to blank.
-let g:drush_alias = ''
+" Set default drush command to 'drush'.
+let g:drush = 'drush'
 
 " Drupal mappings to the vim-tmux-runner.
 nnoremap <Leader>dcc :call ExecuteDrushCommand('cr')<CR>
@@ -57,8 +59,8 @@ nnoremap <Leader>dce :call ExecuteDrushCommand('cex sync -y')<CR>
 nnoremap <Leader>dci :call ExecuteDrushCommand('cim sync -y')<CR>
 nnoremap <Leader>dmi :call DrushSingleInput('en -y', 'Enter module to install: ')<CR>
 nnoremap <Leader>dmu :call DrushSingleInput('pmu -y', 'Enter module to uninstall: ')<CR>
-nnoremap <Leader>dsa :call SetDrushAlias()<CR>
-nnoremap <Leader>dsl :call EchoDrushAlias()<CR>
+nnoremap <Leader>dsa :call SetDrushCommand()<CR>
+nnoremap <Leader>dsl :call EchoDrushCommand()<CR>
 nnoremap <Leader>drc :call DrushSingleInput('', 'Enter the drush command: ')<CR>
 
 " Add fzf searches to specific backend/frontend/vendor directories if available.
