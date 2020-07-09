@@ -64,6 +64,9 @@ brew 'hub'
 brew 'git-flow'
 brew 'git-utils'
 
+# Search stack exchange network of sites.
+brew 'samtay/tui/so'
+
 # Git's official cli tool.
 brew 'github/gh/gh'
 

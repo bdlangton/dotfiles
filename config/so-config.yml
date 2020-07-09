@@ -1,0 +1,14 @@
+# This is not the actual config file.
+# The config is at:
+# /Users/barrett/Library/Preferences/io.Sam-Tay.so/config.yml
+---
+api_key: 8o9g7WcfwnwbB*Qp4VsGsw((
+limit: 20
+lucky: false
+sites:
+  - stackoverflow
+  - drupal
+  - vi
+  - superuser
+  - askubuntu
+search_engine: duckduckgo
