@@ -1,17 +1,32 @@
-" killring-alike plugin for neovim and vim 8 with no default mappings
+" killring-alike plugin for neovim and vim 8 with no default mappings.
 
 Plug 'bfredl/nvim-miniyank'
 
 let g:miniyank_filename = $HOME."/.miniyank.mpack"
 let g:miniyank_maxitems = 100
 
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+" Integrate miniyank with fzf.
+function! s:fzf_miniyank(put_before, fullscreen) abort
+    function! Sink(opt, line) abort
+        let l:key = substitute(a:line, ' .*', '', '')
+        if empty(a:line) | return | endif
+        let l:yanks = miniyank#read()[l:key]
+        call miniyank#drop(l:yanks, a:opt)
+    endfunction
 
-map <leader>p <Plug>(miniyank-startput)
-map <leader>P <Plug>(miniyank-startPut)
+    let l:put_action = a:put_before ? 'P' : 'p'
+    let l:name = a:put_before ? 'YanksBefore' : 'YanksAfter'
+    let l:spec = {}
+    let l:spec['source'] = map(miniyank#read(), {k,v -> k.' '.join(v[0], '\n')})
+    let l:spec['sink'] = {val -> Sink(l:put_action, val)}
+    let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
+    call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
+endfunction
 
-map <leader>n <Plug>(miniyank-cycle)
-map <leader>N <Plug>(miniyank-cycleback)
+command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)
+command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
+
+map <leader>p :YanksAfter<CR>
+map <leader>P :YanksBefore<CR>
 
 " vim:ft=vim
