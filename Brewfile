@@ -19,6 +19,7 @@ brew 'erlang'
 brew 'io'
 brew 'scala'
 brew 'swi-prolog'
+brew 'ghc'
 
 # Open source implementation of JavaScript.
 # Can run JS files on the command line.
