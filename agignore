@@ -8,3 +8,4 @@ log
 dist/
 *.min.js
 *.csv
+centura_base
