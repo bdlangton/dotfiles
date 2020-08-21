@@ -74,6 +74,7 @@ info "\nInstalling git repos if not already installed..."
 [ ! -d "$HOME/git/tmuxinator" ] && git clone https://github.com/tmuxinator/tmuxinator "$HOME/git/tmuxinator"
 [ ! -d "$HOME/git/githud" ] && git clone https://github.com/gbataille/githud "$HOME/git/githud"
 [ ! -d "$HOME/git/git-fuzzy" ] && git clone https://github.com/bigH/git-fuzzy.git "$HOME/git/git-fuzzy"
+[ ! -d "$HOME/git/vimwiki" ] && git clone https://github.com/bdlangton/vimwiki.git "$HOME/git/vimwiki"
 [ ! -d "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 info "Finished git repos"
 

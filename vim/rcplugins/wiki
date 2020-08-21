@@ -2,7 +2,7 @@
 
 Plug 'vimwiki/vimwiki'
 
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimhtml/',
+let g:vimwiki_list = [{'path': '~/git/vimwiki', 'path_html': '~/Documents/vimhtml',
                       \ 'syntax': 'default', 'ext': '.wiki'}]
 
 " vim:ft=vim
