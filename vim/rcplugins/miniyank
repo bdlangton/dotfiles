@@ -1,6 +1,8 @@
-" killring-alike plugin for neovim and vim 8 with no default mappings.
+" Select from list of registers to paste.
+" Using my fork of the repo until the following issue is fixed:
+" https://github.com/bfredl/nvim-miniyank/issues/24
 
-Plug 'bfredl/nvim-miniyank'
+Plug 'bdlangton/nvim-miniyank'
 
 let g:miniyank_filename = $HOME."/.miniyank.mpack"
 let g:miniyank_maxitems = 100
