@@ -31,6 +31,7 @@
   sa = stash apply
   sl = stash list
   ss = stash save
+  sp = stash pop
   cp = cherry-pick
   ch = cherry -v
   bi = bisect
