@@ -6,9 +6,10 @@
     "require": {
         "bdlangton/php": "^1.0",
         "behat/behat": "^3.5",
+        "consolidation/cgr": "^2.0",
         "drupal/coder": "^8.3",
         "drupal/console-launcher": "^1.8",
-        "drush/drush": "^9.5",
+        "drush/drush": "^10",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mglaman/drupal-check": "^1.1",
         "overtrue/phplint": "^1.2",
