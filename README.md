@@ -34,7 +34,7 @@ Install the dotfiles:
 After the initial installation, you can run `rcup` without the one-time variable
 `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
 runs of `rcup`). [See
-example](https://github.com/bdlangton/dotfiles/blob/master/rcrc).
+example](https://github.com/bdlangton/dotfiles/blob/main/rcrc).
 
 This command will create symlinks for config files in your home directory.
 Setting the `RCRC` environment variable tells `rcup` to use standard

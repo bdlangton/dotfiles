@@ -1,6 +1,6 @@
 {
   "pagesRepository": "https://github.com/tldr-pages/tldr",
-  "repository": "https://github.com/bdlangton/tldr/blob/master/tldr.zip?raw=true",
+  "repository": "https://github.com/bdlangton/tldr/blob/main/tldr.zip?raw=true",
   "themes": {
     "simple": {
       "commandName": "bold, underline",
