@@ -70,7 +70,7 @@ done
 info "Finished npm packages"
 
 info "\nInstalling pip packages if not already installed..."
-for command in 'gitlint', 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique'
+for command in 'gitlint', 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique', 'markdown-toc'
 do
   if [ ! -x "$(command -v $command)" ]; then
     pip install $command
