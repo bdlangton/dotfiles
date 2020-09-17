@@ -1,6 +1,6 @@
 tags
 tmp
-vendor
+vendor/
 .git/
 bower_components/
 node_modules/

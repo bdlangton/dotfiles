@@ -5,7 +5,7 @@
 Plug 'bdlangton/close-buffers.vim'
 
 " Close buffers.
-nnoremap <silent> Q :CloseBuffersMenu<CR>
+nnoremap <silent> Q :Bcbdelete menu<CR>
 
 " Rename commands so they don't conflict with vim-bbye.
 " The maintainer of this repo intends to eventually have the functionality of
