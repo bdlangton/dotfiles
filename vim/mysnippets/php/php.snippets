@@ -73,6 +73,10 @@ snippet ne "!empty"
 !empty($${1:var})
 endsnippet
 
+snippet db "debug_backtrace"
+$db = debug_backtrace(${1:DEBUG_BACKTRACE_IGNORE_ARGS});
+endsnippet
+
 ## Strings.
 
 snippet str_replace
