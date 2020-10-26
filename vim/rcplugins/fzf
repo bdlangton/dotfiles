@@ -27,6 +27,6 @@ nmap <Leader>L :Lines<CR>
 nmap <Leader>t :BTags<CR>
 nmap <Leader>T :Tags<CR>
 nmap <Leader>a :Ag<CR>
-nmap <Leader>A :call PromptDir()<CR>:Ag<CR>:ProjectRootCD<CR>
+nmap <Leader>A :call PromptDir()<CR>:Ag<CR>
 
 " vim:ft=vim
