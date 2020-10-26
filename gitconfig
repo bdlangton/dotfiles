@@ -77,3 +77,5 @@
   template = ~/.gitmessage
 [pull]
   rebase = true
+[advice]
+  detachedHead = false
