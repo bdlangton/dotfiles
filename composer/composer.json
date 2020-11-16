@@ -11,7 +11,6 @@
         "drupal/console-launcher": "^1.8",
         "drush/drush": "^10",
         "friendsofphp/php-cs-fixer": "^2.14",
-        "mglaman/drupal-check": "^1.1",
         "overtrue/phplint": "^1.2",
         "phploc/phploc": "^4.0",
         "phpmd/phpmd": "^2.6",
