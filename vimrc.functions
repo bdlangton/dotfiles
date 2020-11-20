@@ -70,50 +70,14 @@ function! LightlineModified()
   endif
 endfunction
 
-" Set theme to dark or light.
-function! g:SetTheme(theme)
-  " Set the theme to solarized light/dark.
-  exe 'set background=' . a:theme
-  colorscheme solarized
-
-  " For lightline.
+" Set lightline customizations.
+function! SetLightline(theme)
   set t_Co=256
-
-  " Modify colors that differ between light/dark.
-  if (a:theme =~# 'dark')
-    hi ColorColumn ctermbg=0 guibg=Grey40
-    hi CursorLine ctermbg=0 guibg=DarkCyan guifg=White
-    hi LineNr ctermfg=254 guifg=#e4e4e4
-  elseif (a:theme =~# 'light')
-    hi CursorLine ctermbg=7 guibg=DarkCyan guifg=White
-  endif
-
-  " Modify colors that are the same for both dark and light.
-  hi clear SignColumn
-  hi DiffAdd guifg=White guibg=DarkCyan
-  hi DiffChange guifg=White guibg=DarkYellow
-  hi DiffDelete guifg=Black guibg=#ffa0a0
-  hi default link GitGutterAdd DiffAdd
-  hi default link GitGutterChange DiffChange
-  hi default link GitGutterDelete DiffDelete
-  hi DbgBreakptSign guifg=Black guibg=Cyan
-  hi DbgBreakptLine guifg=Black guibg=Cyan
-  hi PMenu guibg=DarkBlue
-  hi PMenuSel guibg=Cyan
-  hi SpecialKey guifg=black guibg=red
-  hi LightlineRight_active_warning guifg=black guibg=yellow
-  hi LightlineRight_active_error guifg=white guibg=red
-  hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
-
-  " Clear links for doxygen sections that were linked to Todo by
-  " vim-plugin-for-drupal.
-  hi link doxygenBrief NONE
-  hi link doxygenSpecialTypeOnelineDesc NONE
 
   " Set the lightline colorscheme.
   source ~/.vimrc-solarizedcustom-lightline
   let g:lightline = {
-        \ 'colorscheme': 'solarizedcustom',
+        \ 'colorscheme': a:theme,
         \ 'component': {
         \   'modified': '%#ModifiedColor#%{LightlineModified()}',
         \ }
@@ -152,6 +116,68 @@ function! g:SetTheme(theme)
         \     [ 'percent' ],
         \     [ 'fileencoding', 'filetype' ]
         \ ] }
+endfunction
+
+" Customize the solarized theme.
+function! CustomizeSolarized(color)
+  " Modify colors that differ between light/dark.
+  if (a:color =~# 'dark')
+    hi ColorColumn ctermbg=0 guibg=Grey40
+    hi CursorLine ctermbg=0 guibg=DarkCyan guifg=White
+    hi LineNr ctermfg=254 guifg=#e4e4e4
+  elseif (a:color =~# 'light')
+    hi CursorLine ctermbg=7 guibg=DarkCyan guifg=White
+  endif
+
+  " Modify colors that are the same for both dark and light.
+  hi clear SignColumn
+  hi DiffAdd guifg=White guibg=DarkCyan
+  hi DiffChange guifg=White guibg=DarkYellow
+  hi DiffDelete guifg=Black guibg=#ffa0a0
+  hi default link GitGutterAdd DiffAdd
+  hi default link GitGutterChange DiffChange
+  hi default link GitGutterDelete DiffDelete
+  hi DbgBreakptSign guifg=Black guibg=Cyan
+  hi DbgBreakptLine guifg=Black guibg=Cyan
+  hi PMenu guibg=DarkBlue
+  hi PMenuSel guibg=Cyan
+  hi SpecialKey guifg=black guibg=red
+  hi LightlineRight_active_warning guifg=black guibg=yellow
+  hi LightlineRight_active_error guifg=white guibg=red
+  hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
+endfunction
+
+" Set theme to dark or light.
+function! g:SetTheme(color)
+  let l:theme = 'PaperColor'
+
+  " Set the theme color to light/dark.
+  exe 'set background=' . a:color
+
+  " Handle themes where the light and dark versions are actually different
+  " themes.
+  if (exists('&g:colors_name') && (g:colors_name == 'wwdc17' || g:colors_name == 'wwdc16'))
+    if (a:color =~# 'dark')
+      colorscheme wwdc16
+    else
+      colorscheme wwdc17
+    endif
+  else
+    exe 'colorscheme ' . l:theme
+  endif
+
+  " Customize on a theme by theme basis.
+  if (l:theme =~# 'solarized')
+    call CustomizeSolarized(a:color)
+  endif
+
+  " Set lightline customizations.
+  call SetLightline(l:theme)
+
+  " Clear links for doxygen sections that were linked to Todo by
+  " vim-plugin-for-drupal.
+  hi link doxygenBrief NONE
+  hi link doxygenSpecialTypeOnelineDesc NONE
 endfunction
 
 " Set a command to call the SetTheme function so we can change between light
