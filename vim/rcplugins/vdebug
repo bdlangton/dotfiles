@@ -27,4 +27,8 @@ let g:vdebug_options= {
 \    }
 \}
 
+" The path_maps value should be overridden on a per project basis in the
+" project's .vimrc file like this:
+" let g:vdebug_options.path_maps = {'/var/www/uofdenver': '/Users/barrett/sites/du-pantheon'}
+
 " vim:ft=vim
