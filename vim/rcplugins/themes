@@ -1,12 +1,23 @@
 " Contains all potential themes that I like.
 
-Plug 'ajmwagar/vim-deus'
+" Has dark and light versions.
+Plug 'rakr/vim-one'
 Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'nightsense/snow'
+Plug 'kjssad/quantum.vim'
+
+" Only light versions.
+Plug 'yorickpeterse/vim-paper'
+
+" Only dark versions.
+Plug 'ajmwagar/vim-deus'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jacoborus/tender.vim'
-Plug 'nightsense/snow'
 Plug 'sjl/badwolf'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'sonph/onehalf'
+Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'lifepillar/vim-wwdc17-theme'
 
 " vim:ft=vim
