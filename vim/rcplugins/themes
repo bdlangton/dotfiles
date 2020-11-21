@@ -9,6 +9,7 @@ Plug 'kjssad/quantum.vim'
 
 " Only light versions.
 Plug 'yorickpeterse/vim-paper'
+Plug 'lifepillar/vim-wwdc17-theme'
 
 " Only dark versions.
 Plug 'ajmwagar/vim-deus'
@@ -18,6 +19,6 @@ Plug 'sjl/badwolf'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'sonph/onehalf'
 Plug 'lifepillar/vim-wwdc16-theme'
-Plug 'lifepillar/vim-wwdc17-theme'
+Plug 'itchyny/landscape.vim'
 
 " vim:ft=vim

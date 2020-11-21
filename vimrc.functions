@@ -43,6 +43,34 @@ endfunction
 " Set colors for lightline modified.
 function! LightlineModified()
   if !has('nvim')
+    " PaperColor settings.
+    if (g:my_theme =~# 'PaperColor')
+      if (&background =~# 'dark')
+        if &modified
+          exe printf('%s', 'hi ModifiedColor guifg=Black guibg=Yellow ctermbg=LightYellow term=bold cterm=bold')
+          return ' +'
+        elseif &modifiable
+          exe printf('%s', 'hi ModifiedColor ctermfg=234 ctermbg=66 guifg=#1c1c1c guibg=#5f8787 term=bold cterm=bold')
+          return ''
+        else
+          exe printf('%s', 'hi ModifiedColor guifg=White guibg=Magenta ctermbg=Blue term=bold cterm=bold')
+          return ' -'
+        endif
+      else
+        if &modified
+          exe printf('%s', 'hi ModifiedColor guifg=Black guibg=Yellow ctermbg=LightYellow term=bold cterm=bold')
+          return ' +'
+        elseif &modifiable
+          exe printf('%s', 'hi ModifiedColor guifg=White guibg=#005f87 ctermbg=24 term=bold cterm=bold')
+          return ''
+        else
+          exe printf('%s', 'hi ModifiedColor guifg=White guibg=Magenta ctermbg=Blue term=bold cterm=bold')
+          return ' -'
+        endif
+      endif
+    endif
+  " Settings for everything else.
+  else
     if (&background =~# 'dark')
       if &modified
         exe printf('%s', 'hi ModifiedColor guifg=Black guibg=Yellow term=bold cterm=bold')
@@ -57,7 +85,6 @@ function! LightlineModified()
     else
       if &modified
         exe printf('%s', 'hi ModifiedColor guifg=Black guibg=Yellow ctermbg=LightYellow term=bold cterm=bold')
-
         return ' +'
       elseif &modifiable
         exe printf('%s', 'hi ModifiedColor guifg=White guibg=#839496 ctermbg=LightGray term=bold cterm=bold')
@@ -71,13 +98,17 @@ function! LightlineModified()
 endfunction
 
 " Set lightline customizations.
-function! SetLightline(theme)
+function! SetLightline()
   set t_Co=256
 
+  " Customized lightline for solarized theme.
+  if (g:my_theme =~# 'solarized')
+    source ~/.vimrc-solarizedcustom-lightline
+  endif
+
   " Set the lightline colorscheme.
-  source ~/.vimrc-solarizedcustom-lightline
   let g:lightline = {
-        \ 'colorscheme': a:theme,
+        \ 'colorscheme': g:my_theme,
         \ 'component': {
         \   'modified': '%#ModifiedColor#%{LightlineModified()}',
         \ }
@@ -119,13 +150,13 @@ function! SetLightline(theme)
 endfunction
 
 " Customize the solarized theme.
-function! CustomizeSolarized(color)
+function! CustomizeSolarized()
   " Modify colors that differ between light/dark.
-  if (a:color =~# 'dark')
+  if (g:my_color =~# 'dark')
     hi ColorColumn ctermbg=0 guibg=Grey40
     hi CursorLine ctermbg=0 guibg=DarkCyan guifg=White
     hi LineNr ctermfg=254 guifg=#e4e4e4
-  elseif (a:color =~# 'light')
+  elseif (g:my_color =~# 'light')
     hi CursorLine ctermbg=7 guibg=DarkCyan guifg=White
   endif
 
@@ -142,37 +173,59 @@ function! CustomizeSolarized(color)
   hi PMenu guibg=DarkBlue
   hi PMenuSel guibg=Cyan
   hi SpecialKey guifg=black guibg=red
-  hi LightlineRight_active_warning guifg=black guibg=yellow
-  hi LightlineRight_active_error guifg=white guibg=red
+  hi LightlineRight_active_warning ctermfg=black ctermbg=yellow guifg=black guibg=yellow
+  hi LightlineRight_active_error ctermfg=white ctermbg=red guifg=white guibg=red
   hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
 endfunction
 
-" Set theme to dark or light.
-function! g:SetTheme(color)
-  let l:theme = 'PaperColor'
+" Customize the papercolor theme.
+function! CustomizePaperColor()
+  hi LightlineRight_active_warning ctermfg=white ctermbg=darkyellow guifg=white guibg=darkyellow
+  hi LightlineRight_active_error ctermfg=white ctermbg=red guifg=white guibg=red
+  hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
+endfunction
 
+" Set theme.
+function! g:SetTheme(theme)
+  let g:my_theme = a:theme
+  call UpdateTheme()
+endfunction
+
+" Set color to dark or light.
+function! g:SetColor(color)
+  let g:my_color = a:color
+  call UpdateTheme()
+endfunction
+
+" Update theme/color after changed.
+" Default theme/color are set in vim/rcfiles/theme.
+function! g:UpdateTheme()
   " Set the theme color to light/dark.
-  exe 'set background=' . a:color
+  exe 'set background=' . g:my_color
 
   " Handle themes where the light and dark versions are actually different
   " themes.
   if (exists('&g:colors_name') && (g:colors_name == 'wwdc17' || g:colors_name == 'wwdc16'))
-    if (a:color =~# 'dark')
+    if (g:my_color =~# 'dark')
       colorscheme wwdc16
     else
       colorscheme wwdc17
     endif
   else
-    exe 'colorscheme ' . l:theme
+    exe 'colorscheme ' . g:my_theme
   endif
 
   " Customize on a theme by theme basis.
-  if (l:theme =~# 'solarized')
-    call CustomizeSolarized(a:color)
+  if (g:my_theme =~# 'solarized')
+    call CustomizeSolarized()
+  elseif (g:my_theme =~# 'PaperColor')
+    call CustomizePaperColor()
   endif
 
   " Set lightline customizations.
-  call SetLightline(l:theme)
+  " Note: lightline doesn't update without restarting vim, so if you change
+  " themes or light/dark using SetTheme or SetColor lightline won't update.
+  call SetLightline()
 
   " Clear links for doxygen sections that were linked to Todo by
   " vim-plugin-for-drupal.
@@ -180,8 +233,9 @@ function! g:SetTheme(color)
   hi link doxygenSpecialTypeOnelineDesc NONE
 endfunction
 
-" Set a command to call the SetTheme function so we can change between light
-" and dark on the fly.
+" Set a command to call the SetTheme and SetColor function so we can change
+" themes and light/dark on the fly.
 command! -nargs=1 SetTheme call g:SetTheme(<f-args>)
+command! -nargs=1 SetColor call g:SetColor(<f-args>)
 
 " vim:ft=vim

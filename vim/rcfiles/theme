@@ -1,6 +1,11 @@
 " Enable syntax processing.
 syntax on
 
+" Set colorscheme.
+let g:my_theme = 'PaperColor'
+let g:my_color = 'light'
+call g:UpdateTheme()
+
 " Highlight current line.
 set cursorline
 
@@ -28,9 +33,6 @@ set hlsearch
 " Show tabs as chars so it is visible.
 set list
 set listchars=tab:>-
-
-" Set colorscheme (light or dark).
-call g:SetTheme('light')
 
 " Update status line for lightline plugin.
 set laststatus=2
