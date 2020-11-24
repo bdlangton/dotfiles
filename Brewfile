@@ -61,9 +61,11 @@ brew 'docker'
 # Git utilities.
 # https://github.com/nvie/gitflow
 # https://github.com/ddollar/git-utils
+# https://github.com/arzzen/git-quick-stats
 brew 'hub'
 brew 'git-flow'
 brew 'git-utils'
+brew 'git-quick-stats'
 
 # Search stack exchange network of sites.
 brew 'samtay/tui/so'
