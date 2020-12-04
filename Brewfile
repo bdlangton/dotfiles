@@ -122,6 +122,9 @@ brew 'bat'
 # Modern replacement for 'ls'.
 brew 'exa'
 
+# The next gen ls command.
+brew 'lsd'
+
 # Treat text as a database.
 brew 'q'
 
