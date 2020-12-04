@@ -125,6 +125,10 @@ brew 'exa'
 # The next gen ls command.
 brew 'lsd'
 
+# The unorthodox terminal file manager.
+# Use with the nnn vim plugin to replace netrw.
+brew 'nnn'
+
 # Treat text as a database.
 brew 'q'
 
