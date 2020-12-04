@@ -1,0 +1,15 @@
+" Use nvim/vim's builtin terminal in the floating/popup window.
+
+Plug 'voldikss/vim-floaterm'
+
+noremap <leader>m :FloatermToggle<CR>
+noremap! <leader>m <Esc>:FloatermToggle<CR>
+
+" When closing the floating window with a terminal, kill it instead of just
+" toggling. Otherwise, when you close vim later you may get a warning about a
+" running process still going (the terminal).
+tnoremap <leader>m <C-\><C-n>:FloatermKill<CR>
+
+let g:floaterm_autoclose = 1
+
+" vim:ft=vim
