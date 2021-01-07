@@ -16,6 +16,7 @@ brew 'rbenv'
 # Other programming languages.
 brew 'clojure'
 brew 'erlang'
+brew 'elm'
 brew 'io'
 brew 'scala'
 brew 'swi-prolog'
