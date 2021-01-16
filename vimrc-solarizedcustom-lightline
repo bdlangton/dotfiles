@@ -88,18 +88,6 @@ else
         \ 'green': [ '2', '64', 'DarkGreen' ],
         \ }
 
-  " The following condition only applies for the console and is the same
-  " condition vim-colors-solarized uses to determine which set of colors
-  " to use.
-  let s:solarized_termcolors = get(g:, 'solarized_termcolors', 256)
-  if s:solarized_termcolors != 256 && &t_Co >= 16
-    let s:cuiindex = 0
-  elseif s:solarized_termcolors == 256
-    let s:cuiindex = 1
-  else
-    let s:cuiindex = 2
-  endif
-
   let s:base03 = [ '#002b36', s:cuicolors.base03[s:cuiindex] ]
   let s:base02 = [ '#073642', s:cuicolors.base02[s:cuiindex] ]
   let s:base01 = [ '#586e75', s:cuicolors.base01[s:cuiindex] ]

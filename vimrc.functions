@@ -215,17 +215,17 @@ function! g:UpdateTheme()
     exe 'colorscheme ' . g:my_theme
   endif
 
+  " Set lightline customizations.
+  " Note: lightline doesn't update without restarting vim, so if you change
+  " themes or light/dark using SetTheme or SetColor lightline won't update.
+  call SetLightline()
+
   " Customize on a theme by theme basis.
   if (g:my_theme =~# 'solarized')
     call CustomizeSolarized()
   elseif (g:my_theme =~# 'PaperColor')
     call CustomizePaperColor()
   endif
-
-  " Set lightline customizations.
-  " Note: lightline doesn't update without restarting vim, so if you change
-  " themes or light/dark using SetTheme or SetColor lightline won't update.
-  call SetLightline()
 
   " Clear links for doxygen sections that were linked to Todo by
   " vim-plugin-for-drupal.
