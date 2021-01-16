@@ -6,7 +6,7 @@ bower_components/
 node_modules/
 log
 dist/
-*Test.php
+var/cache
 *.min.js
 *.csv
 centura_base
