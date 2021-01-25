@@ -24,6 +24,14 @@ function! ExecuteDrushCommand(command)
   execute 'VtrSendCommandToRunner ' g:drush a:command
 endfunction
 
+" Prompt for a command and send it to the runner.
+function! SendVtrCommand()
+  call inputsave()
+  let command = input('Enter the command: ')
+  call inputrestore()
+  call ExecuteVtrCommand(command)
+endfunction
+
 " Execute command to send to runner.
 function! ExecuteVtrCommand(command)
   execute 'VtrSendCommandToRunner ' a:command

@@ -9,4 +9,3 @@ dist/
 var/cache
 *.min.js
 *.csv
-centura_base
