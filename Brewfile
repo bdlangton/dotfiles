@@ -2,6 +2,7 @@
 # Programming
 
 # PHP packages.
+brew 'php@7.4'
 brew 'php'
 brew 'composer'
 
@@ -21,6 +22,7 @@ brew 'io'
 brew 'scala'
 brew 'swi-prolog'
 brew 'ghc'
+brew 'go'
 
 # Open source implementation of JavaScript.
 # Can run JS files on the command line.
@@ -56,6 +58,12 @@ brew 'ddev'
 # Pack, ship and run any application as a lightweight container.
 brew 'docker'
 
+# Java JDK.
+brew 'openjdk'
+
+# Misc
+brew 'mono'
+
 ##############################################################################
 # Programming Utilities
 
@@ -69,10 +77,11 @@ brew 'git-utils'
 brew 'git-quick-stats'
 
 # Search stack exchange network of sites.
+tap 'samtay/tui'
 brew 'samtay/tui/so'
 
 # Git's official cli tool.
-brew 'github/gh/gh'
+brew 'gh'
 
 # Text interface for Git repositories.
 brew 'tig'
@@ -201,64 +210,10 @@ brew 'imagemagick'
 ##############################################################################
 # Casks
 
-# Main applications that I use.
+# Browsers
 cask 'firefox'
-cask 'kindle'
-
-# Work related.
-cask 'harvest'
-cask 'toggl'
-
-# Programming.
-cask 'sequel-pro'
-cask 'postman'
-cask 'java'
-cask 'docker'
-cask 'kitematic'
-cask 'vagrant'
-cask 'virtualbox'
-
-# Chromedriver and geckodriver (Firefox) for behavioral tests.
-cask 'chromedriver'
-brew 'geckodriver'
-
-# Nerd fonts.
-tap 'homebrew/cask-fonts'
-cask 'font-hack-nerd-font'
-cask 'font-meslo-nerd-font'
-
-# Notes.
-cask 'evernote'
-cask 'notion'
-cask 'libreoffice'
-cask 'grammarly'
-
-# Messaging.
-cask 'whatsapp'
-cask 'signal'
-cask 'slack'
-
-# File syncing.
-cask 'nextcloud'
-
-# Video and Music.
-cask 'marshallofsound-google-play-music-player'
-cask 'spotify'
-cask 'handbrake'
-cask 'pocket-casts'
-
-# Games.
-cask 'steam'
-
-# Proton VPN client.
-cask 'protonvpn'
-
-# Productivity.
-cask 'spectacle'
-cask 'atext'
-
-# Keyboard remapping for MacOS.
-cask 'karabiner-elements'
+cask 'brave-browser'
+cask 'google-chrome'
 
 # Security.
 cask '1password'
@@ -269,3 +224,59 @@ cask 'authy'
 cask 'hazel'
 cask 'caffeine'
 cask 'flux'
+cask 'iterm2'
+cask 'karabiner-elements'
+
+# Chromedriver and geckodriver (Firefox) for behavioral tests.
+cask 'chromedriver'
+brew 'geckodriver'
+
+# Work related.
+cask 'harvest'
+cask 'toggl-track'
+cask 'basecamp'
+cask 'zoom'
+cask 'dropbox'
+
+# Programming.
+cask 'sequel-pro'
+cask 'postman'
+cask 'docker'
+cask 'kitematic'
+cask 'vagrant'
+cask 'virtualbox'
+
+# Nerd fonts.
+tap 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font'
+
+# Proton VPN client.
+cask 'protonvpn'
+
+# Productivity.
+cask 'freedom'
+cask 'spectacle'
+cask 'atext'
+
+# Reading.
+cask 'kindle'
+
+# Notes.
+cask 'notion'
+cask 'libreoffice'
+cask 'grammarly'
+
+# Messaging.
+cask 'signal'
+cask 'slack'
+
+# File syncing.
+cask 'nextcloud'
+
+# Video and Music.
+cask 'spotify'
+cask 'handbrake'
+cask 'pocket-casts'
+
+# Games.
+cask 'steam'

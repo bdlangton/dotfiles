@@ -19,10 +19,6 @@ Clone onto your laptop:
 
     git clone git://github.com/bdlangton/dotfiles.git ~/git/dotfiles
 
-Install Homebrew:
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 Install [rcm](https://github.com/thoughtbot/rcm):
 
     brew tap thoughtbot/formulae
@@ -44,7 +40,7 @@ configuration options:
 *   Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
     the `dotfiles` repository but do not need to be symlinked in.
 *   Give precedence to personal overrides which by default are placed in
-    `~/dotfiles-local`
+    `~/git/dotfiles-local`
 *   Please configure the `rcrc` file if you'd like to make personal
     overrides in a different directory
 
@@ -65,27 +61,27 @@ Make your own customizations
 
 Create a directory for your personal customizations:
 
-    mkdir ~/dotfiles-local
+    mkdir ~/git/dotfiles-local
 
-Put your customizations in `~/dotfiles-local` appended with `.local`:
+Put your customizations in `~/git/dotfiles-local` appended with `.local`:
 
-*   `~/dotfiles-local/aliases.local`
-*   `~/dotfiles-local/git_template.local/*`
-*   `~/dotfiles-local/gitconfig.local`
-*   `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+*   `~/git/dotfiles-local/aliases.local`
+*   `~/git/dotfiles-local/git_template.local/*`
+*   `~/git/dotfiles-local/gitconfig.local`
+*   `~/git/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
     throwing an error, but you should overwrite the file with your own copy)
-*   `~/dotfiles-local/tmux.conf.local`
-*   `~/dotfiles-local/vimrc.local`
-*   `~/dotfiles-local/vimrc.bundles.local`
-*   `~/dotfiles-local/zshrc.local`
-*   `~/dotfiles-local/zsh/configs/*`
+*   `~/git/dotfiles-local/tmux.conf.local`
+*   `~/git/dotfiles-local/vimrc.local`
+*   `~/git/dotfiles-local/vimrc.bundles.local`
+*   `~/git/dotfiles-local/zshrc.local`
+*   `~/git/dotfiles-local/zsh/configs/*`
 
-For example, your `~/dotfiles-local/aliases.local` might look like this:
+For example, your `~/git/dotfiles-local/aliases.local` might look like this:
 
     # Productivity
     alias todo='$EDITOR ~/.todo'
 
-Your `~/dotfiles-local/gitconfig.local` might look like this:
+Your `~/git/dotfiles-local/gitconfig.local` might look like this:
 
     [alias]
       l = log --pretty=colored
@@ -95,7 +91,7 @@ Your `~/dotfiles-local/gitconfig.local` might look like this:
       name = Dan Croak
       email = dan@thoughtbot.com
 
-Your `~/dotfiles-local/vimrc.local` might look like this:
+Your `~/git/dotfiles-local/vimrc.local` might look like this:
 
     " Color scheme
     colorscheme github
@@ -121,16 +117,16 @@ plugin with different custom options.
     Plug '$HOME/plugins/vim-run-interactive'
 
 To extend your `git` hooks, create executable scripts in
-`~/dotfiles-local/git_template.local/hooks/*` files.
+`~/git/dotfiles-local/git_template.local/hooks/*` files.
 
-Your `~/dotfiles-local/zshrc.local` might look like this:
+Your `~/git/dotfiles-local/zshrc.local` might look like this:
 
     # load pyenv if available
     if which pyenv &>/dev/null ; then
       eval "$(pyenv init -)"
     fi
 
-Your `~/dotfiles-local/vimrc.bundles.local` might look like this:
+Your `~/git/dotfiles-local/vimrc.bundles.local` might look like this:
 
     Plug 'Lokaltog/vim-powerline'
     Plug 'stephenmckinney/vim-solarized-powerline'
@@ -138,22 +134,22 @@ Your `~/dotfiles-local/vimrc.bundles.local` might look like this:
 zsh Configurations
 ------------------
 
-Additional zsh configuration can go under the `~/dotfiles-local/zsh/configs` directory. This
+Additional zsh configuration can go under the `~/git/dotfiles-local/zsh/configs` directory. This
 has two special subdirectories: `pre` for files that must be loaded first, and
 `post` for files that must be loaded last.
 
-For example, `~/dotfiles-local/zsh/configs/pre/virtualenv` makes use of various shell
+For example, `~/git/dotfiles-local/zsh/configs/pre/virtualenv` makes use of various shell
 features which may be affected by your settings, so load it first:
 
     # Load the virtualenv wrapper
     . /usr/local/bin/virtualenvwrapper.sh
 
-Setting a key binding can happen in `~/dotfiles-local/zsh/configs/keys`:
+Setting a key binding can happen in `~/git/dotfiles-local/zsh/configs/keys`:
 
     # Grep anywhere with ^G
     bindkey -s '^G' ' | grep '
 
-Some changes, like `chpwd`, must happen in `~/dotfiles-local/zsh/configs/post/chpwd`:
+Some changes, like `chpwd`, must happen in `~/git/dotfiles-local/zsh/configs/post/chpwd`:
 
     # Show the entries in a directory whenever you cd in
     function chpwd {
@@ -163,16 +159,16 @@ Some changes, like `chpwd`, must happen in `~/dotfiles-local/zsh/configs/post/ch
 This directory is handy for combining dotfiles from multiple teams; one team
 can add the `virtualenv` file, another `keys`, and a third `chpwd`.
 
-The `~/dotfiles-local/zshrc.local` is loaded after `~/dotfiles-local/zsh/configs`.
+The `~/git/dotfiles-local/zshrc.local` is loaded after `~/git/dotfiles-local/zsh/configs`.
 
 vim Configurations
 ------------------
 
 Similarly to the zsh configuration directory as described above, vim
-automatically loads all files in the `~/dotfiles-local/vim/plugin` directory. This does not
+automatically loads all files in the `~/git/dotfiles-local/vim/plugin` directory. This does not
 have the same `pre` or `post` subdirectory support that our `zshrc` has.
 
-This is an example `~/dotfiles-local/vim/plugin/c.vim`. It is loaded every time vim starts,
+This is an example `~/git/dotfiles-local/vim/plugin/c.vim`. It is loaded every time vim starts,
 regardless of the file name:
 
     # Indent C programs according to BSD style(9)
