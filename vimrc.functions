@@ -183,6 +183,7 @@ function! CustomizePaperColor()
   hi LightlineRight_active_warning ctermfg=white ctermbg=darkyellow guifg=white guibg=darkyellow
   hi LightlineRight_active_error ctermfg=white ctermbg=red guifg=white guibg=red
   hi LightlineRight_active_0 ctermfg=15 ctermbg=4 guifg=#fdf6e3 guibg=#268bd2
+  hi LightlineLeft_insert_0 ctermfg=231 ctermbg=darkyellow guifg=#F5F5F5 guibg=#718c00
 endfunction
 
 " Set theme.
@@ -221,6 +222,9 @@ function! g:UpdateTheme()
   call SetLightline()
 
   " Customize on a theme by theme basis.
+  " NOTE: These functions set custom colors but don't actually get set on the
+  " initial load. I am not sure why. Re-sourcing the ~/.vimrc file or calling
+  " UpdateTheme() again once vim is up works.
   if (g:my_theme =~# 'solarized')
     call CustomizeSolarized()
   elseif (g:my_theme =~# 'PaperColor')
