@@ -261,6 +261,9 @@ cask 'atext'
 # Reading.
 cask 'kindle'
 
+# Learning.
+cask 'anki'
+
 # Notes.
 cask 'notion'
 cask 'libreoffice'
