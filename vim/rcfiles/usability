@@ -6,6 +6,9 @@ augroup Usability
   " paths to the files are correct.
   autocmd BufEnter * silent! let w:saved_dir = expand("%:p:h")
 
+  " Save file path so that it can be used for things like rspec tests.
+  autocmd BufEnter * silent! let w:saved_file = expand("%")
+
   " Automatically rebalance windows on vim resize.
   autocmd VimResized * :wincmd =
 augroup END
