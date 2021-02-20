@@ -15,7 +15,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 let $FZF_DEFAULT_COMMAND='ag -U --column --hidden -W 120 -S -g ""'
 
 " FZF default options (use exact matches by default).
-let $FZF_DEFAULT_OPTS='--exact'
+let $FZF_DEFAULT_OPTS='--exact --history=/Users/barrett/.fzf_history'
 
 " FZF mappings.
 nmap <Leader>b :Buffers<CR>
