@@ -133,6 +133,9 @@ alias dmi='drupal module:install'
 # List running containers.
 alias dps='docker ps'
 
+# Stop all running containers.
+alias dockerstop='docker stop $(docker ps -q)'
+
 # Kill all running containers.
 alias dockerkill='docker kill $(docker ps -q)'
 
