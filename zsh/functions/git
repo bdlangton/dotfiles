@@ -31,6 +31,7 @@ git_add_subdirectory() {
 }
 
 # Detect the project type of the git repo that you're currently in.
+# Uses the hex codes from https://www.nerdfonts.com/cheat-sheet
 project_type() {
   # Not in a git repo, display nothing.
   is_in_git_repo || { echo -n ""; return }
@@ -38,18 +39,21 @@ project_type() {
   # Get the base git repo directory.
   local base_dir="$(git rev-parse --show-toplevel)"
 
-  # PHP.
-  if [[ -f $base_dir/composer.json || -f $base_dir/web/composer.json || -f $base_dir/docroot/composer.json ]]; then
-    echo -n "\ue608"
   # Ruby.
-  elif [[ -f $base_dir/Gemfile || -f $base_dir/docroot/Gemfile ]]; then
+  if [[ -f $base_dir/Gemfile || -f $base_dir/docroot/Gemfile ]]; then
     echo -n "\ue21e"
+  # Elm.
+  elif [[ -f $base_dir/elm.json || -f $base_dir/web/elm.json || -f $base_dir/docroot/elm.json ]]; then
+    echo -n "\ue62c"
   # Node.
   elif [[ -f $base_dir/package.json ]]; then
     echo -n "\ue718"
   # Docker.
   elif [[ -f $base_dir/docker-compose.yml ]]; then
     echo -n "\uf308"
+  # PHP.
+  elif [[ -f $base_dir/composer.json || -f $base_dir/web/composer.json || -f $base_dir/docroot/composer.json ]]; then
+    echo -n "\ue608"
   # Generic git icon.
   else
     echo -n "\uf1d2"
