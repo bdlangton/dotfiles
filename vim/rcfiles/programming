@@ -46,7 +46,6 @@ endfunction
 " Send Tmux command.
 " Copied from vim-tmux-runner's s:SendTmuxCommand.
 function! SendTmuxCommand(command)
-  echo a:command
   let prefixed_command = "tmux " . a:command
   return Strip(system(prefixed_command))
 endfunction
