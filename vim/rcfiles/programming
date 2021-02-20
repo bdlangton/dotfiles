@@ -37,6 +37,34 @@ function! ExecuteVtrCommand(command)
   execute 'VtrSendCommandToRunner ' a:command
 endfunction
 
+" Strip values from the string.
+" Copied from vim-tmux-runner's s:Strip.
+function! Strip(string)
+  return substitute(a:string, '^\s*\(.\{-}\)\s*\n\?$', '\1', '')
+endfunction
+
+" Send Tmux command.
+" Copied from vim-tmux-runner's s:SendTmuxCommand.
+function! SendTmuxCommand(command)
+  echo a:command
+  let prefixed_command = "tmux " . a:command
+  return Strip(system(prefixed_command))
+endfunction
+
+" Execute a Tmux command on the target pane.
+function! ExecuteTmuxCommand(command, target_pane)
+  let command = shellescape(a:command)
+  let cmd = g:VtrClearSequence.command
+  let targeted_command = "send-keys -t " . a:target_pane
+  let full_command = join([targeted_command, cmd])
+  call SendTmuxCommand(full_command)
+
+  " Execute an Enter command so the command will execute.
+  let targeted_command = "send-keys -t " . a:target_pane
+  let full_command = join([targeted_command, "Enter"])
+  call SendTmuxCommand(full_command)
+endfunction
+
 " Prompt for a drush command to use.
 " Should include 'drush' so if you want to use an alias do 'drush @alias'. If
 " you use lando do: 'lando drush'.
