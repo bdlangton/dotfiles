@@ -11,10 +11,20 @@ set runtimepath+=~/.fzf
 " Prevents :Ag from matching filenames (it'll only match text inside files).
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+" Custom Ag commands to ignore specific subdirectories. These commands will
+" still be filtered down to specific directories specified in .vimrc, but some
+" subdirectories will still want to be ignored. This is because Ruby on Rails
+" has complex directory structures.
+command! -bang -nargs=* Agb call fzf#vim#ag(<q-args>, '--ignore-dir={views,assets}', <bang>0)
+command! -bang -nargs=* Agf call fzf#vim#ag(<q-args>, '--ignore-dir={adapters,admin,controllers,decorators,finders,helpers,inputs,jobs,mailers,models,services}', <bang>0)
+command! -bang -nargs=* Agv call fzf#vim#ag(<q-args>, '--ignore-dir={app,client,config,data,db,doc,inbound,log,public,spec,tmp,util,xml}', <bang>0)
+command! -bang -nargs=* Agc call fzf#vim#ag(<q-args>, '--ignore-dir={app,bin,client,data,doc,docker,inbound,lib,log,public,spec,tmp,util,vendor,xml}', <bang>0)
+
 " FZF customization.
 let $FZF_DEFAULT_COMMAND='ag -U --column --hidden -W 120 -S -g ""'
 
 " FZF default options (use exact matches by default).
+" Use history so that we can Ctrl-p through previous searches.
 let $FZF_DEFAULT_OPTS='--exact --history=/Users/barrett/.fzf_history'
 
 " FZF mappings.
