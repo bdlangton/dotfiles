@@ -1,6 +1,6 @@
 " FZF search.
 
-Plug 'junegunn/fzf.vim'
+Plug 'bdlangton/fzf.vim'
 
 " MacOS.
 set runtimepath+=/usr/local/opt/fzf
