@@ -4,6 +4,7 @@
 [core]
   editor = vim
   filemode = false
+  excludesFile = ~/.gitignore
 [merge]
   tool = vimdiff
   renamelimit = 1382
