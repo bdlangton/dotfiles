@@ -1,0 +1,5 @@
+" elm-vim: Elm plugin for Vim
+
+Plug 'elmcast/elm-vim'
+
+" vim:ft=vim
