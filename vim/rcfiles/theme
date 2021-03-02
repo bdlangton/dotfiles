@@ -15,7 +15,7 @@ set number
 " Show relative line numbers.
 set relativenumber
 
-" Set a line at column 81.
+" Set a line where text will/should wrap.
 set colorcolumn=81
 
 " Visual autocomplete for command menu.
