@@ -53,6 +53,8 @@
   histdiff = log --pretty=format:\"%C(yellow)%h %C(auto)%ad %C(cyan)%an %C(bold)%s%d%n%n%-b%C(auto)\" --graph --date=short HEAD --not
   # Show history of specific file even if it is currently deleted.
   filehist = log --full-history --
+  # Show the last 9 branches that you have checked out.
+  brhist = "!f() { for i in $(seq 9 $END); do echo "@{-$i}: `git rev-parse --abbrev-ref @{-$i}`"; done }; f"
   # Git log just for the last commit.
   last = log -1 HEAD
   # Show type of specific hash.
