@@ -1,0 +1,238 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-thread_safety
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  TargetRailsVersion: 4.2
+  NewCops: enable
+  Exclude:
+    - data/**/*.rb
+
+# Core (Defaults: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml)
+
+#################### Bundler ###############################
+
+Bundler/DuplicatedGem:
+  Enabled: true
+
+Bundler/GemComment:
+  Enabled: false
+
+Bundler/InsecureProtocolSource:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: true
+
+#################### Layout ##################################
+
+Layout/LineLength:
+  Max: 100
+Layout/DotPosition:
+  EnforcedStyle: leading # 1795 offenses (967 offenses in /app /lib)
+  # EnforcedStyle: trailing # 4605 offenses (2223 offenses in /app /lib)
+Layout/FirstHashElementIndentation:
+  # EnforcedStyle: special_inside_parentheses # 1255 offenses (249 offenses in /app /lib)
+  EnforcedStyle: consistent # 485 offenses (72 offenses in /app /lib)
+  # EnforcedStyle: align_braces # 4833 offenses (1781 offenses in /app /lib)
+Layout/FirstArrayElementIndentation:
+  # EnforcedStyle: special_inside_parentheses # 328 offenses (47 offenses in /app /lib)
+  EnforcedStyle: consistent # 132 offenses (24 offenses in /app /lib)
+  # EnforcedStyle: align_brackets # 1620 offenses (559 offenses in /app /lib)
+Layout/SpaceInsideBlockBraces:
+  # EnforcedStyle: space # 5236 offenses (5236 offenses in /app /lib)
+  EnforcedStyle: no_space # 22567 offenses (3034 offenses in /app /lib)
+
+#################### Lint ##################################
+
+Lint/DuplicateBranch:
+  Enabled: true
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+Lint/EmptyBlock:
+  Enabled: true
+Lint/EmptyClass:
+  Enabled: true
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+Lint/ToEnumArguments:
+  Enabled: true
+Lint/UnexpectedBlockArity:
+  Enabled: true
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+#################### Metrics ###############################
+
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+  - db/**/*.rb
+
+#################### Naming ###############################
+
+Naming/PredicateName:
+  Enabled: false
+Naming/VariableNumber:
+  # EnforcedStyle: normalcase # 1219 offenses (280 offenses in /app /lib)
+  EnforcedStyle: snake_case # 1222 offenses (92 offenses in /app /lib)
+
+#################### Security ##############################
+
+# use defaults
+
+#################### Style ###############################
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested # 336 offenses (305 offenses in /app /lib)
+  # EnforcedStyle: compact # 2788 offenses (2299 offenses in /app /lib)
+Style/Documentation:
+  Enabled: false
+Style/BlockDelimiters:
+  # EnforcedStyle: semantic # 1522 offenses (726 offenses in /app /lib)
+  EnforcedStyle: line_count_based # 4492 offenses (422 offenses in /app /lib)
+  # EnforcedStyle: braces_for_chaining # 2950 offenses (594 offenses in /app /lib)
+  # EnforcedStyle: always_braces #  14793 offenses (5035 offenses in /app /lib)
+Style/StringLiterals:
+  EnforcedStyle: double_quotes # 16636 offenses (3193 offenses in /app /lib)
+  # EnforcedStyle: single_quotes # 56994 offenses (14244 offenses in /app /lib)
+Style/NumericLiterals:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/ModuleFunction:
+  # EnforcedStyle: module_function # 16 offenses (16 offenses in /app /lib)
+  EnforcedStyle: extend_self # 1 offenses (1 offenses in /app /lib)
+Style/NegatedIfElseCondition:
+  Enabled: true
+Style/NilLambda:
+  Enabled: true
+Style/NumericPredicate:
+  # EnforcedStyle: predicate # 179 offenses (176 offenses in /app /lib)
+  EnforcedStyle: comparison # 18 offenses (18 offenses in /app /lib)
+Style/RedundantArgument:
+  Enabled: true
+Style/RedundantSelf:
+  Enabled: false
+Style/SwapValues:
+  Enabled: true
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma # 882 offenses (332 offenses in /app /lib)
+  # EnforcedStyleForMultiline: no_comma # 149 offenses (73 offenses in /app /lib)
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma # 2695 offenses (1100 offenses in /app /lib)
+  # EnforcedStyleForMultiline: no_comma # 505 offenses (231 offenses in /app /lib)
+Style/WordArray:
+  # EnforcedStyle: percent # 439 offenses (198 offenses in /app /lib)
+  EnforcedStyle: brackets # 202 offenses (91 offenses in /app /lib)
+Style/SymbolArray:
+  # EnforcedStyle: percent # 651 offenses (334 offenses in /app /lib)
+  EnforcedStyle: brackets # 120 offenses (59 offenses in /app /lib)
+
+
+# Rails (Defaults: https://github.com/rubocop-hq/rubocop-rails/blob/master/config/default.yml)
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+Rails/AfterCommitOverride:
+  Enabled: true
+Rails/AttributeDefaultBlockValue:
+  Enabled: true
+Rails/Delegate:
+  Enabled: false
+Rails/FindEach:
+  Enabled: false
+Rails/FilePath:
+  Enabled: true
+  EnforcedStyle: arguments # 78 offenses (11 offenses in /app /lib)
+  # EnforcedStyle: slashes # 214 offenses (14 offenses in /app /lib)
+Rails/FindById:
+  Enabled: true
+Rails/InverseOf:
+  Enabled: false
+Rails/Inquiry:
+  Enabled: true
+Rails/MailerName:
+  Enabled: true
+Rails/MatchRoute:
+  Enabled: true
+Rails/NegateInclude:
+  Enabled: true
+Rails/Pluck:
+  Enabled: true
+Rails/PluckInWhere:
+  Enabled: true
+Rails/RenderInline:
+  Enabled: true
+Rails/RenderPlainText:
+  Enabled: true
+Rails/ShortI18n:
+  Enabled: true
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+Rails/WhereEquals:
+  Enabled: true
+Rails/WhereExists:
+  Enabled: true
+Rails/WhereNot:
+  Enabled: true
+Style/ArgumentsForwarding:
+  Enabled: true
+Style/CollectionCompact:
+  Enabled: true
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+Rails/DynamicFindBy:
+  Enabled: false
+Performance/AncestorsInclude:
+  Enabled: true
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+Performance/BlockGivenWithExplicitBlock:
+  Enabled: true
+Performance/CollectionLiteralInLoop:
+  Enabled: true
+Performance/ConstantRegexp:
+  Enabled: true
+Performance/MethodObjectAsBlock:
+  Enabled: true
+Performance/RedundantSortBlock:
+  Enabled: true
+Performance/RedundantStringChars:
+  Enabled: true
+Performance/ReverseFirst:
+  Enabled: true
+Performance/SortReverse:
+  Enabled: true
+Performance/Squeeze:
+  Enabled: true
+Performance/StringInclude:
+  Enabled: true
+Performance/Sum:
+  Enabled: false
+
+# RSpec (Defaults: https://github.com/rubocop-hq/rubocop-rspec/blob/master/config/default.yml)
+
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false # aggregate_failures is turned on by default
+RSpec/NotToNot:
+  EnforcedStyle: to_not # 208 offenses
+  # EnforcedStyle: not_to # 1803 offenses
+
+# Performance (Defaults: https://github.com/rubocop-hq/rubocop-performance/blob/master/config/default.yml)
+
+# use defaults
+
+# Thread Safety (Defaults: https://github.com/covermymeds/rubocop-thread_safety/blob/master/config/default.yml)
+
+# use defaults
