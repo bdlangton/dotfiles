@@ -79,7 +79,7 @@ info "\nInstalling git repos if not already installed..."
 info "Finished git repos"
 
 info "\nInstalling npm packages if not already installed..."
-for command in 'tldr' 'eslint' 'remark-lint' 'remark-cli' 'remark-preset-lint-recommended' 'prettier' 'prettier-plugin-elm' 'eslint-plugin-prettier' 'eslint-config-airbnb' 'stylelint' 'babel-eslint' 'elm-format' 'elm-oracle' 'elm-test'
+for command in 'tldr' 'eslint' 'remark-lint' 'remark-cli' 'remark-preset-lint-recommended' 'prettier' 'prettier-plugin-elm' 'eslint-plugin-prettier' 'eslint-config-airbnb' 'stylelint' 'babel-eslint' 'elm-format' 'elm-oracle' 'elm-test' 'git-guilt'
 do
   if [ ! -x "$(command -v $command)" ]; then
     npm i -g $command
@@ -88,11 +88,12 @@ done
 info "Finished npm packages"
 
 info "\nInstalling gems if not already installed..."
-if [ ! -x "$(command -v tmuxinator)" ]; then
-  sudo gem install tmuxinator
-else
-  info "Already installed"
-fi
+for command in 'tmuxinator' 'overcommit'
+do
+  if [ ! -x "$(command -v $command)" ]; then
+    gem install $command
+  fi
+done
 info "Finished gems"
 
 info "\nInstalling pip packages if not already installed..."

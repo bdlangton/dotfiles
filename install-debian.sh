@@ -69,6 +69,15 @@ do
 done
 info "Finished npm packages"
 
+info "\nInstalling gems if not already installed..."
+for command in 'tmuxinator' 'overcommit'
+do
+  if [ ! -x "$(command -v $command)" ]; then
+    gem install $command
+  fi
+done
+info "Finished gems"
+
 info "\nInstalling pip packages if not already installed..."
 for command in 'gitlint', 'yamllint', 'vim-vint', 'pathlib', 'typing', 'enum34', 'unique', 'markdown-toc'
 do
