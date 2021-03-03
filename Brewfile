@@ -183,6 +183,9 @@ brew 'thefuck'
 # Official AWS CLI.
 brew 'awscli'
 
+# A 'top' program for viewing running docker containers.
+brew 'ctop'
+
 # Improved top (interactive process viewer).
 brew 'htop'
 
