@@ -1,0 +1,4 @@
+#!/bin/sh
+# Run bundle install and db:migrate for hubtran-web.
+
+cd $HTWEB && dbundle install && drake db:migrate
