@@ -9,7 +9,7 @@ let g:nnn#command = 'nnn -H'
 let g:nnn#replace_netrw = 1
 
 " Use floating window.
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.8, 'highlight': 'Debug' } }
 
 " Use '-' to enter NnnPicker like vim-vinegar would do with netrw.
 nmap - :NnnPicker %:p:h<CR>
