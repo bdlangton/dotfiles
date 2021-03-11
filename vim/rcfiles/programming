@@ -50,6 +50,14 @@ function! SendTmuxCommand(command)
   return Strip(system(prefixed_command))
 endfunction
 
+" Execute a Ctrl-c on the target pane.
+function! ExecuteCtrlC(target_pane)
+  let targeted_command = "send-keys -t " . a:target_pane
+  let cmd = g:VtrClearSequence.''
+  let full_command = join([targeted_command, cmd])
+  call SendTmuxCommand(full_command)
+endfunction
+
 " Execute a Tmux command on the target pane.
 function! ExecuteTmuxCommand(command, target_pane)
   let command = shellescape(a:command)
