@@ -5,9 +5,9 @@ nnoremap <silent> <leader>cq :call ToggleList("Quickfix List", 'c')<CR>
 " Needed for Mac OSX when trying to copy files using: mt > mf > mc.
 let g:netrw_keepdir=0
 
-" Open the file explorer in current working directory split vert or horiz.
-nmap <Leader>- :sp.<CR>
-nmap <Leader>] :vs.<CR>
+" Open a split horizontally or vertically.
+nmap <Leader>- :sp<CR>
+nmap <Leader>] :vs<CR>
 
 " Zoom a vim pane (<leader>+), <leader>= to re-balance.
 nnoremap <leader>+ :wincmd _<cr>:wincmd \|<cr>
